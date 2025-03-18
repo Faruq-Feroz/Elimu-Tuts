@@ -1,3 +1,3 @@
 ## Day two
 
-** Created backend and frontend folders
+** Created backend and frontend folders**
