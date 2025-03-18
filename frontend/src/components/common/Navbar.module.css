@@ -1,0 +1,209 @@
+/* Global Styles */
+:root {
+    --primary-color: #3a3a3a;
+    --secondary-color: #6b21a8;
+    --white: #fff;
+    --transition: all 0.3s ease;
+  }
+  
+  .navWrapper {
+    width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+  
+  /* Main Navigation Styles */
+  .mainNav {
+    background-color: var(--white);
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    width: 100vw !important; /* Use viewport width */
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+  
+  .fullWidthContainer {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    margin: 0 !important;
+  }
+  
+  .brand {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    height: 40px;
+  }
+  
+  /* Navigation Items */
+  .navItem {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Push nav items slightly to the left */
+  .navbarCollapse {
+    justify-content: flex-start;
+  }
+  
+  .navMenu {
+    margin-right: 25px !important; /* Add space to the right side, pushing items left */
+  }
+  
+  /* Dropdown content hidden by default but ensure it's not blocked */
+  .dropdownContent {
+    display: none;
+    z-index: 1050; /* Higher z-index to ensure visibility */
+    overflow: visible;
+  }
+  
+  .navLink {
+    color: var(--primary-color) !important;
+    font-weight: 500;
+    padding: 8px 15px !important;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+  }
+  
+  .navLink:hover {
+    color: var(--secondary-color) !important;
+  }
+  
+  /* Desktop Dropdown Styles */
+  @media (min-width: 992px) {
+    .navLink::after {
+      content: '▾';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: transform 0.3s ease;
+      font-size: 10px;
+      margin-left: 4px;
+    }
+  
+    .navItem:hover .navLink::after {
+      transform: translateY(-50%) rotate(180deg);
+    }
+  
+    .dropdownContent {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 220px; /* Make slightly wider */
+      background: var(--white);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+      z-index: 1050; /* Ensure dropdowns appear above other elements */
+    }
+  
+    .navItem:hover .dropdownContent {
+      display: block;
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  
+    .dropdownItem {
+      display: block;
+      padding: 10px 15px;
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: 0.9rem;
+      
+    }
+  
+    .dropdownItem:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+      color: var(--secondary-color);
+    }
+  }
+  
+  /* Login Button Styles */
+  .loginButton {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 25px;
+    padding: 8px 20px;
+    margin-left: 15px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transition);
+  }
+  
+  .loginButton:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+  }
+  
+  /* Mobile Styles */
+  @media (max-width: 991.98px) {
+    .navbarToggler {
+      border: none;
+      padding: 0.25rem 0.5rem;
+    }
+    
+    .navbarToggler:focus {
+      box-shadow: none;
+    }
+    
+    .navItem {
+      display: block;
+      border-bottom: 1px solid #eee;
+      width: 100%;
+    }
+    
+    .navLink {
+      padding: 12px 0 !important;
+      justify-content: space-between;
+    }
+    
+    .navLink::after {
+      content: '+';
+      font-size: 16px;
+    }
+    
+    .active .navLink::after {
+      content: '-';
+    }
+    
+    .active .dropdownContent {
+      display: block;
+      padding-left: 15px;
+      position: static; /* Ensure it's not positioned absolutely on mobile */
+      box-shadow: none;
+      transform: none;
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .dropdownItem {
+      display: block;
+      padding: 10px 0;
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+    
+    .loginButton {
+      margin: 15px 0 0 0;
+      display: inline-flex;
+    }
+  }
