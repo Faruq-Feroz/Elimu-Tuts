@@ -3,13 +3,16 @@ import { Link } from 'react-router-dom';
 import Navbar from '../../components/common/Navbar';
 import Footer from '../../components/common/Footer';
 
-// Placeholder imports until these components are fully implemented
-const Hero = () => <div className="hero-section placeholder-content"><h2>Hero Section</h2><p>Welcome to Elimu Tuts</p></div>;
-const Features = () => <div className="features-section placeholder-content"><h2>Features Section</h2><p>Our platform features</p></div>;
-const AboutUs = () => <div className="about-section placeholder-content"><h2>About Us Section</h2><p>Learn about our mission</p></div>;
-const Testimonials = () => <div className="testimonials-section placeholder-content"><h2>Testimonials Section</h2><p>What our users say</p></div>;
-const PricingSection = () => <div className="pricing-section placeholder-content"><h2>Pricing Section</h2><p>Our subscription plans</p></div>;
-const ContactUs = () => <div className="contact-section placeholder-content"><h2>Contact Us Section</h2><p>Get in touch with us</p></div>;
+// Import placeholders individually
+import Hero from '../../components/landing/Hero';
+import AboutUs from '../../components/landing/AboutUs';
+import Learning from '../../components/landing/Features';
+import FeatureCards from '../../components/landing/FeatureCards';
+import PopularSubjects from '../../components/landing/Subjects';
+import PopularCourses from '../../components/landing/Courses';
+import Testimonials from '../../components/landing/Testimonials';
+import PricingSection from '../../components/landing/Pricing';
+import ContactUs from '../../components/landing/ContactUs';
 
 const Home = () => {
   return (
@@ -18,8 +21,11 @@ const Home = () => {
       
       <main>
         <Hero />
-        <Features />
         <AboutUs />
+        <Learning />
+        <FeatureCards />
+        <PopularSubjects/>
+        <PopularCourses />
         <Testimonials />
         <PricingSection />
         <ContactUs />

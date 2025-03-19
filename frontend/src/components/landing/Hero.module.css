@@ -1,0 +1,240 @@
+/* Hero Section Styles */
+.heroSection {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #000;
+  }
+  
+  .carousel {
+    height: 100%;
+  }
+  
+  .carouselItem {
+    height: 100vh;
+  }
+  
+  .carouselImageContainer {
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .carouselImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.8); /* Darker overlay to match ALX style */
+  }
+  
+  .imageOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.85) 0%,
+      rgba(0, 0, 0, 0.6) 70%
+    );
+  }
+  
+  .carouselContent {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    max-width: 800px;
+    width: 90%;
+    padding: 0 80px;
+    z-index: 2;
+    text-align: left;
+  }
+  
+  .contentWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .smallText {
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 8px;
+    opacity: 0.8;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+  }
+  
+  .mainTitle {
+    color: white;
+    font-size: 52px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    text-transform: none;
+  }
+  
+  .description {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 40px;
+    max-width: 600px;
+    opacity: 0.9;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+  }
+  
+  .buttonContainer {
+    display: flex;
+    margin-top: 10px;
+  }
+  
+  .primaryButton {
+    padding: 16px 32px;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    cursor: pointer;
+    background-color: orange; /* Green button color like ALX */
+    color: #000;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    text-transform: none;
+    box-shadow: 0 4px 15px rgba(0, 230, 118, 0.3);
+  }
+  
+  /* Carousel Controls */
+  .carouselControl {
+    width: 50px;
+    height: 50px;
+    font-size: 24px !important;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+  }
+  
+  .carouselControlPrev {
+    left: 20px;
+  }
+  
+  .carouselControlNext {
+    right: 20px;
+  }
+  
+  .heroSection:hover .carouselControl {
+    opacity: 0.8;
+  }
+  
+  /* Custom Carousel Indicators */
+  :global(.carousel-indicators) {
+    margin-bottom: 40px;
+    z-index: 5;
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-left: 80px;
+    gap: 12px;
+  }
+  
+  :global(.carousel-indicators button) {
+    width: 12px !important;
+    height: 12px !important;
+    border-radius: 50% !important;
+    background-color: rgba(255, 255, 255, 0.5) !important;
+    border: none !important;
+    margin: 0 !important;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+  }
+  
+  :global(.carousel-indicators button.active) {
+    background-color: #00E676 !important; /* Green indicator for active slide */
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 1200px) {
+    .mainTitle {
+      font-size: 60px;
+    }
+    
+    .description {
+      font-size: 20px;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .carouselContent {
+      padding: 0 60px;
+    }
+    
+    .mainTitle {
+      font-size: 52px;
+    }
+    
+    .description {
+      font-size: 18px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .carouselContent {
+      padding: 0 40px;
+      width: 100%;
+    }
+  
+    .mainTitle {
+      font-size: 42px;
+    }
+  
+    .smallText {
+      font-size: 18px;
+    }
+  
+    .description {
+      font-size: 16px;
+    }
+  
+    .primaryButton {
+      padding: 14px 24px;
+      font-size: 16px;
+    }
+    
+    :global(.carousel-indicators) {
+      margin-left: 40px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .carouselContent {
+      padding: 0 20px;
+    }
+    
+    .mainTitle {
+      font-size: 36px;
+    }
+  
+    .description {
+      font-size: 15px;
+    }
+    
+    :global(.carousel-indicators) {
+      margin-left: 20px;
+    }
+  }

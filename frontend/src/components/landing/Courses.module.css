@@ -1,0 +1,257 @@
+.coursesSection {
+    padding: 5rem 1rem;
+    background-color: #f9f9f9;
+    position: relative;
+  }
+  
+  .sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .titleWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  
+  .coursesLabel {
+    position: relative;
+    color: #333;
+    font-weight: 600;
+    padding: 0 1rem;
+    font-size: 1rem;
+  }
+  
+  .coursesLabel::before,
+  .coursesLabel::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 2.5rem;
+    height: 2px;
+    background-color: #ff5722;
+  }
+  
+  .coursesLabel::before {
+    right: 100%;
+  }
+  
+  .coursesLabel::after {
+    left: 100%;
+  }
+  
+  .sectionTitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ff5722;
+    margin-bottom: 2rem;
+  }
+  
+  .coursesContainer {
+    margin-top: 2rem;
+  }
+  
+  .coursesRow {
+    margin: 0 -12px;
+  }
+  
+  .courseColumn {
+    padding: 0 12px;
+    margin-bottom: 24px;
+  }
+  
+  .courseCard {
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+  }
+  
+  .courseCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .imageContainer {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .courseImage {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .courseCard:hover .courseImage {
+    transform: scale(1.05);
+  }
+  
+  .freeTag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #ff5722;
+    color: white;
+    padding: 4px 8px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    z-index: 1;
+  }
+  
+  .cardBody {
+    padding: 1.25rem;
+  }
+  
+  .courseTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #333;
+    min-height: 2.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .courseDetails {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .ratingContainer, .learnersContainer {
+    display: flex;
+    align-items: center;
+  }
+  
+  .starIcon {
+    color: #ffc107;
+    margin-right: 0.25rem;
+  }
+  
+  .rating {
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .usersIcon {
+    color: #6c757d;
+    margin-right: 0.25rem;
+  }
+  
+  .learners {
+    font-size: 0.9rem;
+    color: #6c757d;
+  }
+  
+  .courseFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0.75rem;
+    border-top: 1px solid #eee;
+  }
+  
+  .durationContainer {
+    display: flex;
+    align-items: center;
+  }
+  
+  .clockIcon {
+    color: #6c757d;
+    margin-right: 0.25rem;
+    font-size: 0.9rem;
+  }
+  
+  .duration {
+    font-size: 0.9rem;
+    color: #6c757d;
+  }
+  
+  .priceContainer {
+    display: flex;
+    align-items: center;
+  }
+  
+  .price {
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .enrollButton {
+    background-color: transparent !important;
+    border: none !important;
+    color: #0066cc !important;
+    font-weight: 600 !important;
+    padding: 0 !important;
+    font-size: 0.9rem !important;
+    transition: color 0.2s ease !important;
+  }
+  
+  .enrollButton:hover {
+    color: #004499 !important;
+    text-decoration: underline !important;
+  }
+  
+  .arrowIcon {
+    margin-left: 0.25rem;
+    font-size: 0.8rem;
+  }
+  
+  .scrollButtonContainer {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    z-index: 1000;
+  }
+  
+  .scrollButton {
+    background-color: #ff5722 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 1rem !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .scrollButton:hover {
+    background-color: #e64a19 !important;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 992px) {
+    .sectionTitle {
+      font-size: 2.2rem;
+    }
+    
+    .courseFooter {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .durationContainer, .priceContainer {
+      margin-bottom: 0.5rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .sectionTitle {
+      font-size: 1.8rem;
+    }
+    
+    .coursesRow {
+      margin: 0 -8px;
+    }
+    
+    .courseColumn {
+      padding: 0 8px;
+    }
+  }
