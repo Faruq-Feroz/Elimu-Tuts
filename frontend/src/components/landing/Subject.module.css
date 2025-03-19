@@ -1,0 +1,116 @@
+.subjectsSection {
+    padding: 5rem 1rem;
+    background-color: #fff;
+  }
+  
+  .sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .titleWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  
+  .subjectsLabel {
+    position: relative;
+    color: #333;
+    font-weight: 600;
+    padding: 0 1rem;
+    font-size: 1rem;
+  }
+  
+  .subjectsLabel::before,
+  .subjectsLabel::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 2.5rem;
+    height: 2px;
+    background-color: #ff5722;
+  }
+  
+  .subjectsLabel::before {
+    right: 100%;
+  }
+  
+  .subjectsLabel::after {
+    left: 100%;
+  }
+  
+  .sectionTitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ff5722;
+    margin-bottom: 1.5rem;
+  }
+  
+  .subjectsRow {
+    margin: 0 -10px;
+  }
+  
+  .subjectColumn {
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .subjectCard {
+    border-radius: 4px;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+  }
+  
+  .subjectCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  }
+  
+  .cardBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
+  
+  .subjectTitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  .viewLink {
+    color: #0066cc;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+  
+  .viewLink:hover {
+    color: #004499;
+    text-decoration: underline;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 992px) {
+    .sectionTitle {
+      font-size: 2.2rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .sectionTitle {
+      font-size: 1.8rem;
+    }
+    
+    .subjectTitle {
+      font-size: 1.3rem;
+    }
+  }
