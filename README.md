@@ -98,7 +98,7 @@ Payment & Monetization;
 
 Ensure you have the following installed:
 
--** Node.js** (v16+)
+- **Node.js** (v16+)
 
 - **MongoDB** (local or MongoDB Atlas)
 
@@ -122,10 +122,11 @@ npm start  # Runs the backend server
 ```
 
 3. Frontend Setup
-
+```bash
 cd elimu-tuts-client
 npm install
 npm start  # Runs the frontend on localhost:3000
+```
 
 
 Project Structure
@@ -168,25 +169,25 @@ socket/: WebSocket logic.
 utils/: Utility functions.
 
 
-Deployment
+## Deployment
 
-Frontend Deployment
+### Frontend Deployment
 
 Deploy the React app on Vercel or Netlify.
 
 Update API URLs in .env or config.js.
 
 
-Backend Deployment
+### Backend Deployment
 
 Deploy the backend on Render, Heroku, or AWS.
 
 Connect to MongoDB Atlas for cloud database storage.
 
 
-API Endpoints
+## API Endpoints
 
-Authentication
+### Authentication
 
 POST /api/auth/register: Register a new user.
 
@@ -195,7 +196,7 @@ POST /api/auth/login: User login.
 GET /api/auth/user: Get user profile.
 
 
-Courses
+### Courses
 
 GET /api/courses: Fetch all courses.
 
@@ -204,7 +205,7 @@ GET /api/courses/:id: Get course details.
 POST /api/courses: Create a new course.
 
 
-Payments
+### Payments
 
 POST /api/payments/mpesa: Process M-Pesa payment.
 
@@ -212,9 +213,9 @@ GET /api/payments/history: Get payment history.
 
 
 
-Implementation Roadmap
+## Implementation Roadmap
 
-Phase 1: Landing Page & Authentication
+### Phase 1: Landing Page & Authentication
 
 ✅ Setup project structure.
 
@@ -225,7 +226,7 @@ Phase 1: Landing Page & Authentication
 ✅ Configure MongoDB & API structure.
 
 
-Phase 2: Core Dashboard & Course System
+### Phase 2: Core Dashboard & Course System
 
 ✅ Develop student, tutor, and parent dashboards.
 
@@ -234,7 +235,7 @@ Phase 2: Core Dashboard & Course System
 ✅ Enable file upload for learning materials.
 
 
-Phase 3: Educational Features & Real-Time Chat
+### Phase 3: Educational Features & Real-Time Chat
 
 ✅ Add quiz system with instant feedback.
 
@@ -243,7 +244,7 @@ Phase 3: Educational Features & Real-Time Chat
 ✅ Setup real-time messaging & notifications.
 
 
-Phase 4: M-Pesa Integration & Deployment
+### Phase 4: M-Pesa Integration & Deployment
 
 ✅ Configure M-Pesa API for payments.
 
@@ -255,7 +256,7 @@ Phase 4: M-Pesa Integration & Deployment
 
 
 
-Contributors
+## Contributors
 
 ODUOR Rooney - Full-Stack Developer, System Analyst
 
