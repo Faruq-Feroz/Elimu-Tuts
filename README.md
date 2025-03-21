@@ -1,3 +1,4 @@
-## Day two
+## Day 4
 
-**Created backend and frontend folders**
+**Updated Main Page**
+**Worked on Auth frontend and backend**
