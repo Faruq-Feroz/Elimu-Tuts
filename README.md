@@ -7,73 +7,73 @@ Elimu Tuts is a Kenyan e-learning platform designed to provide accessible, high-
 
 ## Features
 
-Core Educational Features
+Core Educational Features;
 
-CBC-Aligned Subjects: Mathematics, English, Kiswahili, Science, ICT, etc.
+- CBC-Aligned Subjects: Mathematics, English, Kiswahili, Science, ICT, etc.
 
-Interactive Video Lessons with progress tracking.
+- Interactive Video Lessons with progress tracking.
 
-Quizzes & Assessments for self-evaluation.
+- Quizzes & Assessments for self-evaluation.
 
-Progress Tracking & Analytics.
+- Progress Tracking & Analytics.
 
-Downloadable Study Materials.
-
-
-User Experience Features
-
-Role-Based Dashboards for students, tutors, and parents.
-
-Personalized Learning Paths based on performance.
-
-Mobile-Responsive Design optimized for different devices.
-
-Offline Access for low-connectivity users.
-
-Advanced Search Functionality.
+- Downloadable Study Materials.
 
 
-Social & Interactive Features
+ User Experience Features
 
-Live Chat Support.
+- Role-Based Dashboards for students, tutors, and parents.
 
-Discussion Forums.
+- Personalized Learning Paths based on performance.
 
-Notifications & Alerts.
+- Mobile-Responsive Design optimized for different devices.
 
-Online Presence Tracking.
+- Offline Access for low-connectivity users.
 
-Tutor & Course Rating System.
-
-
-Payment & Monetization
-
-M-Pesa Integration for secure payments.
-
-Subscription Plans & One-Time Course Payments.
-
-Tutor Earnings System for monetizing content.
-
-Payment History & Transaction Tracking.
+- Advanced Search Functionality.
 
 
-Technology Stack
+Social & Interactive Features;
 
-Frontend (React.js)
+- Live Chat Support.
 
-React.js with React Router for navigation.
+- Discussion Forums.
 
-Firebase Authentication for secure user logins.
+- Notifications & Alerts.
 
-Socket.io Client for real-time updates.
+- Online Presence Tracking.
 
-Axios for API requests.
+- Tutor & Course Rating System.
 
-M-Pesa Checkout Integration.
 
-Recharts for progress analytics.
+Payment & Monetization;
 
-Tailwind CSS / Bootstrap for UI styling.
+- M-Pesa Integration for secure payments.
+
+- Subscription Plans & One-Time Course Payments.
+
+- Tutor Earnings System for monetizing content.
+
+- Payment History & Transaction Tracking.
+
+
+## Technology Stack
+
+### Frontend (React.js)
+
+- **React.js** with React Router for navigation.
+
+- Firebase Authentication for secure user logins.
+
+- **Socket.io** Client for real-time updates.
+
+- **Axios** for API requests.
+
+- **M-Pesa** Checkout Integration.
+
+- Recharts for progress analytics.
+
+- Tailwind CSS / Bootstrap for UI styling.
 
 
 Backend (Node.js, Express, MongoDB)
