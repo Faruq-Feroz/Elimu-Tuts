@@ -10,6 +10,8 @@ import Learning from '../../components/landing/Features';
 import FeatureCards from '../../components/landing/FeatureCards';
 import PopularSubjects from '../../components/landing/Subjects';
 import PopularCourses from '../../components/landing/Courses';
+import ElimuTutsBanner from '../../components/landing/ElimuTutsBanner';
+import FAQ from '../../components/landing/FAQ';
 import Testimonials from '../../components/landing/Testimonials';
 import PricingSection from '../../components/landing/Pricing';
 import ContactUs from '../../components/landing/ContactUs';
@@ -26,6 +28,8 @@ const Home = () => {
         <FeatureCards />
         <PopularSubjects/>
         <PopularCourses />
+        <ElimuTutsBanner />
+        <FAQ />
         <Testimonials />
         <PricingSection />
         <ContactUs />
