@@ -76,48 +76,50 @@ Payment & Monetization;
 - Tailwind CSS / Bootstrap for UI styling.
 
 
-Backend (Node.js, Express, MongoDB)
+### Backend (Node.js, Express, MongoDB)
 
-Express.js for REST API.
+- **Express.js** for REST API.
 
-MongoDB (Mongoose ODM) for database storage.
+- **MongoDB** (Mongoose ODM) for database storage.
 
-Firebase Admin SDK for authentication management.
+- Firebase Admin SDK for authentication management.
 
-Socket.io Server for real-time messaging.
+- **Socket.io**: Server for real-time messaging.
 
-Multer & Cloudinary for file uploads.
+- Multer & Cloudinary for file uploads.
 
-M-Pesa API for mobile payments.
+- **M-Pesa**: API for mobile payments.
 
 
 
-Installation & Setup
+## Installation & Setup
 
-Prerequisites
+### Prerequisites
 
 Ensure you have the following installed:
 
-Node.js (v16+)
+-** Node.js** (v16+)
 
-MongoDB (local or MongoDB Atlas)
+- **MongoDB** (local or MongoDB Atlas)
 
-Firebase Account (for authentication)
+- **Firebase Account** (for authentication)
 
-Ngrok (for testing M-Pesa webhooks)
+- **Ngrok** (for testing M-Pesa webhooks)
 
 
 1. Clone the Repository
-
+```bash
 git clone https://github.com/your-username/elimu-tuts.git
 cd elimu-tuts
+```
 
 2. Backend Setup
-
+```bash
 cd elimu-tuts-server
 npm install
 cp .env.example .env  # Add your configurations
 npm start  # Runs the backend server
+```
 
 3. Frontend Setup
 
