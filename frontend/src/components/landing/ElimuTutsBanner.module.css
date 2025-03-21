@@ -1,0 +1,95 @@
+.bannerWrapper {
+    width: 100%;
+    background-image: url('https://elimu-tuts-2024.vercel.app/img/banner-3.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .banner {
+    padding: 0;
+    max-width: 100%;
+  }
+  
+  .bannerRow {
+    min-height: 400px;
+    align-items: center;
+    margin: 0;
+  }
+  
+  .imageCol {
+    padding: 0;
+    position: relative;
+  }
+  
+  .teacherImageContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .teacherImage {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+  }
+  
+  .contentCol {
+    padding: 30px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .title {
+    color: #FF5722;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .description {
+    color: white;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+  
+  .actionButton {
+    background-color: #FF5722;
+    border: none;
+    padding: 10px 25px;
+    font-weight: 500;
+    border-radius: 0;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .actionButton:hover,
+  .actionButton:focus {
+    background-color: #e64a19;
+    border: none;
+  }
+  
+  @media (max-width: 768px) {
+    .contentCol {
+      padding: 30px 20px;
+      order: 2; /* Move content below the image on mobile */
+    }
+    
+    .imageCol {
+      order: 1; /* Make image appear first on mobile */
+      margin-bottom: 20px;
+    }
+    
+    .title {
+      font-size: 2rem;
+    }
+    
+    .bannerRow {
+      display: flex;
+      flex-direction: column;
+    }
+  }

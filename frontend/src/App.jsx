@@ -1,17 +1,16 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
 // Landing page components
 import Home from './pages/landing/Home';
 import About from './pages/landing/About';
 import Pricing from './pages/landing/Pricing';
 import Contact from './pages/landing/Contact';
-
-// Auth page placeholders (not implementing authentication yet)
-import Login from './pages/auth/Login';
-import Register from './pages/auth/Register';
+// Auth components
+import Login from './components/auth/Login';
+import Register from './components/auth/Register';
 import ForgotPassword from './pages/auth/ForgotPassword';
-
+import PrivateRoute from './pages/auth/PrivateRoute'
 // Dashboard placeholders
 import StudentDashboard from './pages/dashboard/StudentDashboard';
 import TutorDashboard from './pages/dashboard/TutorDashboard';
@@ -23,29 +22,40 @@ import Checkout from './pages/dashboard/Checkout';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        {/* Landing routes */}
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/pricing" element={<Pricing />} />
-        <Route path="/contact" element={<Contact />} />
-        
-        {/* Auth routes */}
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-        
-        {/* Dashboard routes */}
-        <Route path="/student" element={<StudentDashboard />} />
-        <Route path="/tutor" element={<TutorDashboard />} />
-        <Route path="/parent" element={<ParentDashboard />} />
-        <Route path="/courses" element={<Courses />} />
-        <Route path="/courses/:courseId" element={<CourseDetail />} />
-        <Route path="/quiz/:quizId" element={<Quiz />} />
-        <Route path="/checkout" element={<Checkout />} />
-      </Routes>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <Routes>
+          {/* Landing routes */}
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/contact" element={<Contact />} />
+         
+          {/* Auth routes */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+         
+          {/* Dashboard routes with dashboard prefix */}
+          <Route path="/dashboard/student" element={<StudentDashboard />} />
+          <Route path="/dashboard/tutor" element={<TutorDashboard />} />
+          <Route path="/dashboard/parent" element={<ParentDashboard />} />
+          <Route path="/dashboard/courses" element={<Courses />} />
+          <Route path="/dashboard/courses/:courseId" element={<CourseDetail />} />
+          <Route path="/dashboard/quiz/:quizId" element={<Quiz />} />
+          <Route path="/dashboard/checkout" element={<Checkout />} />
+          
+          {/* Legacy routes - redirect to dashboard routes */}
+          <Route path="/student" element={<Navigate to="/dashboard/student" replace />} />
+          <Route path="/tutor" element={<Navigate to="/dashboard/tutor" replace />} />
+          <Route path="/parent" element={<Navigate to="/dashboard/parent" replace />} />
+          <Route path="/courses" element={<Navigate to="/dashboard/courses" replace />} />
+          <Route path="/courses/:courseId" element={<Navigate to={`/dashboard/courses/:courseId`} replace />} />
+          <Route path="/quiz/:quizId" element={<Navigate to={`/dashboard/quiz/:quizId`} replace />} />
+          <Route path="/checkout" element={<Navigate to="/dashboard/checkout" replace />} />
+        </Routes>
+      </Router>
+    </AuthProvider>
   );
 }
 
