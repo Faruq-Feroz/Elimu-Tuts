@@ -1,11 +1,11 @@
 
-Elimu Tuts E-Learning Platform
+# Elimu Tuts E-Learning Platform
 
-Overview
+## Overview
 
 Elimu Tuts is a Kenyan e-learning platform designed to provide accessible, high-quality, CBC-aligned educational content to students, tutors, parents, and schools. The platform integrates multimedia learning, real-time interaction, progress tracking, and local payment solutions (M-Pesa).
 
-Features
+## Features
 
 Core Educational Features
 
