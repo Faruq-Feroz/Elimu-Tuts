@@ -133,6 +133,7 @@ Project Structure
 
 Frontend (elimu-tuts-client/)
 
+```
 public/: Static files such as index.html, assets, and fonts.
 
 src/: Contains the React components, pages, and utilities.
@@ -150,7 +151,7 @@ firebase/: Firebase authentication setup.
 socket/: Real-time communication with Socket.io.
 
 utils/: Helper functions.
-
+```
 
 Backend (elimu-tuts-server/)
 
