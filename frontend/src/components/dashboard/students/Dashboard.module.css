@@ -1,0 +1,28 @@
+/* src/styles/dashboard/Dashboard.module.css */
+.dashboardContainer {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    font-family: 'Nunito Sans', sans-serif;
+  }
+  
+  .mainContent {
+    flex-grow: 1;
+    margin-left: 260px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .contentArea {
+    padding: 30px;
+    background-color: #f8f9fa;
+    flex-grow: 1;
+    overflow-y: auto;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .mainContent {
+      margin-left: 70px;
+    }
+  }

@@ -12,9 +12,9 @@ import Register from './components/auth/Register';
 import ForgotPassword from './pages/auth/ForgotPassword';
 import PrivateRoute from './pages/auth/PrivateRoute'
 // Dashboard placeholders
-import StudentDashboard from './pages/dashboard/StudentDashboard';
-import TutorDashboard from './pages/dashboard/TutorDashboard';
-import ParentDashboard from './pages/dashboard/ParentDashboard';
+import StudentsDashboard from './pages/dashboard/StudentDashboard';
+import TutorDashboards from './pages/dashboard/TutorDashboard';
+import ParentsDashboard from './pages/dashboard/ParentDashboard';
 import Courses from './pages/dashboard/Courses';
 import CourseDetail from './pages/dashboard/CourseDetail';
 import Quiz from './pages/dashboard/Quiz';
@@ -37,9 +37,9 @@ function App() {
           <Route path="/forgot-password" element={<ForgotPassword />} />
          
           {/* Dashboard routes with dashboard prefix */}
-          <Route path="/dashboard/student" element={<StudentDashboard />} />
-          <Route path="/dashboard/tutor" element={<TutorDashboard />} />
-          <Route path="/dashboard/parent" element={<ParentDashboard />} />
+          <Route path="/dashboard/student" element={<StudentsDashboard />} />
+          <Route path="/dashboard/tutor" element={<TutorDashboards />} />
+          <Route path="/dashboard/parent" element={<ParentsDashboard />} />
           <Route path="/dashboard/courses" element={<Courses />} />
           <Route path="/dashboard/courses/:courseId" element={<CourseDetail />} />
           <Route path="/dashboard/quiz/:quizId" element={<Quiz />} />

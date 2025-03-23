@@ -1,9 +1,12 @@
 import React from 'react'
+import ParentDashboard from '../../components/dashboard/parent/Dashboard'
 
-const ParentDashboard = () => {
+const ParentsDashboard = () => {
   return (
-    <div>ParentDashboard</div>
+    <>
+    <ParentDashboard />
+    </>
   )
 }
 
-export default ParentDashboard
+export default ParentsDashboard

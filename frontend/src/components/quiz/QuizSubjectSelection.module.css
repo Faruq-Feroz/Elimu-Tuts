@@ -1,0 +1,136 @@
+/* src/components/quiz/QuizSubjectSelection.module.css */
+.quizSelectionContainer {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .quizHeader {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .quizHeader h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .quizHeader p {
+    color: #666;
+    font-size: 1rem;
+  }
+  
+  .subjectGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  
+  .subjectCard {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-top: 4px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .subjectCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .subjectCard.selected {
+    box-shadow: 0 0 0 2px #4361ee, 0 10px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .subjectIconWrapper {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    color: white;
+  }
+  
+  .subjectName {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  .subjectDescription {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 15px;
+    flex-grow: 1;
+  }
+  
+  .subjectStats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .statItem {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.85rem;
+    color: #666;
+  }
+  
+  .progressBar {
+    height: 6px;
+    background-color: #f1f1f1;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    overflow: hidden;
+  }
+  
+  .progressFill {
+    height: 100%;
+    transition: width 0.3s ease;
+  }
+  
+  .cardFooter {
+    margin-top: auto;
+  }
+  
+  .startButton {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #4361ee;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .startButton:hover {
+    background-color: #3a56d4;
+  }
+  
+  @media (max-width: 768px) {
+    .subjectGrid {
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .subjectGrid {
+      grid-template-columns: 1fr;
+    }
+  }

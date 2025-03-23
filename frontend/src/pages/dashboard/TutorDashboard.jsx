@@ -1,9 +1,12 @@
 import React from 'react'
+import TutorDashboard from '../../components/dashboard/tutor/Dashboard'
 
-const TutorDashboard = () => {
+const TutorDashboards = () => {
   return (
-    <div>TutorDashboard</div>
+    <>
+    <TutorDashboard />
+    </>
   )
 }
 
-export default TutorDashboard
+export default TutorDashboards

@@ -9,22 +9,17 @@ import {
 } from 'firebase/auth';
 import { auth } from '../firebase/config';
 import axios from 'axios';
-
 // API URL from environment variables - Using Vite's approach
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
-
 const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);
-
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [userRole, setUserRole] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-
   // Clear any previous error
   const clearError = () => setError('');
-
   // Sign up
   const signup = async (email, password, fullName, role, phoneNumber) => {
     clearError();
@@ -35,8 +30,8 @@ export const AuthProvider = ({ children }) => {
       // Update display name in Firebase
       await updateProfile(userCredential.user, { displayName: fullName });
      
-      // Get ID token
-      const idToken = await userCredential.user.getIdToken();
+      // Get ID token with forced refresh to ensure it's up-to-date
+      const idToken = await userCredential.user.getIdToken(true);
      
       // Create user in our database with role information
       const response = await axios.post(`${API_URL}/api/users/create-or-update`,
@@ -44,6 +39,7 @@ export const AuthProvider = ({ children }) => {
         { headers: { Authorization: `Bearer ${idToken}` } }
       );
      
+      // Set the role from the response we already have, no need to fetch again
       setUserRole(response.data.user.role);
       return response.data.user;
     } catch (err) {
@@ -51,7 +47,6 @@ export const AuthProvider = ({ children }) => {
       throw err;
     }
   };
-
   // Sign in
   const login = async (email, password) => {
     clearError();
@@ -59,7 +54,7 @@ export const AuthProvider = ({ children }) => {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
      
       // Get the user's role from our database
-      const idToken = await userCredential.user.getIdToken();
+      const idToken = await userCredential.user.getIdToken(true);
       const response = await axios.get(`${API_URL}/api/users/current-user`,
         { headers: { Authorization: `Bearer ${idToken}` } }
       );
@@ -71,7 +66,6 @@ export const AuthProvider = ({ children }) => {
       throw err;
     }
   };
-
   // Sign out
   const logout = async () => {
     clearError();
@@ -83,7 +77,6 @@ export const AuthProvider = ({ children }) => {
       throw err;
     }
   };
-
   // Password reset
   const resetPassword = async (email) => {
     clearError();
@@ -94,28 +87,51 @@ export const AuthProvider = ({ children }) => {
       throw err;
     }
   };
-
-  // Get user role from backend
+  // Get user role from backend with retry mechanism
   const fetchUserRole = async (user) => {
     try {
-      const idToken = await user.getIdToken();
-      const response = await axios.get(`${API_URL}/api/users/current-user`,
-        { headers: { Authorization: `Bearer ${idToken}` } }
-      );
-      setUserRole(response.data.user.role);
+      // Try up to 3 times with a delay between attempts
+      let attempts = 0;
+      let success = false;
+      
+      while (attempts < 3 && !success) {
+        try {
+          const idToken = await user.getIdToken(true); // Force refresh token
+          const response = await axios.get(`${API_URL}/api/users/current-user`, 
+            { headers: { Authorization: `Bearer ${idToken}` } }
+          );
+          setUserRole(response.data.user.role);
+          success = true;
+        } catch (error) {
+          attempts++;
+          if (attempts < 3) {
+            console.log(`Attempt ${attempts} failed, retrying in 1 second...`);
+            // Wait 1 second before trying again
+            await new Promise(resolve => setTimeout(resolve, 1000));
+          } else {
+            throw error; // Rethrow after final attempt
+          }
+        }
+      }
     } catch (err) {
       console.error('Error fetching user role:', err);
-      setError('Failed to fetch user role');
+      // Set a default role if fetch fails
+      setUserRole('user'); 
     }
   };
-
   // Listen for auth state changes
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       setCurrentUser(user);
      
       if (user) {
-        await fetchUserRole(user);
+        try {
+          await fetchUserRole(user);
+        } catch (error) {
+          console.error('Could not fetch user role:', error);
+          // Default to a basic role if fetching fails
+          setUserRole('user');
+        }
       } else {
         setUserRole(null);
       }
@@ -124,7 +140,6 @@ export const AuthProvider = ({ children }) => {
     });
     return unsubscribe;
   }, []);
-
   const value = {
     currentUser,
     userRole,
@@ -136,12 +151,10 @@ export const AuthProvider = ({ children }) => {
     resetPassword,
     clearError
   };
-
   return (
     <AuthContext.Provider value={value}>
       {!loading && children}
     </AuthContext.Provider>
   );
 };
-
 export default AuthContext;

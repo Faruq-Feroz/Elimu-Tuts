@@ -1,0 +1,85 @@
+/* src/styles/dashboard/Notes.module.css */
+.notesContainer h2 {
+    margin-bottom: 25px;
+  }
+  
+  .notesToolbar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .newNoteBtn {
+    padding: 8px 15px;
+    background-color: #2875ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .searchNotes input {
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 200px;
+  }
+  
+  .filterDropdown select {
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+  }
+  
+  .notesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .noteCard {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .noteCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .noteCard h3 {
+    margin-top: 0;
+    color: #333;
+  }
+  
+  .noteCard p {
+    color: #666;
+    margin: 5px 0;
+  }
+  
+  .notePreview {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #888;
+  }
+  
+  @media (max-width: 768px) {
+    .notesToolbar {
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .searchNotes, .filterDropdown {
+      width: 100%;
+    }
+    
+    .searchNotes input, .filterDropdown select {
+      width: 100%;
+    }
+  }
