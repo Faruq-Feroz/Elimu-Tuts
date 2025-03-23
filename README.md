@@ -76,6 +76,7 @@ Payment & Monetization;
 - Tailwind CSS / Bootstrap for UI styling.
 
 
+
 Backend (Node.js, Express, MongoDB)
 
 Express.js for REST API.
@@ -114,21 +115,44 @@ cd elimu-tuts
 
 2. Backend Setup
 
-cd elimu-tuts-server
-npm install
-cp .env.example .env  # Add your configurations
-npm start  # Runs the backend server
+=======
+### Backend (Node.js, Express, MongoDB)
 
-3. Frontend Setup
+- **Express.js** for REST API.
 
-cd elimu-tuts-client
-npm install
-npm start  # Runs the frontend on localhost:3000
+- **MongoDB** (Mongoose ODM) for database storage.
+
+- Firebase Admin SDK for authentication management.
+
+- **Socket.io**: Server for real-time messaging.
+
+- Multer & Cloudinary for file uploads.
+
+- **M-Pesa**: API for mobile payments.
+
+
+
+## Installation & Setup
+
+### Prerequisites
+
+Ensure you have the following installed:
+
+- **Node.js** (v16+)
+
+- **MongoDB** (local or MongoDB Atlas)
+
+- **Firebase Account** (for authentication)
+
+- **Ngrok** (for testing M-Pesa webhooks)
+
 
 
 Project Structure
 
 Frontend (elimu-tuts-client/)
+
+
 
 public/: Static files such as index.html, assets, and fonts.
 
@@ -170,21 +194,32 @@ Deployment
 
 Frontend Deployment
 
+## Deployment
+
+### Frontend Deployment
+
 Deploy the React app on Vercel or Netlify.
 
 Update API URLs in .env or config.js.
 
 
+
 Backend Deployment
+
+### Backend Deployment
+
 
 Deploy the backend on Render, Heroku, or AWS.
 
 Connect to MongoDB Atlas for cloud database storage.
 
-
 API Endpoints
 
 Authentication
+## API Endpoints
+
+### Authentication
+
 
 POST /api/auth/register: Register a new user.
 
@@ -193,7 +228,11 @@ POST /api/auth/login: User login.
 GET /api/auth/user: Get user profile.
 
 
+
 Courses
+
+### Courses
+
 
 GET /api/courses: Fetch all courses.
 
@@ -202,7 +241,11 @@ GET /api/courses/:id: Get course details.
 POST /api/courses: Create a new course.
 
 
+
 Payments
+
+### Payments
+
 
 POST /api/payments/mpesa: Process M-Pesa payment.
 
@@ -210,9 +253,14 @@ GET /api/payments/history: Get payment history.
 
 
 
+
 Implementation Roadmap
 
 Phase 1: Landing Page & Authentication
+## Implementation Roadmap
+
+### Phase 1: Landing Page & Authentication
+
 
 ✅ Setup project structure.
 
@@ -223,7 +271,11 @@ Phase 1: Landing Page & Authentication
 ✅ Configure MongoDB & API structure.
 
 
+
 Phase 2: Core Dashboard & Course System
+
+### Phase 2: Core Dashboard & Course System
+
 
 ✅ Develop student, tutor, and parent dashboards.
 
@@ -232,7 +284,11 @@ Phase 2: Core Dashboard & Course System
 ✅ Enable file upload for learning materials.
 
 
+
 Phase 3: Educational Features & Real-Time Chat
+
+### Phase 3: Educational Features & Real-Time Chat
+
 
 ✅ Add quiz system with instant feedback.
 
@@ -241,7 +297,11 @@ Phase 3: Educational Features & Real-Time Chat
 ✅ Setup real-time messaging & notifications.
 
 
+
 Phase 4: M-Pesa Integration & Deployment
+
+### Phase 4: M-Pesa Integration & Deployment
+
 
 ✅ Configure M-Pesa API for payments.
 
@@ -254,6 +314,9 @@ Phase 4: M-Pesa Integration & Deployment
 
 
 Contributors
+
+## Contributors
+
 
 ODUOR Rooney - Full-Stack Developer, System Analyst
 

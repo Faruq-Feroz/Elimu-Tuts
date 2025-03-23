@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { faChevronDown, faChevronUp } from '@fontawesome/free-solid-svg-icons';
+
+import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from './FAQ.module.css';
 
