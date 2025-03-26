@@ -1,9 +1,8 @@
-import React from 'react'
+import React from 'react';
+import CoursesComponent from '../../components/dashboard/students/MyCourses';
 
-const Courses = () => {
-  return (
-    <div>Courses</div>
-  )
-}
+const CoursesPage = () => {
+  return <CoursesComponent />;
+};
 
-export default Courses
+export default CoursesPage;

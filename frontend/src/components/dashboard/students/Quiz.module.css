@@ -1,0 +1,153 @@
+.quizContainer {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.quizHeader {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.quizHeader h1 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.quizInfo {
+  display: flex;
+  gap: 2rem;
+  color: #666;
+  font-size: 1rem;
+}
+
+.questionsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.questionCard {
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+}
+
+.questionCard h3 {
+  color: #495057;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.questionCard p {
+  color: #212529;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.option:hover {
+  background-color: #e9ecef;
+}
+
+.option input[type="radio"] {
+  margin: 0;
+}
+
+.resultCard {
+  text-align: center;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+}
+
+.resultCard h2 {
+  color: #495057;
+  margin-bottom: 1.5rem;
+}
+
+.resultDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.resultDetails p {
+  font-size: 1.1rem;
+  color: #212529;
+}
+
+.submitButton,
+.backButton {
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submitButton {
+  background-color: #007bff;
+  color: white;
+  margin-top: 1rem;
+}
+
+.submitButton:hover {
+  background-color: #0056b3;
+}
+
+.submitButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.backButton {
+  background-color: #6c757d;
+  color: white;
+}
+
+.backButton:hover {
+  background-color: #5a6268;
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.error {
+  text-align: center;
+  padding: 2rem;
+  color: #dc3545;
+  font-size: 1.2rem;
+  background-color: #f8d7da;
+  border-radius: 4px;
+  margin: 2rem auto;
+  max-width: 600px;
+} 
