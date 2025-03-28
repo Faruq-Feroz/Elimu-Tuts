@@ -1,23 +1,52 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import { motion } from 'framer-motion';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import styles from './Subject.module.css';
 
 const PopularSubjects = () => {
-  const subjectsList = [
-    { name: 'Mathematics', id: 'math' },
-    { name: 'Sciences', id: 'sciences1' },
-    { name: 'English', id: 'english' },
-    { name: 'Kiswahili', id: 'kiswahili' },
-    { name: 'Art & Craft', id: 'art' },
-    { name: 'Religion', id: 'religion' },
-    { name: 'Sciences', id: 'sciences2' },
-    { name: 'Geography', id: 'geography' }
-  ];
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const[subjects,setSubjects]=useState([]);
+
+  useEffect(()=>{
+      fetch("http://localhost:5000/subjects")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Failed to fetch subjects");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      if (!Array.isArray(data)) {
+        throw new Error("Invalid data format");
+      }
+      setSubjects(data);
+    })
+    .catch((error) => {
+      console.error("Error fetching subjects:", error);
+      setError(error.message);
+    })
+    .finally(() => setLoading(false));
+}, []);
+
+if (loading) return <p>Loading subjects...</p>;
+if (error) return <p>Error: {error}</p>;
+
+  // const subjectsList = [
+  //   { name: 'Mathematics', id: 'math' },
+  //   { name: 'Sciences', id: 'sciences1' },
+  //   { name: 'English', id: 'english' },
+  //   { name: 'Kiswahili', id: 'kiswahili' },
+  //   { name: 'Art & Craft', id: 'art' },
+  //   { name: 'Religion', id: 'religion' },
+  //   { name: 'Sciences', id: 'sciences2' },
+  //   { name: 'Geography', id: 'geography' }
+  // ];
 
   const cardVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: i => ({
+    visible: (i) => ({
       opacity: 1,
       y: 0,
       transition: {
@@ -42,7 +71,7 @@ const PopularSubjects = () => {
       </motion.div>
 
       <Row className={styles.subjectsRow}>
-        {subjectsList.map((subject, index) => (
+        {subjects.map((subject, index) => (
           <Col key={subject.id} lg={3} md={6} sm={12} className={styles.subjectColumn}>
             <motion.div
               custom={index}

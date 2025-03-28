@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect,useState} from 'react';
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faUsers, faClock, faArrowRight, faArrowUp } from '@fortawesome/free-solid-svg-icons';
@@ -6,44 +6,72 @@ import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import styles from './Courses.module.css';
 
 const PopularCourses = () => {
-  const courses = [
-    {
-      id: 'math7',
-      title: 'Mathematics for Grade 7',
-      image: '/api/placeholder/400/250',
-      rating: 4.75,
-      learners: '2.5K+ Learners',
-      duration: '3.5 Hrs',
-      price: 'Ksh 0'
-    },
-    {
-      id: 'science8',
-      title: 'Science for Grade 8',
-      image: '/api/placeholder/400/250',
-      rating: 4.75,
-      learners: '3.8K+ Learners',
-      duration: '4.0 Hrs',
-      price: 'Ksh 0'
-    },
-    {
-      id: 'art6',
-      title: 'Art & Craft - Grade 6',
-      image: '/api/placeholder/400/250',
-      rating: 4.8,
-      learners: '1200+ Students',
-      duration: '3.0 Hrs',
-      price: 'Ksh 0'
-    },
-    {
-      id: 'history8',
-      title: 'Kenyan History - Grade 8',
-      image: '/api/placeholder/400/250',
-      rating: 4.6,
-      learners: '1000+ Students',
-      duration: '4.0 Hrs',
-      price: 'Ksh 0'
-    }
-  ];
+  // const courses = [
+  //   {
+  //     id: 'math7',
+  //     title: 'Mathematics for Grade 7',
+  //     image: '/api/placeholder/400/250',
+  //     rating: 4.75,
+  //     learners: '2.5K+ Learners',
+  //     duration: '3.5 Hrs',
+  //     price: 'Ksh 0'
+  //   },
+  //   {
+  //     id: 'science8',
+  //     title: 'Science for Grade 8',
+  //     image: '/api/placeholder/400/250',
+  //     rating: 4.75,
+  //     learners: '3.8K+ Learners',
+  //     duration: '4.0 Hrs',
+  //     price: 'Ksh 0'
+  //   },
+  //   {
+  //     id: 'art6',
+  //     title: 'Art & Craft - Grade 6',
+  //     image: '/api/placeholder/400/250',
+  //     rating: 4.8,
+  //     learners: '1200+ Students',
+  //     duration: '3.0 Hrs',
+  //     price: 'Ksh 0'
+  //   },
+  //   {
+  //     id: 'history8',
+  //     title: 'Kenyan History - Grade 8',
+  //     image: '/api/placeholder/400/250',
+  //     rating: 4.6,
+  //     learners: '1000+ Students',
+  //     duration: '4.0 Hrs',
+  //     price: 'Ksh 0'
+  //   }
+  // ];
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const[courses,setCourses]=useState([]);
+
+  useEffect(()=>{
+      fetch("http://localhost:5000/courses")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Failed to fetch courses");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      if (!Array.isArray(data)) {
+        throw new Error("Invalid data format");
+      }
+      setCourses(data);
+    })
+    .catch((error) => {
+      console.error("Error fetching courses:", error);
+      setError(error.message);
+    })
+    .finally(() => setLoading(false));
+}, []);
+
+if (loading) return <p>Loading courses...</p>;
+if (error) return <p>Error: {error}</p>;
 
   const sectionVariants = {
     hidden: { opacity: 0 },
