@@ -65,17 +65,22 @@ const createOrUpdateUser = async (req, res) => {
 // Get current user data
 const getCurrentUser = async (req, res) => {
   try {
+    console.log('getCurrentUser called');
     const { uid } = req.user;
+    console.log('Looking up user with Firebase UID:', uid);
     
     const user = await User.findOne({ firebaseUid: uid });
+    console.log('User found:', !!user);
     
     if (!user) {
+      console.log('User not found in database');
       return res.status(404).json({ 
         success: false, 
         message: 'User not found' 
       });
     }
     
+    console.log('Returning user data');
     return res.status(200).json({ 
       success: true, 
       user: {
