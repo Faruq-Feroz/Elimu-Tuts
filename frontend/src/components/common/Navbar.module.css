@@ -118,6 +118,52 @@
     opacity: 1;
 }
 
+/* Login Button Styles */
+.loginButton {
+    background: #FF9800;
+    color: var(--white);
+    border: none;
+    border-radius: 30px;
+    padding: 10px 24px;
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.88rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 10px rgba(255, 87, 34, 0.25);
+    font-family: var(--font-primary);
+}
+
+.loginButton:hover {
+    background: linear-gradient(135deg, #FF9800, var(--secondary-color));
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(255, 87, 34, 0.3);
+    color: var(--white);
+}
+
+/* Mobile/Desktop login button visibility containers */
+.mobileLoginWrapper {
+    display: none;
+}
+
+.desktopLoginWrapper {
+    display: block;
+}
+
+/* Update dropdown arrow style */
+.navLink.hasDropdown {
+    padding-right: 20px !important;
+}
+
+/* Hide mobile dropdown icon by default */
+.mobileDropdownIcon {
+    display: none;
+}
+
 /* Desktop Dropdown Styles */
 @media (min-width: 992px) {
     .navLink::after {
@@ -182,32 +228,6 @@
     }
 }
 
-/* Login Button Styles */
-.loginButton {
-    background: #FF9800;
-    color: var(--white);
-    border: none;
-    border-radius: 30px;
-    padding: 10px 24px;
-    margin-left: 20px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.88rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 4px 10px rgba(255, 87, 34, 0.25);
-    font-family: var(--font-primary);
-}
-
-.loginButton:hover {
-    background: linear-gradient(135deg, #FF9800, var(--secondary-color));
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(255, 87, 34, 0.3);
-    color: var(--white);
-}
-
 /* Mobile Styles */
 @media (max-width: 991.98px) {
     .mainNav {
@@ -232,6 +252,25 @@
         background-color: white;
         padding: 10px 0;
         margin-top: 10px;
+        max-height: 80vh; /* Set maximum height */
+        overflow-y: auto; /* Make it scrollable */
+        /* Add scrollbar styling */
+        scrollbar-width: thin;
+        scrollbar-color: #ddd #fff;
+    }
+    
+    /* Style scrollbar for WebKit browsers (Chrome, Safari, etc.) */
+    .navbarCollapse::-webkit-scrollbar {
+        width: 5px;
+    }
+    
+    .navbarCollapse::-webkit-scrollbar-track {
+        background: #fff;
+    }
+    
+    .navbarCollapse::-webkit-scrollbar-thumb {
+        background-color: #ddd;
+        border-radius: 6px;
     }
     
     .navMenu {
@@ -247,7 +286,7 @@
     }
     
     .navLink {
-        padding: 16px 5px !important;
+        padding: 12px 5px !important; /* Reduce padding to fit more items */
         font-size: 15px !important;
         justify-content: space-between;
         color: #333 !important;
@@ -311,13 +350,25 @@
         background-color: rgba(0, 0, 0, 0.03);
     }
     
+    /* Mobile Login Button */
+    .mobileLoginWrapper {
+        display: block;
+        width: 100%;
+        padding: 10px 5px 0;
+    }
+    
+    .desktopLoginWrapper {
+        display: none;
+    }
+    
     .loginButton {
-        margin: 20px 5px;
-        display: inline-flex;
+        margin: 5px;
+        display: flex;
         justify-content: center;
-        padding: 12px 25px;
+        padding: 10px 20px;
         width: calc(100% - 10px);
         font-size: 14px;
+        text-align: center;
     }
     
     /* Fix nav link arrow positioning for all links */
@@ -329,13 +380,4 @@
     .navLink::before {
         display: none;
     }
-}
-
-/* Update dropdown arrow style */
-.navLink.hasDropdown {
-    padding-right: 20px !important;
-}
-
-.mobileDropdownIcon {
-    display: none;
 }
