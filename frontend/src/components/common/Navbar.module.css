@@ -145,13 +145,34 @@
     color: var(--white);
 }
 
-/* Mobile/Desktop login button visibility containers */
-.mobileLoginWrapper {
+.loginButtonSmall {
+    background: #FF9800;
+    color: var(--white);
+    border: none;
+    border-radius: 30px;
+    padding: 6px 14px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    box-shadow: 0 2px 5px rgba(255, 87, 34, 0.25);
+    font-family: var(--font-primary);
+}
+
+.loginButtonSmall:hover {
+    color: var(--white);
+}
+
+/* Mobile Menu styles */
+.mobileOnlyMenu {
     display: none;
 }
 
-.desktopLoginWrapper {
-    display: block;
+.mobileTopLogin {
+    display: none;
 }
 
 /* Update dropdown arrow style */
@@ -248,127 +269,82 @@
         outline: none;
     }
     
-    .navbarCollapse {
-        background-color: white;
-        padding: 10px 0;
-        margin-top: 10px;
-        max-height: 80vh; /* Set maximum height */
-        overflow-y: auto; /* Make it scrollable */
-        /* Add scrollbar styling */
-        scrollbar-width: thin;
-        scrollbar-color: #ddd #fff;
-    }
-    
-    /* Style scrollbar for WebKit browsers (Chrome, Safari, etc.) */
-    .navbarCollapse::-webkit-scrollbar {
-        width: 5px;
-    }
-    
-    .navbarCollapse::-webkit-scrollbar-track {
-        background: #fff;
-    }
-    
-    .navbarCollapse::-webkit-scrollbar-thumb {
-        background-color: #ddd;
-        border-radius: 6px;
+    /* Mobile login button at top */
+    .mobileTopLogin {
+        display: block;
+        margin-right: 10px;
     }
     
     .navMenu {
-        align-items: flex-start;
-        padding: 0 10px 0 0;
+        display: none !important; /* Hide desktop menu on mobile */
     }
     
-    .navItem {
-        display: block;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    .mobileOnlyMenu {
+        display: flex;
+        flex-direction: column;
         width: 100%;
-        margin: 0;
     }
     
-    .navLink {
-        padding: 12px 5px !important; /* Reduce padding to fit more items */
-        font-size: 15px !important;
-        justify-content: space-between;
-        color: #333 !important;
+    .mobileNavLink {
+        display: flex;
+        align-items: center;
+        padding: 12px 15px;
+        color: #333;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         font-weight: 500;
+        position: relative;
+    }
+    
+    .mobileNavLink:hover {
+        color: var(--secondary-color);
+    }
+    
+    .mobileNavIcon {
+        width: 24px;
+        margin-right: 10px;
+        color: #888;
+    }
+    
+    .mobileNavItem {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .mobileNavItem.active .mobileNavLink {
+        color: var(--secondary-color);
     }
     
     .mobileDropdownIcon {
         display: inline-block;
-        font-size: 14px;
-        color: #777;
         margin-left: auto;
-        margin-right: 5px;
+        color: #888;
     }
     
-    .active .mobileDropdownIcon {
-        color: var(--secondary-color);
-    }
-    
-    /* Remove default arrow styling for dropdowns */
-    .hasDropdown::after {
-        display: none !important;
-    }
-    
-    .active > .navLink {
-        color: var(--secondary-color) !important;
-    }
-    
-    .dropdownContent {
+    .mobileSubmenu {
         display: none;
-        padding: 0;
-        width: 100%;
         background-color: rgba(0, 0, 0, 0.02);
-        margin-top: -5px;
     }
     
-    .active .dropdownContent {
+    .mobileNavItem.active .mobileSubmenu {
         display: block;
-        padding: 0;
-        position: static;
-        box-shadow: none;
-        transform: none;
-        opacity: 1;
-        visibility: visible;
     }
     
-    .dropdownItem {
+    .mobileSubmenuItem {
         display: block;
-        padding: 14px 15px !important;
+        padding: 10px 15px 10px 40px;
         color: #444;
         text-decoration: none;
-        font-family: var(--font-primary);
-        border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.03);
         font-size: 14px;
     }
     
-    .dropdownItem:last-child {
+    .mobileSubmenuItem:last-child {
         border-bottom: none;
     }
     
-    .dropdownItem:hover {
-        background-color: rgba(0, 0, 0, 0.03);
-    }
-    
-    /* Mobile Login Button */
-    .mobileLoginWrapper {
-        display: block;
-        width: 100%;
-        padding: 10px 5px 0;
-    }
-    
-    .desktopLoginWrapper {
-        display: none;
-    }
-    
-    .loginButton {
-        margin: 5px;
-        display: flex;
-        justify-content: center;
-        padding: 10px 20px;
-        width: calc(100% - 10px);
-        font-size: 14px;
-        text-align: center;
+    .mobileSubmenuItem:hover {
+        color: var(--secondary-color);
+        background-color: rgba(0, 0, 0, 0.01);
     }
     
     /* Fix nav link arrow positioning for all links */
