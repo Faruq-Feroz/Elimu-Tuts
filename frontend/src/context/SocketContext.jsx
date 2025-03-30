@@ -15,7 +15,7 @@ export function SocketProvider({ children }) {
   
   useEffect(() => {
     // Create socket connection - always use localhost:5000 in development
-    const SOCKET_URL = 'http://localhost:5000';
+    const SOCKET_URL = 'https://elimu-tuts.onrender.com';
     
     const newSocket = io(SOCKET_URL, {
       transports: ['websocket', 'polling'],
