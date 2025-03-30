@@ -8,8 +8,8 @@ export default defineConfig({
     host: true,
   },
   build: {
-    // Production build optimizations
-    minify: 'terser',
+    // Use esbuild instead of terser
+    minify: 'esbuild',
     cssMinify: true,
     chunkSizeWarningLimit: 1000,
     rollupOptions: {
