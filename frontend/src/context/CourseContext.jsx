@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import React, { createContext, useContext, useState, useCallback } from 'react';
 import axios from 'axios';
 import { useAuth } from './AuthContext';
 
@@ -77,22 +77,26 @@ export const CourseProvider = ({ children }) => {
     console.error(`${errorType.toUpperCase()} Error:`, errorMessage, errorDetails);
   };
 
-  const fetchCourses = useCallback(async () => {
-    if (!currentUser) return; // Don't fetch if no user
+  const fetchCourses = useCallback(async (forceLoad = false) => {
+    if (!currentUser && !forceLoad) return; // Don't fetch if no user and not forced
 
     setLoading(prev => ({ ...prev, fetch: true }));
     setError(prev => ({ ...prev, fetch: null }));
 
     try {
-      const token = await currentUser.getIdToken(true);
+      // If forceLoad is true, we don't need a token for public courses
+      let headers = {};
+      
+      if (currentUser) {
+        const token = await currentUser.getIdToken(true);
+        headers = { 'Authorization': `Bearer ${token}` };
+      }
+      
       const response = await axios.get(
-        `${import.meta.env.VITE_API_URL}/api/courses`,
-        {
-          headers: {
-            'Authorization': `Bearer ${token}`
-          }
-        }
+        `https://elimu-tuts.onrender.com/api/courses`,
+        { headers }
       );
+      
       setCourses(response.data.data);
     } catch (err) {
       handleError('fetch', err);
@@ -102,10 +106,8 @@ export const CourseProvider = ({ children }) => {
     }
   }, [currentUser]); // Only depend on currentUser
 
-  // Initial fetch when component mounts or currentUser changes
-  useEffect(() => {
-    fetchCourses();
-  }, [fetchCourses]);
+  // Remove initial fetch to improve page load performance
+  // Users will need to explicitly call fetchCourses when needed
 
   const createCourse = async (courseData) => {
     if (!currentUser) {
@@ -125,7 +127,7 @@ export const CourseProvider = ({ children }) => {
       const token = await currentUser.getIdToken(true);
       
       const response = await axios.post(
-        `${import.meta.env.VITE_API_URL}/api/courses`, 
+        `https://elimu-tuts.onrender.com/api/courses`, 
         courseData,
         {
           headers: {
@@ -164,7 +166,7 @@ export const CourseProvider = ({ children }) => {
       const token = await currentUser.getIdToken(true);
       
       const response = await axios.put(
-        `${import.meta.env.VITE_API_URL}/api/courses/${courseId}`, 
+        `https://elimu-tuts.onrender.com/api/courses/${courseId}`, 
         courseData,
         {
           headers: {
@@ -207,7 +209,7 @@ export const CourseProvider = ({ children }) => {
       const token = await currentUser.getIdToken(true);
       
       await axios.delete(
-        `${import.meta.env.VITE_API_URL}/api/courses/${courseId}`,
+        `https://elimu-tuts.onrender.com/api/courses/${courseId}`,
         {
           headers: {
             'Authorization': `Bearer ${token}`
