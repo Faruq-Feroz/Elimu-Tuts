@@ -42,6 +42,21 @@ app.use(cors({
   },
   credentials: true // Allow credentials
 }));
+
+// Add direct CORS middleware to ensure headers are always set
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  
+  // Handle preflight requests
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+  
+  next();
+});
+
 app.use(express.json());
 
 // Create HTTP server
@@ -50,7 +65,7 @@ const server = http.createServer(app);
 // Set up Socket.io
 const io = new Server(server, {
   cors: {
-    origin: allowedOrigins,
+    origin: '*', // Allow any origin for sockets
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
   }
