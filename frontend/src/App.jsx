@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 // Landing page components
 import Home from './pages/landing/Home';
@@ -22,8 +22,63 @@ import Checkout from './pages/dashboard/Checkout';
 import SampleQuiz from './pages/SampleQuiz';
 // Utility components
 import ScrollToTop from './components/utils/ScrollToTop';
+import { useAuth } from './context/AuthContext';
+
+// Loading component
+const GlobalLoader = () => (
+  <div style={{
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#f5f5f5',
+    zIndex: 9999
+  }}>
+    <h2 style={{ marginBottom: '1rem' }}>Elimu Tuts</h2>
+    <p style={{ marginBottom: '2rem', textAlign: 'center', maxWidth: '90%', color: '#666' }}>
+      First load might take up to a minute while our server wakes up.
+    </p>
+    <div style={{
+      width: '50px',
+      height: '50px',
+      border: '5px solid rgba(0,0,0,0.1)',
+      borderRadius: '50%',
+      borderTopColor: '#ff5722',
+      animation: 'spin 1s ease-in-out infinite'
+    }}></div>
+    <style>
+      {`
+        @keyframes spin {
+          to { transform: rotate(360deg); }
+        }
+      `}
+    </style>
+  </div>
+);
 
 function App() {
+  const { loading } = useAuth();
+  const [initialLoad, setInitialLoad] = useState(true);
+
+  // After component mounts, set initialLoad to false after a delay
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setInitialLoad(false);
+    }, 2000); // 2 seconds minimum loading screen
+    
+    return () => clearTimeout(timer);
+  }, []);
+  
+  // Show loader if auth is loading or during initial load
+  if (loading || initialLoad) {
+    return <GlobalLoader />;
+  }
+
   return (
     <>
       <ScrollToTop />
