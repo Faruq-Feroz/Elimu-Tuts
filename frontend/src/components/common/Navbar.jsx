@@ -79,6 +79,13 @@ const Navbar = () => {
           {/* Navigation Menu */}
           <BootstrapNavbar.Collapse id="basic-navbar-nav" className={styles.navbarCollapse}>
             <Nav className={`ms-auto ${styles.navMenu}`}>
+              {/* For mobile devices, show login button first */}
+              <div className={styles.mobileLoginWrapper}>
+                <Link to="/login" className={styles.loginButton} onClick={() => setExpanded(false)}>
+                  Login <FontAwesomeIcon icon={faArrowRight} />
+                </Link>
+              </div>
+              
               <Nav.Link as={Link} to="/" className={styles.navLink} onClick={() => setExpanded(false)}>
                 Home
               </Nav.Link>
@@ -188,10 +195,12 @@ const Navbar = () => {
                 Contact
               </Nav.Link>
 
-              {/* Login Button */}
-              <Link to="/login" className={styles.loginButton} onClick={() => setExpanded(false)}>
-                Login <FontAwesomeIcon icon={faArrowRight} />
-              </Link>
+              {/* Login Button - visible on desktop */}
+              <div className={styles.desktopLoginWrapper}>
+                <Link to="/login" className={styles.loginButton} onClick={() => setExpanded(false)}>
+                  Login <FontAwesomeIcon icon={faArrowRight} />
+                </Link>
+              </div>
             </Nav>
           </BootstrapNavbar.Collapse>
         </Container>
