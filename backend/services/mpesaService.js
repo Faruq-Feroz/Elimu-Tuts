@@ -4,12 +4,24 @@ require('dotenv').config();
 
 class MpesaService {
   constructor() {
-    this.consumerKey = 'm5FGFAtnJQd39WX1nzV5KeitPzGQuTUak0kQFxCGF8IW5BO0';
-    this.consumerSecret = 'lK82z8gEPxKegFHVA83j13zVvU1sCGw5CQTYrGAQ039OGwxjneXPSMtXeeF5TlY9';
-    this.businessShortcode = '174379';
-    this.passkey = 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919';
-    this.callbackUrl = 'https://3176-102-135-172-247.ngrok-free.app/api/orders/callback';
-    this.baseUrl = 'https://sandbox.safaricom.co.ke';
+    // Use environment variables without fallback values
+    this.consumerKey = process.env.MPESA_CONSUMER_KEY;
+    this.consumerSecret = process.env.MPESA_CONSUMER_SECRET;
+    this.businessShortcode = process.env.MPESA_SHORTCODE;
+    this.passkey = process.env.MPESA_PASSKEY;
+    this.callbackUrl = process.env.MPESA_CALLBACK_URL;
+    this.baseUrl = process.env.MPESA_BASE_URL || 'https://sandbox.safaricom.co.ke';
+    
+    // Check if required environment variables are set
+    const requiredVars = ['MPESA_CONSUMER_KEY', 'MPESA_CONSUMER_SECRET', 'MPESA_SHORTCODE', 'MPESA_PASSKEY', 'MPESA_CALLBACK_URL'];
+    const missingVars = requiredVars.filter(varName => !process.env[varName]);
+    
+    if (missingVars.length > 0) {
+      console.warn(`Warning: Missing required M-Pesa environment variables: ${missingVars.join(', ')}`);
+      console.warn('M-Pesa integration may not work correctly.');
+    } else {
+      console.log('M-Pesa credentials loaded from environment variables');
+    }
   }
 
   // Generate access token
