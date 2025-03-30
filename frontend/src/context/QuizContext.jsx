@@ -18,7 +18,7 @@ export const QuizProvider = ({ children }) => {
     setError(null);
 
     try {
-      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      const API_URL = import.meta.env.VITE_API_URL || 'https://elimu-tuts.onrender.com';
       const response = await axios.get(`${API_URL}/api/quizzes/courses/${courseId}`);
       setQuizzes(response.data);
     } catch (err) {
