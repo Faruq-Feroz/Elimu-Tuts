@@ -23,33 +23,31 @@ const allowedOrigins = [
   'http://localhost:5173',  // Local Vite dev server
   'http://localhost:3000',  // Local React dev server
   process.env.FRONTEND_URL, // Production frontend (Vercel)
-  'https://elimu-tuts.vercel.app', // Vercel deployment (add your actual domain)
+  'https://elimu-tuts.vercel.app', // Vercel deployment
   'https://elimu-tuts-git-main-hassan-faruqs-projects.vercel.app' // Vercel preview deployments
 ];
 
-// Middleware
+// First CORS middleware - try to keep this for backward compatibility
 app.use(cors({
-  origin: function(origin, callback) {
-    // Allow requests with no origin (like mobile apps, curl requests)
-    if (!origin) return callback(null, true);
-    
-    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);
-    } else {
-      console.log('Blocked CORS for:', origin);
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true // Allow credentials
+  origin: 'https://elimu-tuts.vercel.app', // Specific origin for credentials
+  credentials: true  // Allow credentials
 }));
 
-// Add direct CORS middleware to ensure headers are always set
+// Second CORS middleware to ensure headers are correctly set
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
+  const origin = req.headers.origin;
+  
+  // Use specific origin instead of wildcard when credentials are involved
+  if (origin && allowedOrigins.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', origin);
+  } else {
+    res.header('Access-Control-Allow-Origin', 'https://elimu-tuts.vercel.app');
+  }
+  
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  res.header('Access-Control-Allow-Credentials', 'true');
   
-  // Handle preflight requests
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
   }
@@ -65,8 +63,8 @@ const server = http.createServer(app);
 // Set up Socket.io
 const io = new Server(server, {
   cors: {
-    origin: '*', // Allow any origin for sockets
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    origin: 'https://elimu-tuts.vercel.app', // Specific origin for credentials
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     credentials: true
   }
 });
