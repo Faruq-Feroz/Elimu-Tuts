@@ -52,7 +52,7 @@
 }
 
 .logo {
-    height: 45px;
+    height: 50px;
 }
 
 /* Navigation Items */
@@ -82,14 +82,14 @@
 }
 
 .navLink {
-    color: var(--primary-color) !important;
+    color: black !important;
     font-weight: 400;
     padding: 8px 15px !important;
     position: relative;
     cursor: pointer;
     display: flex;
     align-items: center;
-    font-size: 1.1rem;
+    font-size: 1rem;
     letter-spacing: 0.03em;
     transition: var(--transition);
     font-family: var(--font-primary);
@@ -184,7 +184,7 @@
 
 /* Login Button Styles */
 .loginButton {
-    background: linear-gradient(135deg, var(--secondary-color), #FF9800);
+    background: #FF9800;
     color: var(--white);
     border: none;
     border-radius: 30px;
