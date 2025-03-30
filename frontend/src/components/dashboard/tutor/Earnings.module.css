@@ -1,0 +1,619 @@
+/* Container and Layout */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.titleArea {
+  flex: 1;
+  min-width: 250px;
+}
+
+.titleArea h1 {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  color: #333;
+  margin: 0;
+  margin-bottom: 0.5rem;
+}
+
+.headerIcon {
+  margin-right: 0.75rem;
+  color: #4a6cf7;
+}
+
+.subheader {
+  color: #666;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.headerActions {
+  display: flex;
+  gap: 1rem;
+}
+
+.downloadButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background-color: #f0f3f9;
+  color: #4a6cf7;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.downloadButton:hover {
+  background-color: #e0e7f7;
+}
+
+/* Stats Grid */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.statCard {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.statIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #f0f3f9;
+  color: #4a6cf7;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.statInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.3rem;
+}
+
+.statValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+}
+
+/* Content Tabs */
+.contentTabs {
+  display: flex;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.tab:hover {
+  color: #4a6cf7;
+}
+
+.activeTab {
+  color: #4a6cf7;
+  border-bottom-color: #4a6cf7;
+}
+
+/* Filters Bar */
+.filtersBar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.filterGroup {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.filterLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #666;
+  font-weight: 600;
+}
+
+.filterOptions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.filterOption {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: none;
+  background-color: #f5f5f5;
+  color: #666;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filterOption:hover {
+  background-color: #ebebeb;
+}
+
+.activeFilter {
+  background-color: #4a6cf7;
+  color: white;
+}
+
+/* Earnings Table */
+.earningsTable {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.tableHeader {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #eee;
+}
+
+.tableHeaderCell {
+  padding: 1rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.tableBody {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.tableRow {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+  border-bottom: 1px solid #f2f2f2;
+  transition: background-color 0.2s ease;
+}
+
+.tableRow:hover {
+  background-color: #f9f9f9;
+}
+
+.tableRow:last-child {
+  border-bottom: none;
+}
+
+.tableCell {
+  padding: 1rem;
+  color: #555;
+}
+
+.status {
+  display: inline-block;
+  padding: 0.3rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status.completed {
+  background-color: #e7f7ee;
+  color: #28a745;
+}
+
+.status.pending {
+  background-color: #fff8e7;
+  color: #ffc107;
+}
+
+/* Empty State */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.emptyStateIcon {
+  font-size: 3rem;
+  color: #4a6cf7;
+  opacity: 0.2;
+  margin-bottom: 1.5rem;
+}
+
+.emptyState h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin: 0 0 0.5rem 0;
+}
+
+.emptyState p {
+  color: #666;
+  margin: 0;
+}
+
+/* Payment Methods */
+.paymentMethodsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.paymentMethodSelector {
+  background-color: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.paymentMethodSelector h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.paymentDropdown {
+  position: relative;
+}
+
+.selectedMethod {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.selectedMethod:hover {
+  border-color: #4a6cf7;
+}
+
+.methodIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  background-color: #f0f3f9;
+  color: #4a6cf7;
+  font-size: 1.2rem;
+}
+
+.methodName {
+  flex-grow: 1;
+  font-weight: 600;
+  color: #333;
+}
+
+.dropdownIcon {
+  color: #666;
+  transition: transform 0.2s ease;
+}
+
+.showDropdown .dropdownIcon {
+  transform: rotate(180deg);
+}
+
+.methodsDropdown {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  right: 0;
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  overflow: hidden;
+}
+
+.methodOption {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.methodOption:hover {
+  background-color: #f5f5f5;
+}
+
+.methodOption.selected {
+  background-color: #f0f3f9;
+}
+
+.methodOptionIcon {
+  color: #4a6cf7;
+  font-size: 1.1rem;
+}
+
+.checkIcon {
+  margin-left: auto;
+  color: #4a6cf7;
+}
+
+.methodDetailsCard {
+  background-color: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.methodDetailsCard h3 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.2rem;
+  color: #333;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #eee;
+}
+
+.detailsForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.formRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formRow label {
+  font-weight: 600;
+  color: #444;
+}
+
+.formRow input {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.formRow input:focus {
+  outline: none;
+  border-color: #4a6cf7;
+  box-shadow: 0 0 0 2px rgba(74, 108, 247, 0.2);
+}
+
+.saveButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  background-color: #4a6cf7;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.saveButton:hover {
+  background-color: #3a5be0;
+}
+
+.paymentNote {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Loading and Error States */
+.loadingState,
+.errorState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  text-align: center;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(74, 108, 247, 0.2);
+  border-top: 4px solid #4a6cf7;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.errorState p {
+  color: #dc3545;
+  margin-bottom: 1rem;
+}
+
+.retryButton {
+  padding: 0.5rem 1rem;
+  background-color: #f5f5f5;
+  color: #555;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.retryButton:hover {
+  background-color: #ebebeb;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .tableHeader,
+  .tableRow {
+    grid-template-columns: 1fr 1.5fr 0.5fr 0.75fr 0.75fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem;
+  }
+  
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .headerActions {
+    width: 100%;
+  }
+  
+  .downloadButton {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .tableHeader,
+  .tableRow {
+    grid-template-columns: 1fr 1.5fr 0.5fr 0.75fr 0.75fr;
+    font-size: 0.9rem;
+  }
+  
+  .tableCell {
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .tableHeader {
+    display: none;
+  }
+  
+  .tableRow {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  .tableCell {
+    padding: 0.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dashed #eee;
+  }
+  
+  .tableCell:last-child {
+    border-bottom: none;
+  }
+  
+  .tableCell:before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #444;
+  }
+  
+  .filterGroup {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .filterOptions {
+    width: 100%;
+  }
+  
+  .filterOption {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .formRow {
+    flex-direction: column;
+  }
+  
+  .saveButton {
+    width: 100%;
+  }
+} 

@@ -1,0 +1,213 @@
+.practiceTestsContainer {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.filtersSection {
+  margin-bottom: 2.5rem;
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.searchBar {
+  display: flex;
+  margin-bottom: 1.5rem;
+}
+
+.searchInput {
+  flex: 1;
+  padding: 0.8rem 1.2rem;
+  border: 1px solid #e4e7eb;
+  border-radius: 5px 0 0 5px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.searchInput:focus {
+  border-color: #4a6fe9;
+}
+
+.searchButton {
+  padding: 0.8rem 1.5rem;
+  background-color: #4a6fe9;
+  color: white;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.searchButton:hover {
+  background-color: #2e49d3;
+}
+
+.filterControls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.filterSelect {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.8rem 1.2rem;
+  border: 1px solid #e4e7eb;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: white;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.filterSelect:focus {
+  border-color: #4a6fe9;
+}
+
+.quizGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.quizCard {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.quizCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.quizImageContainer {
+  position: relative;
+  height: 160px;
+  overflow: hidden;
+}
+
+.quizImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.quizCard:hover .quizImage {
+  transform: scale(1.05);
+}
+
+.quizSubject {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.quizContent {
+  padding: 1.5rem;
+}
+
+.quizTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+  min-height: 3rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.quizDetails {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.detailItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.detailIcon {
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+
+.startButton {
+  display: block;
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #4a6fe9;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.startButton:hover {
+  background-color: #2e49d3;
+}
+
+@media (max-width: 768px) {
+  .practiceTestsContainer {
+    padding: 1.5rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .quizGrid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .filterControls {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  
+  .filterSelect {
+    min-width: 100%;
+  }
+} 

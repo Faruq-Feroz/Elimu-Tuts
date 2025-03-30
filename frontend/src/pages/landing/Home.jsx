@@ -12,9 +12,7 @@ import PopularSubjects from '../../components/landing/Subjects';
 import PopularCourses from '../../components/landing/Courses';
 import ElimuTutsBanner from '../../components/landing/ElimuTutsBanner';
 import FAQ from '../../components/landing/FAQ';
-import Testimonials from '../../components/landing/Testimonials';
-import PricingSection from '../../components/landing/Pricing';
-import ContactUs from '../../components/landing/ContactUs';
+
 
 const Home = () => {
   return (
@@ -30,24 +28,7 @@ const Home = () => {
         <PopularCourses />
         <ElimuTutsBanner />
         <FAQ />
-        <Testimonials />
-        <PricingSection />
-        <ContactUs />
       </main>
-      
-      <div className="navigation-links container">
-        <h3>Test Navigation Links:</h3>
-        <ul>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/pricing">Pricing</Link></li>
-          <li><Link to="/contact">Contact</Link></li>
-          <li><Link to="/login">Login</Link></li>
-          <li><Link to="/register">Register</Link></li>
-          <li><Link to="/student">Student Dashboard</Link></li>
-          <li><Link to="/tutor">Tutor Dashboard</Link></li>
-          <li><Link to="/parent">Parent Dashboard</Link></li>
-        </ul>
-      </div>
       
       <Footer />
     </div>

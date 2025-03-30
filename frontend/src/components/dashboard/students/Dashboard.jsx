@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useLayoutEffect, useRef } from 'react';
+import { useLocation, Routes, Route } from 'react-router-dom';
 import Sidebar from '../components/Student/Sidebar';
 import Header from '../components/Student/Header';
 import MyCourses from '../students/MyCourses';
@@ -7,26 +8,108 @@ import Progress from '../students/Progress';
 import NotesComponent from '../components/Student/Notes';
 import HelpSupport from '../components/Student/HelpSupport';
 import StudentDashboardHome from '../components/Student/Home';
-import QuizSubjectSelection from '../../quiz/QuizContainer';
-import ResourcesComponent from '../components/Student/Resources'; // Assuming you'll create this component
-import CalendarComponent from '../components/Student/Calendar'; // Assuming you'll create this component
-import MessagesComponent from '../components/Student/Messages'; // Assuming you'll create this component
-import VideoLessons from '../components/Student/VideoLessons'; // Assuming you'll create this component
-import PracticeTests from '../components/Student/PracticeTests'; // Assuming you'll create this component
-import CBCResources from '../components/Student/CBCResources'; // Assuming you'll create this component
-import SettingsComponent from '../components/Student/SettingsComponent'; // Assuming you'll create this component
+import QuizContainer from '../../quiz/QuizContainer';
+import Quiz from '../../quiz/Quiz';
+import Resources from '../students/Resources';
+import Calendar from '../students/Calendar';
+import MessagesComponent from '../components/Student/Messages';
+import VideoLessons from '../components/Student/VideoLessons';
+import PracticeTests from '../components/Student/PracticeTests';
+import CBCResources from '../students/CBCResources';
+import SettingsComponent from '../components/Student/SettingsComponent';
+import Grades from '../students/Grades';
+import { useAuth } from '../../../context/AuthContext';
 import styles from './Dashboard.module.css';
 
 const StudentDashboard = () => {
   // State to track which content component to display
   const [activeComponent, setActiveComponent] = useState('dashboard');
+  // Reference to the content area
+  const contentAreaRef = useRef(null);
+  // Get current user from auth context
+  const { currentUser } = useAuth();
+  const location = useLocation();
+  
+  // Simple function to reset scroll position
+  const resetScroll = () => {
+    // Reset window scroll
+    window.scrollTo(0, 0);
+    
+    // Reset contentArea scroll via ref
+    if (contentAreaRef.current) {
+      contentAreaRef.current.scrollTop = 0;
+    }
+  };
+  
+  // Reset scroll when component changes
+  useLayoutEffect(() => {
+    resetScroll();
+  }, [activeComponent]);
 
-  // Sidebar menu items specific to students - expanded to include all required items
+  // Handle menu item clicks
+  const handleMenuItemClick = (itemId) => {
+    // Set the new active component
+    setActiveComponent(itemId);
+    // Manually reset scroll
+    resetScroll();
+  };
+
+  // Function to render the appropriate component based on activeComponent state
+  const renderContent = () => {
+    // Extract the path after /dashboard/
+    const path = location.pathname.replace(/^\/dashboard\/?/, '');
+    
+    // Handle quiz routes
+    if (path.startsWith('quiz/')) {
+      // Quiz details page
+      return <Quiz />;
+    }
+    
+    switch (activeComponent) {
+      case 'videos':
+        return <VideoLessons />;
+      case 'courses':
+        return <MyCourses />;
+      case 'quizzes':
+        return <QuizContainer />;
+      case 'assignments':
+        return <Assignments />;
+      case 'practice':
+        return <PracticeTests />;
+      case 'grades':
+        return <Grades />;
+      case 'progress':
+        return <Progress />;
+      case 'notes':
+        return <NotesComponent />;
+      case 'resources':
+        return <Resources />;
+      case 'cbc':
+        return <CBCResources />;
+      case 'calendar':
+        return <Calendar />;
+      case 'messages':
+        return <MessagesComponent />;
+      case 'help':
+        return <HelpSupport />;
+      case 'settings':
+        return <SettingsComponent />;
+      default:
+        return <StudentDashboardHome />;
+    }
+  };
+
+  // Sidebar menu items specific to students
   const sidebarMenuItems = [
     {
       id: 'dashboard',
       label: 'Dashboard',
       icon: 'dashboard',
+    },
+    {
+      id: 'notes',
+      label: 'My Notes',
+      icon: 'notes',
     },
     {
       id: 'videos',
@@ -39,11 +122,6 @@ const StudentDashboard = () => {
       icon: 'book',
     },
     {
-      id: 'quizzes',
-      label: 'Quizzes',
-      icon: 'quiz',
-    },
-    {
       id: 'assignments',
       label: 'Assignments',
       icon: 'assignment',
@@ -54,14 +132,14 @@ const StudentDashboard = () => {
       icon: 'test',
     },
     {
-      id: 'progress',
-      label: 'My Progress',
+      id: 'grades',
+      label: 'Grades',
       icon: 'chart',
     },
     {
-      id: 'notes',
-      label: 'My Notes',
-      icon: 'notes',
+      id: 'progress',
+      label: 'My Progress',
+      icon: 'chart',
     },
     {
       id: 'resources',
@@ -72,6 +150,11 @@ const StudentDashboard = () => {
       id: 'cbc',
       label: 'CBC Resources',
       icon: 'curriculum',
+    },
+    {
+      id: 'quizzes',
+      label: 'Quizzes',
+      icon: 'quiz',
     },
     {
       id: 'calendar',
@@ -95,59 +178,22 @@ const StudentDashboard = () => {
     },
   ];
 
-  // Function to render the appropriate component based on activeComponent state
-  const renderContent = () => {
-    switch (activeComponent) {
-      case 'videos':
-        return <VideoLessons />;
-      case 'courses':
-        return <MyCourses />;
-      case 'quizzes':
-        return <QuizSubjectSelection />;
-      case 'assignments':
-        return <Assignments />;
-      case 'practice':
-        return <PracticeTests />;
-      case 'progress':
-        return <Progress />;
-      case 'notes':
-        return <NotesComponent />;
-      case 'resources':
-        return <ResourcesComponent />;
-      case 'cbc':
-        return <CBCResources />;
-      case 'calendar':
-        return <CalendarComponent />;
-      case 'messages':
-        return <MessagesComponent />;
-      case 'help':
-        return <HelpSupport />;
-      case 'settings':
-        return <SettingsComponent />;
-      default:
-        return <StudentDashboardHome />;
-    }
-  };
-
-  // Handle menu item clicks
-  const handleMenuItemClick = (itemId) => {
-    setActiveComponent(itemId);
-  };
-
   return (
     <div className={styles.dashboardContainer}>
       <Sidebar 
         menuItems={sidebarMenuItems} 
         activeItem={activeComponent}
         onMenuItemClick={handleMenuItemClick}
+        userRole="Student"
       />
       <div className={styles.mainContent}>
         <Header 
-          userName="John Doe" 
+          userName={currentUser?.displayName || 'Student'} 
           userRole="Student"
           notifications={5}
+          onNavigate={handleMenuItemClick}
         />
-        <div className={styles.contentArea}>
+        <div className={styles.contentArea} ref={contentAreaRef}>
           {renderContent()}
         </div>
       </div>

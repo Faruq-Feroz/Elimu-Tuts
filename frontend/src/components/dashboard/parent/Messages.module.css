@@ -1,0 +1,627 @@
+/* Messages Module CSS - Elimu-Tuts Theme */
+
+/* Container styles */
+.messagesContainer {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  height: calc(100vh - 140px);
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Conversations list styles */
+.conversationsList {
+  background-color: #f9f9f9;
+  border-right: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.conversationsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.conversationsHeader h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.newMessageButton {
+  background-color: #43a047;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: background-color 0.2s;
+}
+
+.newMessageButton:hover {
+  background-color: #2e7d32;
+}
+
+.conversationsSearch {
+  position: relative;
+  padding: 12px 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.conversationsSearch input {
+  width: 100%;
+  padding: 8px 12px 8px 36px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #757575;
+}
+
+.conversationsFilter {
+  display: flex;
+  padding: 12px 20px;
+  gap: 8px;
+  border-bottom: 1px solid #e0e0e0;
+  flex-wrap: wrap;
+}
+
+.conversationsFilter button {
+  background: none;
+  border: 1px solid #e0e0e0;
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-size: 12px;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.conversationsFilter button:hover:not(.activeFilter) {
+  background-color: #f0f0f0;
+}
+
+.conversationsFilter button.activeFilter {
+  background-color: #43a047;
+  color: white;
+  border-color: #43a047;
+}
+
+.conversationsItems {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.conversationItem {
+  display: flex;
+  padding: 15px 20px;
+  border-bottom: 1px solid #e0e0e0;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  position: relative;
+}
+
+.conversationItem:hover:not(.activeConversation) {
+  background-color: #f0f0f0;
+}
+
+.activeConversation {
+  background-color: #e8f5e9;
+}
+
+.unreadConversation {
+  background-color: #f1f8e9;
+}
+
+.conversationAvatar {
+  margin-right: 15px;
+  position: relative;
+}
+
+.conversationAvatar img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.statusIndicator {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  bottom: 0;
+  right: 0;
+  border: 2px solid #f9f9f9;
+}
+
+.online {
+  background-color: #43a047;
+}
+
+.offline {
+  background-color: #bdbdbd;
+}
+
+.conversationInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.conversationHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 3px;
+}
+
+.conversationHeader h3 {
+  margin: 0;
+  font-size: 15px;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.conversationTime {
+  font-size: 12px;
+  color: #757575;
+  white-space: nowrap;
+  margin-left: 8px;
+}
+
+.conversationSubject {
+  font-size: 13px;
+  color: #333;
+  margin-bottom: 3px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.conversationPreview {
+  font-size: 13px;
+  color: #757575;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 20px;
+}
+
+.unreadBadge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: #43a047;
+  color: white;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.noConversations {
+  padding: 30px 20px;
+  text-align: center;
+  color: #757575;
+  font-size: 14px;
+}
+
+/* Chat area styles */
+.chatArea {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.chatHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.chatHeaderInfo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.chatAvatar {
+  position: relative;
+}
+
+.chatAvatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.chatHeaderInfo h3 {
+  margin: 0 0 3px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.contactRole {
+  font-size: 13px;
+  color: #757575;
+}
+
+.chatHeaderActions {
+  display: flex;
+  gap: 10px;
+}
+
+.infoButton, .moreButton {
+  background: none;
+  border: none;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #757575;
+  transition: background-color 0.2s;
+}
+
+.infoButton:hover, .moreButton:hover {
+  background-color: #f0f0f0;
+}
+
+.chatMessages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #f5f5f5;
+}
+
+.messageSubject {
+  background-color: #fff;
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.messageSubject h4 {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.messageItem {
+  display: flex;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.messageAvatar img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.messageContent {
+  max-width: 70%;
+  position: relative;
+}
+
+.incomingMessage .messageContent {
+  background-color: #fff;
+  border-radius: 0 8px 8px 8px;
+  padding: 12px 15px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.outgoingMessage {
+  justify-content: flex-end;
+}
+
+.outgoingMessage .messageContent {
+  background-color: #e8f5e9;
+  border-radius: 8px 0 8px 8px;
+  padding: 12px 15px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.messageText {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #333;
+  word-wrap: break-word;
+}
+
+.messageTime {
+  font-size: 11px;
+  color: #757575;
+  margin-top: 5px;
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4px;
+}
+
+.messageStatus {
+  color: #43a047;
+}
+
+.chatInput {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #fff;
+  border-top: 1px solid #e0e0e0;
+}
+
+.attachButton, .sendButton {
+  background: none;
+  border: none;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #757575;
+  transition: all 0.2s;
+}
+
+.attachButton:hover, .sendButton:hover:not(:disabled) {
+  background-color: #f0f0f0;
+  color: #43a047;
+}
+
+.sendButton:disabled {
+  color: #bdbdbd;
+  cursor: not-allowed;
+}
+
+.chatInput input {
+  flex: 1;
+  padding: 10px 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  margin: 0 10px;
+  font-size: 14px;
+}
+
+.noActiveChat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #757575;
+  padding: 20px;
+  text-align: center;
+}
+
+.noActiveChat h3 {
+  margin: 15px 0 5px 0;
+  color: #333;
+}
+
+.noActiveChat p {
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Modal styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: #fff;
+  border-radius: 8px;
+  width: 500px;
+  max-width: 90%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.modalHeader h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.modalClose {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #757575;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.modalClose:hover {
+  background-color: #f0f0f0;
+}
+
+.modalContent form {
+  padding: 20px;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+.formGroup select, .formGroup input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.cancelButton {
+  background: none;
+  border: 1px solid #e0e0e0;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+  transition: background-color 0.2s;
+}
+
+.cancelButton:hover {
+  background-color: #f0f0f0;
+}
+
+.createButton {
+  background-color: #43a047;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.createButton:hover {
+  background-color: #2e7d32;
+}
+
+/* Loading and error states */
+.loadingContainer, .errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  height: 100%;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-top-color: #43a047;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.errorContainer {
+  color: #666;
+}
+
+.errorContainer h2 {
+  margin: 20px 0 10px;
+  color: #333;
+}
+
+.errorContainer p {
+  margin-bottom: 25px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .messagesContainer {
+    grid-template-columns: 250px 1fr;
+  }
+  
+  .messageContent {
+    max-width: 85%;
+  }
+}
+
+@media (max-width: 700px) {
+  .messagesContainer {
+    grid-template-columns: 1fr;
+  }
+  
+  .conversationsList {
+    display: none;
+  }
+  
+  .conversationsList.mobileActive {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+  }
+} 

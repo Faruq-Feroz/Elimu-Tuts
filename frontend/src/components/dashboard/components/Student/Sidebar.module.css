@@ -260,7 +260,7 @@
   .toggleButton {
     position: fixed;
     top: 15px;
-    left: 15px;
+    left: 10px;
     z-index: 200;
     background-color: var(--primary);
     border: none;
@@ -322,6 +322,16 @@
   /* For smaller mobile devices */
   @media (max-width: 480px) {
     .mobile {
-      width: 240px;
+      width: 80%; /* Take up most of the screen on very small devices */
+      max-width: 280px;
+    }
+    
+    .toggleButton {
+      top: 12px;
+      left: 5px;
+      width: 32px;
+      height: 32px;
+      font-size: 1rem;
+      background-color: rgba(53, 102, 225, 0.9);
     }
   }

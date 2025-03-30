@@ -4,11 +4,11 @@ require('dotenv').config();
 
 class MpesaService {
   constructor() {
-    this.consumerKey = process.env.CONSUMER_KEY;
-    this.consumerSecret = process.env.CONSUMER_SECRET;
-    this.businessShortcode = process.env.BUSINESS_SHORTCODE;
-    this.passkey = process.env.PASSKEY;
-    this.callbackUrl = process.env.CALLBACK_URL;
+    this.consumerKey = 'm5FGFAtnJQd39WX1nzV5KeitPzGQuTUak0kQFxCGF8IW5BO0';
+    this.consumerSecret = 'lK82z8gEPxKegFHVA83j13zVvU1sCGw5CQTYrGAQ039OGwxjneXPSMtXeeF5TlY9';
+    this.businessShortcode = '174379';
+    this.passkey = 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919';
+    this.callbackUrl = 'https://3176-102-135-172-247.ngrok-free.app/api/orders/callback';
     this.baseUrl = 'https://sandbox.safaricom.co.ke';
   }
 
@@ -23,21 +23,28 @@ class MpesaService {
       });
       return response.data.access_token;
     } catch (error) {
-      console.error('Error getting access token:', error);
+      console.error('Error getting access token:', error.response?.data || error.message);
       throw new Error('Failed to get M-Pesa access token');
     }
   }
 
   // Generate timestamp
   getTimestamp() {
-    return new Date().toISOString().replace(/[^0-9]/g, '').slice(0, -3);
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    const hour = String(date.getHours()).padStart(2, '0');
+    const minute = String(date.getMinutes()).padStart(2, '0');
+    const second = String(date.getSeconds()).padStart(2, '0');
+    return `${year}${month}${day}${hour}${minute}${second}`;
   }
 
   // Generate password
   generatePassword() {
     const timestamp = this.getTimestamp();
     const str = this.businessShortcode + this.passkey + timestamp;
-    return crypto.createHash('base64').update(str).digest('base64');
+    return Buffer.from(str).toString('base64');
   }
 
   // Initiate STK Push
@@ -62,7 +69,7 @@ class MpesaService {
           Password: password,
           Timestamp: timestamp,
           TransactionType: 'CustomerPayBillOnline',
-          Amount: amount,
+          Amount: parseInt(amount),
           PartyA: phone,
           PartyB: this.businessShortcode,
           PhoneNumber: phone,
@@ -82,7 +89,38 @@ class MpesaService {
       return response.data;
     } catch (error) {
       console.error('Error initiating STK push:', error.response?.data || error.message);
-      throw new Error(error.response?.data?.errorMessage || 'Failed to initiate M-Pesa payment');
+      throw error;
+    }
+  }
+  
+  // Query STK Push transaction status
+  async queryTransactionStatus(checkoutRequestId) {
+    try {
+      const accessToken = await this.getAccessToken();
+      const timestamp = this.getTimestamp();
+      const password = this.generatePassword();
+      
+      const response = await axios.post(
+        `${this.baseUrl}/mpesa/stkpushquery/v1/query`,
+        {
+          BusinessShortCode: this.businessShortcode,
+          Password: password,
+          Timestamp: timestamp,
+          CheckoutRequestID: checkoutRequestId
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+            'Content-Type': 'application/json'
+          }
+        }
+      );
+      
+      console.log('Query transaction status response:', response.data);
+      return response.data;
+    } catch (error) {
+      console.error('Error querying transaction status:', error.response?.data || error.message);
+      throw error;
     }
   }
 }

@@ -1,70 +1,141 @@
 const Course = require('../models/Course');
-const User = require('../models/User');
-const { validationResult } = require('express-validator');
+const mongoose = require('mongoose');
+
+// Helper function for standardized error response
+const sendErrorResponse = (res, statusCode, error) => {
+  console.error('Error:', error);
+  res.status(statusCode).json({
+    success: false,
+    error: error.message,
+    details: error.errors || error
+  });
+};
 
 // Create a new course
-exports.createCourse = async (req, res) => {
+const createCourse = async (req, res) => {
   try {
-    const course = new Course({
+    // Validate user authentication
+    if (!req.user || !req.user.uid) {
+      return res.status(401).json({
+        success: false,
+        error: 'Authentication required'
+      });
+    }
+
+    // Create course with tutor ID from authenticated user
+    const courseData = {
       ...req.body,
       tutor: req.user.uid
-    });
+    };
+
+    const course = new Course(courseData);
     await course.save();
+
     res.status(201).json({
       success: true,
       data: course
     });
   } catch (error) {
-    res.status(400).json({
-      success: false,
-      error: error.message
-    });
+    if (error.name === 'ValidationError') {
+      // Mongoose validation error
+      const errors = Object.values(error.errors).map(err => err.message);
+      return res.status(400).json({
+        success: false,
+        error: 'Validation Failed',
+        details: errors
+      });
+    }
+    sendErrorResponse(res, 500, error);
   }
 };
 
 // Get all courses
-exports.getCourses = async (req, res) => {
+const getCourses = async (req, res) => {
   try {
-    const courses = await Course.find();
+    const { 
+      subject, 
+      level, 
+      difficulty, 
+      minPrice, 
+      maxPrice 
+    } = req.query;
+
+    // Build query dynamically
+    const query = {};
+    if (subject) query.subject = subject;
+    if (level) query.level = level;
+    if (difficulty) query.difficulty = difficulty;
+    if (minPrice || maxPrice) {
+      query.price = {};
+      if (minPrice) query.price.$gte = parseFloat(minPrice);
+      if (maxPrice) query.price.$lte = parseFloat(maxPrice);
+    }
+
+    const courses = await Course.find(query)
+      .sort({ createdAt: -1 })
+      .select('-lessons -reviews'); // Exclude detailed lesson and review data
+
     res.status(200).json({
       success: true,
       count: courses.length,
       data: courses
     });
   } catch (error) {
-    res.status(500).json({
-      success: false,
-      error: error.message
-    });
+    sendErrorResponse(res, 500, error);
   }
 };
 
 // Get course by ID
-exports.getCourseById = async (req, res) => {
+const getCourseById = async (req, res) => {
   try {
-    const course = await Course.findById(req.params.id);
+    // Validate MongoDB ObjectId
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      return res.status(400).json({
+        success: false,
+        error: 'Invalid course ID'
+      });
+    }
+
+    const course = await Course.findById(req.params.id)
+      .populate('tutor', 'fullName email'); // Optional: populate tutor details
+
     if (!course) {
       return res.status(404).json({
         success: false,
         error: 'Course not found'
       });
     }
+
     res.status(200).json({
       success: true,
       data: course
     });
   } catch (error) {
-    res.status(500).json({
-      success: false,
-      error: error.message
-    });
+    sendErrorResponse(res, 500, error);
   }
 };
 
 // Update course
-exports.updateCourse = async (req, res) => {
+const updateCourse = async (req, res) => {
   try {
+    // Validate user authentication and course ownership
+    if (!req.user || !req.user.uid) {
+      return res.status(401).json({
+        success: false,
+        error: 'Authentication required'
+      });
+    }
+
+    // Validate MongoDB ObjectId
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      return res.status(400).json({
+        success: false,
+        error: 'Invalid course ID'
+      });
+    }
+
     const course = await Course.findById(req.params.id);
+
     if (!course) {
       return res.status(404).json({
         success: false,
@@ -72,7 +143,7 @@ exports.updateCourse = async (req, res) => {
       });
     }
 
-    // Check if user is the tutor of the course
+    // Check course ownership
     if (course.tutor.toString() !== req.user.uid) {
       return res.status(403).json({
         success: false,
@@ -80,10 +151,14 @@ exports.updateCourse = async (req, res) => {
       });
     }
 
+    // Update course
     const updatedCourse = await Course.findByIdAndUpdate(
       req.params.id,
       req.body,
-      { new: true, runValidators: true }
+      { 
+        new: true, 
+        runValidators: true 
+      }
     );
 
     res.status(200).json({
@@ -91,17 +166,39 @@ exports.updateCourse = async (req, res) => {
       data: updatedCourse
     });
   } catch (error) {
-    res.status(500).json({
-      success: false,
-      error: error.message
-    });
+    if (error.name === 'ValidationError') {
+      const errors = Object.values(error.errors).map(err => err.message);
+      return res.status(400).json({
+        success: false,
+        error: 'Validation Failed',
+        details: errors
+      });
+    }
+    sendErrorResponse(res, 500, error);
   }
 };
 
 // Delete course
-exports.deleteCourse = async (req, res) => {
+const deleteCourse = async (req, res) => {
   try {
+    // Validate user authentication
+    if (!req.user || !req.user.uid) {
+      return res.status(401).json({
+        success: false,
+        error: 'Authentication required'
+      });
+    }
+
+    // Validate MongoDB ObjectId
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      return res.status(400).json({
+        success: false,
+        error: 'Invalid course ID'
+      });
+    }
+
     const course = await Course.findById(req.params.id);
+
     if (!course) {
       return res.status(404).json({
         success: false,
@@ -109,7 +206,7 @@ exports.deleteCourse = async (req, res) => {
       });
     }
 
-    // Check if user is the tutor of the course
+    // Check course ownership
     if (course.tutor.toString() !== req.user.uid) {
       return res.status(403).json({
         success: false,
@@ -117,16 +214,21 @@ exports.deleteCourse = async (req, res) => {
       });
     }
 
-    await course.remove();
+    await course.deleteOne();
 
     res.status(200).json({
       success: true,
-      data: {}
+      message: 'Course successfully deleted'
     });
   } catch (error) {
-    res.status(500).json({
-      success: false,
-      error: error.message
-    });
+    sendErrorResponse(res, 500, error);
   }
+};
+
+module.exports = {
+  createCourse,
+  getCourses,
+  getCourseById,
+  updateCourse,
+  deleteCourse
 };

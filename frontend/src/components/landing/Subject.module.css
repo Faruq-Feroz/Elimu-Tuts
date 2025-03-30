@@ -1,11 +1,29 @@
 .subjectsSection {
     padding: 5rem 1rem;
-    background-color: #fff;
+    background-color: #f9f9f9;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .subjectsSection::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+      rgba(255, 87, 34, 0.03) 0%, 
+      rgba(33, 150, 243, 0.03) 50%, 
+      rgba(76, 175, 80, 0.03) 100%);
+    z-index: 0;
   }
   
   .sectionHeader {
     text-align: center;
     margin-bottom: 3rem;
+    position: relative;
+    z-index: 1;
   }
   
   .titleWrapper {
@@ -46,28 +64,36 @@
     font-weight: 700;
     color: #ff5722;
     margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
   }
   
   .subjectsRow {
-    margin: 0 -10px;
+    margin: 0 -15px;
+    position: relative;
+    z-index: 1;
   }
   
   .subjectColumn {
-    padding: 10px;
+    padding: 15px;
     margin-bottom: 20px;
   }
   
-  .subjectCard {
-    border-radius: 4px;
-    border: none;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  .subjectLink {
+    text-decoration: none;
+    display: block;
     height: 100%;
   }
   
-  .subjectCard:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  .subjectCard {
+    border-radius: 16px;
+    border-width: 2px;
+    border-style: solid;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    height: 100%;
+    overflow: hidden;
+    position: relative;
   }
   
   .cardBody {
@@ -77,25 +103,76 @@
     justify-content: center;
     padding: 2rem 1.5rem;
     text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .iconContainer {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .subjectIcon {
+    font-size: 2rem;
+    color: white;
   }
   
   .subjectTitle {
     font-size: 1.5rem;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    transition: all 0.3s ease;
+  }
+  
+  .subjectDescription {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1.2rem;
+    transition: all 0.3s ease;
   }
   
   .viewLink {
-    color: #0066cc;
+    color: #ff5722;
     text-decoration: none;
-    font-weight: 500;
-    transition: color 0.2s ease;
+    font-weight: 600;
+    font-size: 0.9rem;
+    position: relative;
+    padding-bottom: 5px;
+    transition: all 0.3s ease;
   }
   
-  .viewLink:hover {
-    color: #004499;
-    text-decoration: underline;
+  .viewLink::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ff5722;
+    transition: width 0.3s ease;
+  }
+  
+  .subjectCard:hover .viewLink::after {
+    width: 100%;
+  }
+  
+  /* Floating elements for visual interest */
+  .subjectsSection::after {
+    content: "";
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 87, 34, 0.05) 0%, rgba(255, 87, 34, 0) 70%);
+    z-index: 0;
   }
   
   /* Responsive adjustments */
@@ -112,5 +189,24 @@
     
     .subjectTitle {
       font-size: 1.3rem;
+    }
+    
+    .iconContainer {
+      width: 60px;
+      height: 60px;
+    }
+    
+    .subjectIcon {
+      font-size: 1.8rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .subjectsSection {
+      padding: 3rem 1rem;
+    }
+    
+    .subjectCard {
+      border-radius: 12px;
     }
   }

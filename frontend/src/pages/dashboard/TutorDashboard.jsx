@@ -1,10 +1,10 @@
 import React from 'react'
-import ManageCourses from '../../components/dashboard/tutors/ManageCourses'
+import TutorDashboard from '../../components/dashboard/tutor/Dashboard'
 
-const TutorDashboard = () => {
+const TutorsDashboard = () => {
   return (
-    <ManageCourses />
+    <TutorDashboard />
   )
 }
 
-export default TutorDashboard
+export default TutorsDashboard

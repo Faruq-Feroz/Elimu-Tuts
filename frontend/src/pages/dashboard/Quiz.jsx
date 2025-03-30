@@ -1,9 +1,11 @@
-import React from 'react'
+import Quiz from "../../components/dashboard/students/Quiz"
 
-const Quiz = () => {
+const Quizs = () => {
   return (
-    <div>Quiz</div>
+    <>
+    <Quiz />
+    </>
   )
 }
 
-export default Quiz
+export default Quizs

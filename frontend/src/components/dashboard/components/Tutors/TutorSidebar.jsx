@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import styles from '../Student/Sidebar.module.css';
+import { Link, useNavigate } from 'react-router-dom';
+import styles from './TutorSidebar.module.css';
 import logo from '../../../../assets/Logo.png';
+import { useAuth } from '../../../../context/AuthContext';
 
-// Import icons from react-icons
+// Import icons from a library like react-icons
 import { 
   FiMenu, 
   FiX, 
@@ -13,35 +15,37 @@ import {
   FiMessageSquare,
   FiSettings,
   FiUser,
-  FiUsers,
   FiTrendingUp,
-  FiDollarSign,
-  FiHelpCircle,
-  FiEdit,
-  FiZap,
-  FiVideo,
   FiFileText,
-  FiCreditCard,
-  FiMonitor,
+  FiHelpCircle,
+  FiFolder,
+  FiPieChart,
+  FiDollarSign,
+  FiUsers,
+  FiTarget,
+  FiEdit,
   FiStar
 } from 'react-icons/fi';
 
-const TutorSidebar = ({ menuItems, activeItem, onMenuItemClick }) => {
-  // Default tutor-specific menu items if none provided
-  const tutorMenuItems = menuItems || [
-    { id: 'dashboard', label: 'Dashboard', icon: 'dashboard' },
-    { id: 'courses', label: 'My Courses', icon: 'courses' },
-    { id: 'students', label: 'My Students', icon: 'students' },
-    { id: 'content', label: 'Content Creation', icon: 'content' },
-    { id: 'earnings', label: 'Earnings', icon: 'earnings' },
-    { id: 'schedule', label: 'Schedule', icon: 'calendar' },
-    { id: 'analytics', label: 'Analytics', icon: 'analytics' },
-    { id: 'reviews', label: 'Reviews', icon: 'reviews' },
-    { id: 'messages', label: 'Messages', icon: 'messages' },
-    { id: 'resources', label: 'Resources', icon: 'resources' },
-    { id: 'help', label: 'Help & Support', icon: 'help' },
-    { id: 'settings', label: 'Settings', icon: 'settings' }
-  ];
+const TutorSidebar = ({ menuItems, activeItem, onMenuItemClick, userRole = "Tutor" }) => {
+  const { currentUser, logout } = useAuth();
+  const navigate = useNavigate();
+  
+  // Get user's display name or use fallback
+  const getUserName = () => {
+    if (currentUser && currentUser.displayName) {
+      return currentUser.displayName;
+    }
+    return "User";
+  };
+  
+  // Get user's initials for avatar
+  const getUserInitials = () => {
+    if (currentUser && currentUser.displayName) {
+      return currentUser.displayName.split(' ').map(name => name[0]).join('');
+    }
+    return "U";
+  };
 
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -70,6 +74,17 @@ const TutorSidebar = ({ menuItems, activeItem, onMenuItemClick }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Handle logout
+  const handleLogout = async () => {
+    try {
+      await logout();
+      navigate('/'); // Redirect to landing page after logout
+    } catch (error) {
+      console.error("Failed to logout", error);
+      alert("Failed to logout. Please try again.");
+    }
+  };
+
   // Toggle sidebar
   const toggleSidebar = () => {
     if (isMobile) {
@@ -79,7 +94,7 @@ const TutorSidebar = ({ menuItems, activeItem, onMenuItemClick }) => {
     }
   };
 
-  // Get icon component based on icon name - with tutor-specific icons
+  // Get icon component based on icon name
   const getIconComponent = (iconName) => {
     switch(iconName) {
       case 'dashboard': return <FiHome />;
@@ -88,17 +103,11 @@ const TutorSidebar = ({ menuItems, activeItem, onMenuItemClick }) => {
       case 'content': return <FiEdit />;
       case 'earnings': return <FiDollarSign />;
       case 'calendar': return <FiCalendar />;
-      case 'analytics': return <FiTrendingUp />;
-      case 'messages': return <FiMessageSquare />;
-      case 'settings': return <FiSettings />;
-      case 'profile': return <FiUser />;
       case 'reviews': return <FiStar />;
+      case 'messages': return <FiMessageSquare />;
+      case 'resources': return <FiFolder />;
+      case 'settings': return <FiSettings />;
       case 'help': return <FiHelpCircle />;
-      case 'resources': return <FiFileText />;
-      case 'performance': return <FiZap />;
-      case 'videos': return <FiVideo />;
-      case 'payments': return <FiCreditCard />;
-      case 'webinars': return <FiMonitor />;
       default: return <FiHome />;
     }
   };
@@ -138,12 +147,12 @@ const TutorSidebar = ({ menuItems, activeItem, onMenuItemClick }) => {
             </button>
           )}
           <img src={logo} alt="Elimu Tuts Logo" className={styles.logo} />
-          {(!isCollapsed || isMobile) && <h2>Tutor Portal</h2>}
+          {(!isCollapsed || isMobile) && <h2>Elimu Tuts</h2>}
         </div>
         
         <div className={styles.sidebarMenu}>
           <ul>
-            {tutorMenuItems.map((item) => (
+            {menuItems.map((item) => (
               <li
                 key={item.id}
                 className={`${activeItem === item.id ? styles.active : ''}`}
@@ -165,15 +174,15 @@ const TutorSidebar = ({ menuItems, activeItem, onMenuItemClick }) => {
         
         <div className={styles.sidebarFooter}>
           <div className={styles.userInfo}>
-            <div className={styles.avatar}>JS</div>
+            <div className={styles.avatar}>{getUserInitials()}</div>
             {(!isCollapsed || isMobile) && (
               <div className={styles.userDetails}>
-                <p className={styles.userName}>Jane Smith</p>
-                <p className={styles.userRole}>Tutor</p>
+                <p className={styles.userName}>{getUserName()}</p>
+                <p className={styles.userRole}>{userRole}</p>
               </div>
             )}
           </div>
-          <button className={styles.logoutBtn}>
+          <button className={styles.logoutBtn} onClick={handleLogout}>
             <FiLogOut className={styles.logoutIcon} />
             {(!isCollapsed || isMobile) && <span>Logout</span>}
           </button>

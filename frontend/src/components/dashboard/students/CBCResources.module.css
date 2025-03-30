@@ -1,0 +1,670 @@
+/* Main container styles */
+.cbcResourcesContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.cbcResourcesHeader {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.cbcResourcesTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.cbcResourcesSubtitle {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Tabs */
+.cbcTabs {
+  display: flex;
+  border-bottom: 1px solid #e4e7eb;
+  margin-bottom: 2rem;
+}
+
+.tabButton {
+  padding: 0.8rem 1.5rem;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s;
+}
+
+.tabButton:hover {
+  color: #4a6fe9;
+}
+
+.activeTab {
+  color: #4a6fe9;
+}
+
+.activeTab::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #4a6fe9;
+}
+
+/* Filter controls */
+.filterControls {
+  margin-bottom: 2rem;
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.searchBar {
+  margin-bottom: 1rem;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.8rem 1.2rem;
+  border: 1px solid #e4e7eb;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: white;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.searchInput:focus {
+  border-color: #4a6fe9;
+}
+
+.filtersRow {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.filterSelect {
+  padding: 0.8rem 1.2rem;
+  border: 1px solid #e4e7eb;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: white;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  flex: 1;
+  min-width: 150px;
+}
+
+.filterSelect:focus {
+  border-color: #4a6fe9;
+}
+
+/* Resource grid */
+.resourcesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+.resourceCard {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.resourceCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.resourceImageWrapper {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.resourceImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.resourceCard:hover .resourceImage {
+  transform: scale(1.05);
+}
+
+.resourceBadges {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.difficultyBadge, .categoryBadge {
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.categoryBadge {
+  background-color: #4a6fe9;
+}
+
+.resourceContent {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.resourceTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+}
+
+.resourceMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.resourceSubject, .resourceGrade {
+  padding: 0.3rem 0.8rem;
+  background-color: #f0f4ff;
+  color: #4a6fe9;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.resourceSummary {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.resourceFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.resourceDuration {
+  font-size: 0.85rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.viewDetailsButton {
+  padding: 0.5rem 1rem;
+  background-color: #f0f4ff;
+  color: #4a6fe9;
+  border: 1px solid #e9eeff;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.viewDetailsButton:hover {
+  background-color: #e9eeff;
+}
+
+/* Resource detail view */
+.resourceDetailContainer {
+  margin-bottom: 2rem;
+}
+
+.backButton {
+  background: none;
+  border: none;
+  color: #4a6fe9;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+
+.backButton:hover {
+  color: #2e49d3;
+}
+
+.resourceDetailCard {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.resourceDetailHeader {
+  padding: 2rem;
+  border-bottom: 1px solid #e4e7eb;
+}
+
+.resourceHeaderContent {
+  max-width: 800px;
+}
+
+.resourceDetailTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.resourceDetailMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.resourceSubject, .resourceGrade, .resourceStrand, 
+.resourceDifficulty, .resourceCategory, .resourceDuration {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.resourceSubject, .resourceGrade, .resourceStrand {
+  background-color: #f0f4ff;
+  color: #4a6fe9;
+}
+
+.resourceDifficulty {
+  color: white;
+}
+
+.resourceCategory {
+  background-color: #e9eeff;
+  color: #4a6fe9;
+}
+
+.resourceDuration {
+  background-color: #f8f9fa;
+  color: #666;
+}
+
+.resourceDetailBody {
+  padding: 0;
+}
+
+.resourceImageContainer {
+  height: 400px;
+  overflow: hidden;
+}
+
+.resourceDetailImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.resourceSections {
+  padding: 2rem;
+}
+
+.resourceSection {
+  margin-bottom: 2rem;
+}
+
+.sectionTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: #4a6fe9;
+}
+
+.resourceDescription {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.outcomesList, .materialsList {
+  list-style-type: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.outcomeItem, .materialItem {
+  padding: 0.8rem 1rem;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  color: #555;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.outcomeItem::before, .materialItem::before {
+  content: '✓';
+  position: absolute;
+  left: 0.8rem;
+  color: #4a6fe9;
+  font-weight: bold;
+}
+
+.startGuide {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.startStep {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 1.5rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.stepNumber {
+  width: 40px;
+  height: 40px;
+  background-color: #4a6fe9;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.stepContent h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.stepContent p {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+}
+
+.resourceActions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.resourceActionButton, .resourceActionButtonPrimary {
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex: 1;
+  min-width: 200px;
+  text-align: center;
+}
+
+.resourceActionButton {
+  background-color: #f0f4ff;
+  color: #4a6fe9;
+  border: 1px solid #e9eeff;
+}
+
+.resourceActionButton:hover {
+  background-color: #e9eeff;
+}
+
+.resourceActionButtonPrimary {
+  background-color: #4a6fe9;
+  color: white;
+  border: none;
+}
+
+.resourceActionButtonPrimary:hover {
+  background-color: #3a5fd9;
+}
+
+/* Curriculum guides section */
+.guidesContainer {
+  padding: 1rem 0;
+}
+
+.sectionDescription {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.guidesList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.guideCard {
+  background-color: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.guideCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+}
+
+.guideIcon {
+  font-size: 2rem;
+  color: #4a6fe9;
+  background-color: #f0f4ff;
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.guideContent {
+  flex: 1;
+}
+
+.guideTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.guideMeta {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.guideSubject, .guideGrade {
+  padding: 0.3rem 0.8rem;
+  background-color: #f0f4ff;
+  color: #4a6fe9;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.guideDescription {
+  font-size: 0.95rem;
+  color: #666;
+  margin: 0;
+}
+
+.guideDownloadButton {
+  padding: 0.7rem 1.3rem;
+  background-color: #4a6fe9;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
+
+.guideDownloadButton:hover {
+  background-color: #3a5fd9;
+}
+
+/* No resources message */
+.noResourcesMessage {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  color: #666;
+}
+
+.noResourcesIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.noResourcesMessage h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.noResourcesMessage p {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .resourceDetailBody {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .cbcResourcesContainer {
+    padding: 1.5rem;
+  }
+  
+  .cbcResourcesTitle {
+    font-size: 2rem;
+  }
+  
+  .resourcesGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .outcomesList, .materialsList {
+    grid-template-columns: 1fr;
+  }
+  
+  .startGuide {
+    grid-template-columns: 1fr;
+  }
+  
+  .guideCard {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .guideContent {
+    width: 100%;
+  }
+  
+  .guideMeta {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .cbcTabs {
+    flex-direction: column;
+    border: none;
+  }
+  
+  .tabButton {
+    border-bottom: 1px solid #e4e7eb;
+    text-align: left;
+  }
+  
+  .activeTab::after {
+    display: none;
+  }
+  
+  .resourceDetailMeta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .resourceActions {
+    flex-direction: column;
+  }
+} 

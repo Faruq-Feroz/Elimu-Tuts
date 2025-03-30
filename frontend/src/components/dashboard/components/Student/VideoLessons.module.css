@@ -1,0 +1,705 @@
+/* VideoLessons.module.css */
+.videoLessonsContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  color: #333;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Header Section */
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #7f8c8d;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Navigation Tabs */
+.navTabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
+}
+
+.tabButton {
+  padding: 10px 20px;
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #7f8c8d;
+  transition: all 0.3s ease;
+}
+
+.tabButton:hover {
+  background-color: #f5f5f5;
+  color: #2c3e50;
+}
+
+.activeTab {
+  background-color: #3498db;
+  color: white;
+  font-weight: 500;
+}
+
+.activeTab:hover {
+  background-color: #2980b9;
+  color: white;
+}
+
+/* Video Player Section */
+.videoPlayerSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 30px;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.videoPlayerWrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.videoPlayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+.videoInfoPanel {
+  padding: 15px 0;
+}
+
+.videoTitleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.videoTitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0;
+  flex: 1;
+}
+
+.bookmarkButton {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #bdc3c7;
+  transition: color 0.3s ease;
+  padding: 0 10px;
+}
+
+.bookmarkButton:hover {
+  color: #f39c12;
+}
+
+.bookmarked {
+  color: #f39c12;
+}
+
+.videoMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.subjectTag, .gradeTag, .durationTag {
+  font-size: 0.9rem;
+  padding: 5px 12px;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.subjectTag {
+  background-color: #3498db;
+  color: white;
+}
+
+.gradeTag {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.durationTag {
+  background-color: #f39c12;
+  color: white;
+}
+
+.videoDescription {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.teacherInfo {
+  font-size: 0.95rem;
+  color: #7f8c8d;
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.videoActions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.quizButton {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.quizButton:hover {
+  background-color: #2980b9;
+}
+
+/* Quiz Section */
+.quizSection {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.quizTitle {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.quizQuestions {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.quizQuestion {
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  border: 1px solid #eaeaea;
+}
+
+.questionText {
+  font-size: 1.1rem;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.questionNumber {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  background-color: #3498db;
+  color: white;
+  border-radius: 50%;
+  margin-right: 10px;
+  font-size: 0.9rem;
+}
+
+.questionOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.optionLabel {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.optionLabel:hover {
+  background-color: #edf2f7;
+}
+
+.optionInput {
+  margin-right: 10px;
+}
+
+.optionText {
+  font-size: 1rem;
+}
+
+.submitQuizButton {
+  margin-top: 20px;
+  padding: 12px 25px;
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  align-self: center;
+}
+
+.submitQuizButton:hover {
+  background-color: #27ae60;
+}
+
+.submitQuizButton:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+.quizResults {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.quizScore {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.quizScore h4 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.scoreBar {
+  height: 20px;
+  background-color: #ecf0f1;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 300px;
+}
+
+.scoreBarFill {
+  height: 100%;
+  background-color: #2ecc71;
+  border-radius: 10px;
+  transition: width 1s ease-in-out;
+}
+
+.quizAnswers {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.quizAnswerReview {
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+}
+
+.correct {
+  border-left: 5px solid #2ecc71;
+}
+
+.incorrect {
+  border-left: 5px solid #e74c3c;
+}
+
+.quizQuestion {
+  font-size: 1.1rem;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.yourAnswer, .correctAnswer {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.correctAnswer {
+  font-weight: 500;
+  color: #2ecc71;
+}
+
+.retakeButton {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  align-self: center;
+}
+
+.retakeButton:hover {
+  background-color: #2980b9;
+}
+
+/* Filters Section */
+.filtersSection {
+  margin-bottom: 30px;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.searchBar {
+  margin-bottom: 20px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 12px 20px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.searchInput:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.filterControls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+}
+
+.filterSelect {
+  flex: 1;
+  min-width: 150px;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  background-color: white;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.filterSelect:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.resetButton {
+  padding: 10px 20px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.resetButton:hover {
+  background-color: #c0392b;
+}
+
+/* Playlists Grid */
+.playlistsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.playlistCard {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.playlistCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.playlistName {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.playlistDescription {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  margin-bottom: 15px;
+  flex-grow: 1;
+}
+
+.playlistCount {
+  font-size: 0.8rem;
+  color: #3498db;
+  font-weight: 500;
+}
+
+/* History Header */
+.historyHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 0 10px;
+}
+
+.historyHeader h3 {
+  font-size: 1.3rem;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.clearHistoryButton {
+  padding: 8px 15px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+.clearHistoryButton:hover {
+  background-color: #c0392b;
+}
+
+/* Videos Grid */
+.videosGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.videoCard {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.videoCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.thumbnailContainer {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+}
+
+.thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.videoCard:hover .thumbnail {
+  transform: scale(1.05);
+}
+
+.duration {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.bookmarkIcon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #f39c12;
+  font-size: 1.2rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.videoCardContent {
+  padding: 15px;
+}
+
+.videoCardTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #2c3e50;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 2.8em;
+}
+
+.videoCardMeta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.videoCardSubject, .videoCardGrade {
+  font-size: 0.8rem;
+  padding: 3px 8px;
+  border-radius: 4px;
+  color: white;
+}
+
+.videoCardSubject {
+  background-color: #3498db;
+}
+
+.videoCardGrade {
+  background-color: #2ecc71;
+}
+
+.videoCardTeacher {
+  font-size: 0.85rem;
+  color: #7f8c8d;
+  margin-top: 5px;
+}
+
+.lastWatched {
+  font-size: 0.8rem;
+  color: #95a5a6;
+  margin-top: 10px;
+  font-style: italic;
+}
+
+/* No Results Message */
+.noResults {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.noResults h3 {
+  font-size: 1.4rem;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.noResults p {
+  color: #7f8c8d;
+  margin-bottom: 20px;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .videoPlayerSection {
+    flex-direction: row;
+  }
+  
+  .videoPlayerWrapper {
+    flex: 2;
+  }
+  
+  .videoInfoPanel {
+    flex: 1;
+    padding: 0 0 0 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .filterControls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .filterSelect, .resetButton {
+    width: 100%;
+  }
+  
+  .videoTitle {
+    font-size: 1.5rem;
+  }
+  
+  .navTabs {
+    justify-content: center;
+  }
+  
+  .tabButton {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .videosGrid, .playlistsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+  }
+} 

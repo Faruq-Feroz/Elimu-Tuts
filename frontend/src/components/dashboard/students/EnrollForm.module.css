@@ -41,6 +41,13 @@
   margin-bottom: 0.5rem;
   color: #4a5568;
   font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.inputIcon {
+  margin-right: 8px;
+  color: #4299e1;
 }
 
 .formGroup input {
@@ -71,6 +78,13 @@
   background-color: #fff5f5;
   border-radius: 4px;
   font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+}
+
+.errorIcon {
+  margin-right: 8px;
+  flex-shrink: 0;
 }
 
 .buttons {
@@ -108,7 +122,163 @@
   background-color: #3182ce;
 }
 
-.submitButton:disabled {
+.submitButton:disabled,
+.cancelButton:disabled {
   background-color: #a0aec0;
   cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Payment status styles */
+.statusMessage {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.spinnerContainer {
+  margin: 0 auto 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.spinnerIcon {
+  font-size: 3rem;
+  color: #4299e1;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.statusMessage h3 {
+  color: #2c5282;
+  margin-bottom: 1rem;
+}
+
+.statusMessage p {
+  color: #4a5568;
+  margin-bottom: 1.5rem;
+}
+
+.infoBox {
+  background-color: #ebf8ff;
+  padding: 1rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: flex-start;
+  text-align: left;
+  margin-top: 1rem;
+}
+
+.infoIcon {
+  color: #4299e1;
+  font-size: 1.25rem;
+  margin-right: 10px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.infoBox p {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+/* Success message styles */
+.successMessage {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.successIcon {
+  font-size: 3rem;
+  color: #48bb78;
+  margin-bottom: 1rem;
+}
+
+.successButton {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #48bb78;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.successButton:hover {
+  background-color: #38a169;
+}
+
+/* Error message styles */
+.errorMessage {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.errorMessage .errorIcon {
+  font-size: 3rem;
+  color: #e53e3e;
+  margin-bottom: 1rem;
+}
+
+.errorMessage p {
+  color: #4a5568;
+  margin-bottom: 1.5rem;
+}
+
+.retryButton {
+  padding: 0.75rem 1.5rem;
+  background-color: #4299e1;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.retryButton:hover {
+  background-color: #3182ce;
+}
+
+.refreshButton {
+  padding: 0.75rem 1.5rem;
+  background-color: #4299e1;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 1rem;
+}
+
+.refreshButton:hover {
+  background-color: #3182ce;
+}
+
+.statusError {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: #fff5f5;
+  border-radius: 4px;
+  color: #e53e3e;
+  display: flex;
+  align-items: flex-start;
+}
+
+.statusError .errorIcon {
+  margin-right: 8px;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.statusError p {
+  margin: 0;
+  color: #e53e3e;
+  font-size: 0.875rem;
 } 

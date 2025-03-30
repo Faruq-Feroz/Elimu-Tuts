@@ -1,0 +1,554 @@
+/* Main container styles */
+.assignmentsContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.assignmentsHeader {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.assignmentsTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.assignmentsSubtitle {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Search and filter controls */
+.controlsSection {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.searchBar {
+  flex: 2;
+  min-width: 250px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.8rem 1.2rem;
+  border: 1px solid #e4e7eb;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: white;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.searchInput:focus {
+  border-color: #4a6fe9;
+}
+
+.filterControls {
+  flex: 1;
+  min-width: 200px;
+}
+
+.filterSelect {
+  width: 100%;
+  padding: 0.8rem 1.2rem;
+  border: 1px solid #e4e7eb;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: white;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.filterSelect:focus {
+  border-color: #4a6fe9;
+}
+
+/* Tabs */
+.tabsContainer {
+  display: flex;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #e4e7eb;
+}
+
+.tabButton {
+  padding: 0.8rem 1.5rem;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: #666;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s;
+}
+
+.tabButton:hover {
+  color: #4a6fe9;
+}
+
+.activeTab {
+  color: #4a6fe9;
+  font-weight: 600;
+}
+
+.activeTab::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #4a6fe9;
+  border-radius: 3px 3px 0 0;
+}
+
+/* Assignment cards */
+.assignmentsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+.assignmentCard {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.assignmentCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.assignmentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.subjectBadge {
+  background-color: #e9eeff;
+  color: #4a6fe9;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.statusBadge {
+  padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.pendingBadge {
+  background-color: #e9eeff;
+  color: #4a6fe9;
+}
+
+.completedBadge {
+  background-color: #d4edda;
+  color: #28a745;
+}
+
+.overdueBadge {
+  background-color: #f8d7da;
+  color: #dc3545;
+}
+
+.assignmentCardTitle {
+  font-size: 1.1rem;
+  margin-bottom: 1.2rem;
+  color: #333;
+  line-height: 1.4;
+  min-height: 3rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.assignmentCardDetails {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.detailItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #666;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.detailIcon {
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.detailText {
+  font-weight: 500;
+}
+
+.overdueText {
+  color: #dc3545;
+  font-weight: 600;
+}
+
+.urgentText {
+  color: #fd7e14;
+  font-weight: 600;
+}
+
+.gradeIndicator {
+  background-color: #f8f9fa;
+  padding: 0.7rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gradeLabel {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.gradeValue {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.assignmentCardFooter {
+  text-align: center;
+}
+
+.viewDetailsButton {
+  width: 100%;
+  padding: 0.7rem 0;
+  background-color: #f0f4ff;
+  color: #4a6fe9;
+  border: 1px solid #e9eeff;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.viewDetailsButton:hover {
+  background-color: #e9eeff;
+}
+
+/* No assignments message */
+.noAssignmentsMessage {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  color: #666;
+}
+
+.noAssignmentsIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.noAssignmentsMessage h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.noAssignmentsMessage p {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Assignment details view */
+.assignmentDetailsContainer {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.assignmentDetailsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.backButton {
+  background: none;
+  border: none;
+  color: #4a6fe9;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.backButton:hover {
+  color: #2e49d3;
+}
+
+.assignmentDetailsCard {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+}
+
+.assignmentTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+}
+
+.assignmentMeta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.metaItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.metaLabel {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 0.3rem;
+}
+
+.metaValue {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.assignmentDescription,
+.assignmentResources,
+.assignmentFeedback,
+.submissionSection {
+  margin-bottom: 2rem;
+}
+
+.assignmentDescription h2,
+.assignmentResources h2,
+.assignmentFeedback h2,
+.submissionSection h2 {
+  font-size: 1.3rem;
+  color: #333;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.assignmentDescription p,
+.assignmentFeedback p {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+.resourcesList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.resourceLink {
+  display: flex;
+  align-items: center;
+  background-color: #f8f9fa;
+  padding: 0.8rem 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.2s;
+}
+
+.resourceLink:hover {
+  background-color: #e9eeff;
+}
+
+.resourceIcon {
+  font-size: 1.3rem;
+  margin-right: 0.5rem;
+}
+
+.resourceName {
+  font-weight: 500;
+}
+
+.resourceType {
+  color: #666;
+  font-size: 0.85rem;
+  margin-left: 0.3rem;
+}
+
+.assignmentFeedback {
+  background-color: #f0f4ff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #4a6fe9;
+}
+
+.dropzone {
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.dropzone:hover {
+  border-color: #4a6fe9;
+  background-color: #f8f9fa;
+}
+
+.dropzoneIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #666;
+}
+
+.dropzone p {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.supportedFormats {
+  display: block;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.submissionControls {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.uploadButton,
+.submitButton {
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.uploadButton {
+  background-color: #f0f4ff;
+  color: #4a6fe9;
+  border: 1px solid #e9eeff;
+  flex: 1;
+}
+
+.uploadButton:hover {
+  background-color: #e9eeff;
+}
+
+.submitButton {
+  background-color: #4a6fe9;
+  color: white;
+  border: none;
+  flex: 2;
+}
+
+.submitButton:hover {
+  background-color: #2e49d3;
+}
+
+.submitButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.overdueMessage {
+  background-color: #fff3cd;
+  padding: 1rem;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: #856404;
+}
+
+.overdueIcon {
+  font-size: 1.3rem;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .assignmentsContainer,
+  .assignmentDetailsContainer {
+    padding: 1.5rem;
+  }
+  
+  .assignmentsList {
+    grid-template-columns: 1fr;
+  }
+  
+  .controlsSection {
+    flex-direction: column;
+  }
+  
+  .tabsContainer {
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+  
+  .submissionControls {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .assignmentMeta {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .assignmentTitle {
+    font-size: 1.5rem;
+  }
+}

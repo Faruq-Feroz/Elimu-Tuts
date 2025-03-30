@@ -1,0 +1,487 @@
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.titleArea h1 {
+  font-size: 1.8rem;
+  color: #333;
+  margin: 0;
+}
+
+.subheader {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0.3rem 0 0 0;
+}
+
+.message {
+  padding: 0.8rem 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.settingsBody {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.tabs {
+  background-color: #f8f9fa;
+  padding: 1.5rem 0;
+  border-right: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tabButton {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.8rem 1.5rem;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 0.95rem;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-left: 3px solid transparent;
+}
+
+.tabButton:hover {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.tabButton.active {
+  background-color: #e3f2fd;
+  color: #3498db;
+  border-left-color: #3498db;
+}
+
+.tabContent {
+  padding: 2rem;
+}
+
+.form h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.3rem;
+  color: #333;
+}
+
+.form > p {
+  margin: 0 0 2rem 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.form h3 {
+  margin: 2rem 0 1rem 0;
+  font-size: 1.1rem;
+  color: #333;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.formGroup {
+  margin-bottom: 1rem;
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #444;
+  font-size: 0.9rem;
+}
+
+.formGroup input, 
+.formGroup select, 
+.formGroup textarea {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+.formGroup input:focus, 
+.formGroup select:focus, 
+.formGroup textarea:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+
+.saveButton {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.saveButton:hover {
+  background-color: #2980b9;
+}
+
+.saveButton:disabled {
+  background-color: #a0cfee;
+  cursor: not-allowed;
+}
+
+.profileHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 2rem;
+}
+
+.profileImageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.profileImage {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #f0f0f0;
+}
+
+.changeImageButton {
+  background-color: transparent;
+  border: 1px solid #ddd;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.changeImageButton:hover {
+  background-color: #f8f9fa;
+  border-color: #ccc;
+}
+
+.profileActions {
+  margin-left: auto;
+}
+
+.viewProfileButton {
+  background-color: transparent;
+  border: 1px solid #3498db;
+  color: #3498db;
+  padding: 0.7rem 1.2rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.viewProfileButton:hover {
+  background-color: #e3f2fd;
+}
+
+.securityOptions,
+.notificationOptions,
+.dangerZone {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.securityOption,
+.notificationOption,
+.dangerOption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.securityOption:last-child,
+.notificationOption:last-child,
+.dangerOption:last-child {
+  border-bottom: none;
+}
+
+.securityOption h4,
+.notificationOption h4,
+.dangerOption h4 {
+  margin: 0 0 0.3rem 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.securityOption p,
+.notificationOption p,
+.dangerOption p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.enableButton,
+.viewButton {
+  background-color: transparent;
+  border: 1px solid #3498db;
+  color: #3498db;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.enableButton:hover,
+.viewButton:hover {
+  background-color: #e3f2fd;
+}
+
+.dangerButton {
+  background-color: transparent;
+  border: 1px solid #e74c3c;
+  color: #e74c3c;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.dangerButton:hover {
+  background-color: #ffebee;
+}
+
+.dangerZone {
+  background-color: #fff8f8;
+  border: 1px solid #ffcccc;
+}
+
+.dangerZone h3 {
+  color: #d32f2f;
+  margin-bottom: 1rem;
+}
+
+.logoutSection {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.logoutButton {
+  padding: 0.75rem 1.5rem;
+  background-color: #f5f5f5;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logoutButton:hover {
+  background-color: #e0e0e0;
+}
+
+.logoutButton svg {
+  font-size: 1.2rem;
+}
+
+/* Toggle switch styles */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 24px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #3498db;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #3498db;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+/* Billing section styles */
+.billingSection {
+  margin-bottom: 2.5rem;
+}
+
+.emptyMessage {
+  padding: 1.5rem;
+  text-align: center;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  color: #777;
+  margin: 1rem 0;
+}
+
+.addButton {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: block;
+  margin: 1rem 0;
+}
+
+.addButton:hover {
+  background-color: #2980b9;
+}
+
+.billingActions {
+  margin-top: 1.5rem;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .settingsBody {
+    grid-template-columns: 1fr;
+  }
+  
+  .tabs {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 0.5rem;
+    border-right: none;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .tabButton {
+    padding: 0.6rem 1rem;
+    border-left: none;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+  }
+  
+  .tabButton.active {
+    border-left-color: transparent;
+    border-bottom-color: #3498db;
+  }
+  
+  .tabContent {
+    padding: 1rem;
+  }
+  
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .profileHeader {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .profileActions {
+    margin-left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+} 

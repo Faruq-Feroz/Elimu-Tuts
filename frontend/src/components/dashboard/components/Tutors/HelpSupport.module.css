@@ -1,0 +1,516 @@
+.helpContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #333;
+}
+
+.helpTitle {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #2c3e50;
+  text-align: center;
+}
+
+/* Search Bar */
+.searchContainer {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.searchIcon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #7f8c8d;
+}
+
+/* Search Results */
+.searchResults {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.searchResults h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #2c3e50;
+}
+
+.noResults {
+  padding: 1rem;
+  text-align: center;
+  color: #7f8c8d;
+}
+
+/* Tabs Navigation */
+.tabsContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.tabButton {
+  flex: 1;
+  padding: 1rem;
+  border: none;
+  background: none;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #7f8c8d;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.tabButton:hover {
+  color: #3498db;
+}
+
+.activeTab {
+  color: #3498db;
+  border-bottom: 3px solid #3498db;
+}
+
+/* FAQs Section */
+.faqsContainer {
+  margin-bottom: 2rem;
+}
+
+.faqsContainer h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: #2c3e50;
+}
+
+.faqCategories {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.faqCategory {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.faqCategory h3 {
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e0e0e0;
+  color: #2c3e50;
+}
+
+.faqItem {
+  margin-bottom: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.faqQuestion {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.faqQuestion:hover {
+  background-color: #f1f1f1;
+}
+
+.faqQuestion h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.faqIcon {
+  margin-right: 0.5rem;
+  color: #3498db;
+}
+
+.faqAnswer {
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-top: 1px solid #e0e0e0;
+}
+
+.faqAnswer p {
+  margin: 0;
+  line-height: 1.5;
+  color: #555;
+}
+
+/* Documentation Section */
+.docsContainer {
+  margin-bottom: 2rem;
+}
+
+.docsContainer h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #2c3e50;
+}
+
+.docsIntro {
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.documentationGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.docCard {
+  display: flex;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+.docCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-color: #3498db;
+}
+
+.docIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #3498db;
+  margin-right: 1rem;
+}
+
+.docContent h3 {
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.docContent p {
+  color: #555;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Contact Support Section */
+.contactContainer {
+  margin-bottom: 2rem;
+}
+
+.contactContainer h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: #2c3e50;
+}
+
+.contactOptions {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.contactOption {
+  padding: 1.5rem;
+  text-align: center;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.contactOption:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.contactIcon {
+  font-size: 2rem;
+  color: #3498db;
+  margin-bottom: 1rem;
+}
+
+.contactOption h3 {
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.contactOption p {
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.contactLink {
+  display: inline-block;
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contactLink:hover {
+  text-decoration: underline;
+}
+
+.chatButton {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.chatButton:hover {
+  background-color: #2980b9;
+}
+
+.supportTicket {
+  background-color: #f8f9fa;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.supportTicket h3 {
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.supportTicket p {
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+.ticketForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.formGroup input,
+.formGroup textarea {
+  padding: 0.75rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.submitButton {
+  padding: 0.75rem;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: #2980b9;
+}
+
+.ticketSuccess {
+  text-align: center;
+  padding: 2rem;
+}
+
+.successIcon {
+  font-size: 3rem;
+  color: #2ecc71;
+  margin-bottom: 1rem;
+}
+
+.ticketSuccess h4 {
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.ticketSuccess p {
+  color: #555;
+}
+
+/* Troubleshooting Section */
+.troubleshootingContainer {
+  margin-bottom: 2rem;
+}
+
+.troubleshootingContainer h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #2c3e50;
+}
+
+.troubleshootingIntro {
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.troubleshootingList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.troubleshootingItem {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+.troubleshootingItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.troubleIcon {
+  font-size: 1.5rem;
+  color: #e74c3c;
+  margin-right: 1rem;
+}
+
+.troubleContent h3 {
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.troubleContent p {
+  color: #555;
+  margin: 0;
+}
+
+.systemStatus {
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.systemStatus h3 {
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.statusIndicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.statusDot {
+  width: 12px;
+  height: 12px;
+  background-color: #2ecc71;
+  border-radius: 50%;
+}
+
+.statusIndicator p {
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.statusMessage {
+  color: #555;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .helpContainer {
+    padding: 1rem;
+  }
+  
+  .tabsContainer {
+    flex-wrap: wrap;
+  }
+  
+  .tabButton {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .faqCategories {
+    grid-template-columns: 1fr;
+  }
+  
+  .documentationGrid,
+  .contactOptions,
+  .troubleshootingList {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .helpTitle {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .searchInput {
+    padding: 0.75rem 0.75rem 0.75rem 2.5rem;
+  }
+  
+  .tabButton {
+    font-size: 0.8rem;
+  }
+} 

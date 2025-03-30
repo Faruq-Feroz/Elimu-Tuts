@@ -1,0 +1,592 @@
+/* Main container styles */
+.gradesContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.gradesHeader {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.gradesTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.gradesSubtitle {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Grades overview styles */
+.gradesOverview {
+  margin-bottom: 2rem;
+}
+
+.overviewHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.overviewHeader h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.termSelector {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.termSelector label {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.termSelect {
+  padding: 0.5rem 1rem;
+  border: 1px solid #e4e7eb;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: white;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.termSelect:focus {
+  border-color: #4a6fe9;
+}
+
+/* Stats cards */
+.statsCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.statsCard {
+  background-color: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.statsCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.statsCardHeader {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.statsCardValue {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #4a6fe9;
+}
+
+.statsCardSubtext {
+  font-size: 0.9rem;
+  color: #888;
+  margin-top: 0.5rem;
+}
+
+.distributionCard {
+  grid-column: span 1;
+}
+
+/* Grade distribution chart */
+.gradeDistribution {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.doughnutChart {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #f1f1f1;
+  overflow: hidden;
+}
+
+.doughnutCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 60%;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.doughnutSegment {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  transform-origin: right center;
+  background-color: #ccc;
+}
+
+.gradeLegend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.legendColor {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+}
+
+.legendGrade {
+  font-weight: 600;
+}
+
+.legendCount {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Course search */
+.courseSearch {
+  margin-bottom: 2rem;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.8rem 1.2rem;
+  border: 1px solid #e4e7eb;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: white;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.searchInput:focus {
+  border-color: #4a6fe9;
+}
+
+/* Course list */
+.coursesList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.courseCard {
+  background-color: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  justify-content: space-between;
+}
+
+.courseCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.courseInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  max-width: 70%;
+}
+
+.courseName {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.courseSubInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.courseCode {
+  font-size: 0.9rem;
+  color: #4a6fe9;
+  font-weight: 600;
+}
+
+.courseInstructor {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.courseGrade {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.gradeCircle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: white;
+}
+
+.scoreText {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #666;
+}
+
+/* No courses message */
+.noCourses {
+  grid-column: 1 / -1;
+  text-align: center;
+  background-color: #f8f9fa;
+  padding: 4rem 2rem;
+  border-radius: 10px;
+  color: #666;
+}
+
+.noCoursesIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.noCourses h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.noCourses p {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Course detail view */
+.backButton {
+  background: none;
+  border: none;
+  color: #4a6fe9;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+
+.backButton:hover {
+  color: #2e49d3;
+}
+
+.courseDetailHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.courseDetailInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.courseDetailName {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.courseDetailMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.courseDetailCode,
+.courseDetailTerm,
+.courseDetailInstructor {
+  font-size: 0.9rem;
+  color: #666;
+  padding: 0.3rem 0.8rem;
+  background-color: #f8f9fa;
+  border-radius: 15px;
+}
+
+.courseDetailCode {
+  color: #4a6fe9;
+  font-weight: 600;
+}
+
+.courseDetailGrade {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.gradeCircleLarge {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+}
+
+.scoreTextLarge {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #666;
+}
+
+/* Grade stats */
+.gradeStats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.statItem {
+  background-color: white;
+  padding: 1.2rem;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.statValue {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #4a6fe9;
+}
+
+/* Assignments section */
+.gradeAssignments {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.sectionTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.gradeItem {
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.gradeItemHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.gradeItemTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.gradeItemTitle h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.gradeItemDate {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.gradeItemScore {
+  text-align: right;
+}
+
+.scoreValue {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.scorePercentage {
+  font-size: 0.9rem;
+  color: #666;
+  margin-left: 0.5rem;
+}
+
+.gradeBar {
+  height: 10px;
+  background-color: #e9ecef;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.gradeBarFill {
+  height: 100%;
+  border-radius: 5px;
+}
+
+.gradeItemFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gradeWeight {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.gradeLetterSmall {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: white;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .statsCards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .distributionCard {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .gradesContainer {
+    padding: 1.5rem;
+  }
+  
+  .gradesTitle {
+    font-size: 2rem;
+  }
+  
+  .coursesList {
+    grid-template-columns: 1fr;
+  }
+  
+  .overviewHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .courseDetailHeader {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .courseDetailMeta {
+    justify-content: center;
+  }
+  
+  .gradeStats {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .statsCards {
+    grid-template-columns: 1fr;
+  }
+  
+  .distributionCard {
+    grid-column: span 1;
+  }
+  
+  .gradeItemHeader {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .gradeItemScore {
+    text-align: left;
+  }
+} 

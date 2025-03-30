@@ -4,6 +4,7 @@
     min-height: 100vh;
     background-color: #f8f9fa;
     font-family: 'Nunito Sans', sans-serif;
+    position: relative; /* Add this to help with positioning */
   }
   
   .mainContent {
@@ -11,6 +12,8 @@
     margin-left: 260px;
     display: flex;
     flex-direction: column;
+    transition: margin-left 0.3s ease; /* Add transition for smoother changes */
+    width: calc(100% - 260px); /* Add this to ensure width calculation is correct */
   }
   
   .contentArea {
@@ -23,6 +26,60 @@
   /* Responsive adjustments */
   @media (max-width: 768px) {
     .mainContent {
-      margin-left: 70px;
+      margin-left: 80px; /* Match exactly with sidebar's collapsed width */
+      width: calc(100% - 80px); /* Update width calculation for tablet */
     }
   }
+  
+  /* For mobile devices */
+  @media (max-width: 480px) {
+    .dashboardContainer {
+      padding: 0;
+      margin: 0;
+      overflow-x: hidden; /* Prevent horizontal scrolling */
+      width: 100%;
+    }
+    
+    .mainContent {
+      margin: 0; 
+      padding: 0;
+      width: 100%;
+      overflow-x: hidden; /* Prevent horizontal scrolling */
+    }
+    
+    .contentArea {
+      padding: 20px 10px;
+      margin: 0;
+      width: 100%; /* Ensure full width */
+      box-sizing: border-box; /* Include padding in width calculation */
+    }
+    
+    /* Center content in mobile view */
+    .contentArea > * {
+      width: 100%;
+      box-sizing: border-box;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    
+    /* Heading styles */
+    .contentArea h1, 
+    .contentArea h2 {
+      padding-left: 35px; /* Use padding instead of margin */
+      margin-left: 0;
+      margin-right: 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    
+    /* First paragraph after header */
+    .contentArea h1 + p,
+    .contentArea h2 + p {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+  }
+
+.componentWrapper {
+  display: none;
+}

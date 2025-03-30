@@ -1,41 +1,314 @@
 /* src/styles/dashboard/HelpSupport.module.css */
-.helpSupport h2 {
-    margin-bottom: 25px;
+/* Help & Support Container */
+.helpContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.helpHeader {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.helpTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.helpSubtitle {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Quick Help Section */
+.quickHelp {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.helpCard {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  padding: 1.8rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.helpCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.helpCardIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #f5f7ff;
+  color: #4a6fe9;
+}
+
+.helpCardTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  color: #333;
+}
+
+.helpCardDescription {
+  color: #666;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.helpButton {
+  padding: 0.8rem 1.5rem;
+  background-color: #4a6fe9;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 100%;
+}
+
+.helpButton:hover {
+  background-color: #3859ca;
+}
+
+.outlineButton {
+  background-color: white;
+  color: #4a6fe9;
+  border: 1px solid #4a6fe9;
+}
+
+.outlineButton:hover {
+  background-color: #f5f7ff;
+}
+
+/* FAQ Section */
+.faqSection {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2.5rem;
+  overflow: hidden;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  padding: 1.5rem;
+  border-bottom: 1px solid #f0f0f0;
+  margin: 0;
+}
+
+.faqList {
+  padding: 1rem 1.5rem;
+}
+
+.faqItem {
+  border-bottom: 1px solid #f0f0f0;
+  padding: 1.2rem 0;
+}
+
+.faqItem:last-child {
+  border-bottom: none;
+}
+
+.faqQuestion {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.5rem 0;
+}
+
+.faqIcon {
+  font-size: 1.2rem;
+  color: #4a6fe9;
+  transition: transform 0.3s;
+}
+
+.faqIconActive {
+  transform: rotate(180deg);
+}
+
+.faqAnswer {
+  color: #666;
+  margin-top: 0.8rem;
+  padding: 0.2rem 0 0.5rem;
+  line-height: 1.6;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease, margin 0.3s ease;
+  opacity: 0;
+}
+
+.faqAnswerActive {
+  max-height: 300px;
+  opacity: 1;
+}
+
+/* Contact Form */
+.contactSection {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2.5rem;
+  overflow: hidden;
+}
+
+.contactForm {
+  padding: 1.5rem;
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+
+.formLabel {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.formInput,
+.formTextarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #e4e7eb;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #333;
+  background-color: white;
+  transition: border-color 0.2s;
+}
+
+.formInput:focus,
+.formTextarea:focus {
+  outline: none;
+  border-color: #4a6fe9;
+}
+
+.formTextarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.submitButton {
+  padding: 0.8rem 1.5rem;
+  background-color: #4a6fe9;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.submitButton:hover {
+  background-color: #3859ca;
+}
+
+/* Support Links */
+.supportLinks {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.linksList {
+  padding: 1rem 1.5rem;
+}
+
+.linkItem {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.linkItem:last-child {
+  border-bottom: none;
+}
+
+.linkIcon {
+  font-size: 1.5rem;
+  color: #4a6fe9;
+  margin-right: 1rem;
+}
+
+.linkContent {
+  flex: 1;
+}
+
+.linkTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 0.3rem 0;
+}
+
+.linkDescription {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.linkButton {
+  padding: 0.6rem 1.2rem;
+  background-color: white;
+  color: #4a6fe9;
+  border: 1px solid #4a6fe9;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.linkButton:hover {
+  background-color: #4a6fe9;
+  color: white;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .helpContainer {
+    padding: 1.5rem;
   }
   
-  .helpOptions {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+  .helpTitle {
+    font-size: 2rem;
   }
   
-  .helpCard {
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 25px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    text-align: center;
+  .quickHelp {
+    grid-template-columns: 1fr;
   }
-  
-  .helpCard h3 {
-    color: #333;
-    margin-top: 0;
-  }
-  
-  .helpCard p {
-    color: #666;
-    margin-bottom: 20px;
-  }
-  
-  .helpCard button {
-    padding: 8px 20px;
-    background-color: #2875ff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .helpCard button:hover {
-    background-color: #1b5fd9;
-  }
+}

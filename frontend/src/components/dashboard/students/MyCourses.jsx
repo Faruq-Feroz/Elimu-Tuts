@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { useCourses } from '../../../context/CourseContext';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
+import axios from 'axios';
 import CourseCard from './CourseCard';
 import styles from './Courses.module.css';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 const MyCourses = () => {
-  const { courses, loading, error, fetchCourses } = useCourses();
+  const [courses, setCourses] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const [filteredCourses, setFilteredCourses] = useState([]);
   const [filters, setFilters] = useState({
     subject: '',
@@ -12,10 +16,43 @@ const MyCourses = () => {
     priceRange: 'all'
   });
 
+  // Reset scroll position when component mounts
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+    
+    // Also reset any parent scrollable elements
+    const parentScrollable = document.querySelector('.contentArea');
+    if (parentScrollable) {
+      parentScrollable.scrollTop = 0;
+    }
+  }, []);
+
+  const fetchCourses = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      // Fetch all courses from the tutor API
+      const response = await axios.get(`${API_URL}/api/tutor/courses`);
+      
+      // Set courses from the response
+      if (response.data) {
+        setCourses(Array.isArray(response.data) ? response.data : []);
+      } else {
+        setCourses([]);
+      }
+    } catch (err) {
+      console.error('Error fetching courses:', err);
+      setError('Failed to load courses. Please try again.');
+      setCourses([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   // Fetch courses only once when component mounts
   useEffect(() => {
     fetchCourses();
-  }, []); // Remove fetchCourses from dependencies
+  }, []);
 
   // Update filtered courses whenever courses or filters change
   useEffect(() => {

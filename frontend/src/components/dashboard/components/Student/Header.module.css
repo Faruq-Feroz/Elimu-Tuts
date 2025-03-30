@@ -238,18 +238,24 @@
     border-color: var(--gray-800);
   }
   
-  /* Notifications dropdown */
-  .notificationsDropdown {
+  /* Notifications */
+  .notificationBell {
+    position: relative;
+  }
+  
+  .notificationsPopup {
     position: absolute;
-    top: calc(100% + 10px);
-    right: -80px;
+    top: 45px;
+    right: 0;
     background-color: var(--white);
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-lg);
     width: 320px;
+    max-width: calc(100vw - 40px);
+    max-height: 450px;
+    overflow-y: auto;
     border: 1px solid var(--gray-200);
-    z-index: 100;
-    overflow: hidden;
+    z-index: 999;
   }
   
   .notificationHeader {
@@ -348,11 +354,10 @@
     display: flex;
     align-items: center;
     cursor: pointer;
-    position: relative;
-    margin-left: 8px;
-    padding: 6px 8px;
+    padding: 6px;
     border-radius: var(--border-radius-sm);
     transition: var(--transition);
+    position: relative;
   }
   
   .userMenu:hover {
@@ -564,19 +569,107 @@
   }
   
   @media (max-width: 576px) {
-    .userDropdown {
-      width: 220px;
-      right: -80px;
+    .dashboardHeader {
+      padding: 0 10px 0 0;
     }
     
-    .notificationsDropdown {
-      width: 280px;
-      right: -100px;
+    .headerLeft {
+      margin-left: 0;
+      padding-left: 0;
+    }
+    
+    .headerLeft h1 {
+      font-size: 1.1rem;
+    }
+    
+    .mobileTitle {
+      max-width: 150px;
+    }
+    
+    .headerActions {
+      gap: 2px;
+    }
+    
+    .userMenu {
+      padding: 2px;
+    }
+    
+    .userDropdown {
+      width: 220px;
+      right: -20px;
+    }
+    
+    .notificationsPopup {
+      right: 10px;
+      width: calc(100vw - 20px);
+      top: 65px;
     }
     
     .iconButton {
-      width: 34px;
-      height: 34px;
-      font-size: 1rem;
+      width: 32px;
+      height: 32px;
+      font-size: 0.9rem;
     }
+    
+    .mobileNotifications {
+      right: 10px;
+      width: calc(100vw - 20px);
+      max-height: 70vh;
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .headerActions {
+      gap: 0;
+    }
+    
+    .iconButton {
+      width: 28px;
+      height: 28px;
+      font-size: 0.85rem;
+    }
+  }
+  
+  /* Additional mobile styles */
+  @media (max-width: 380px) {
+    .headerActions {
+      gap: 0;
+    }
+    
+    .iconButton {
+      width: 28px;
+      height: 28px;
+      font-size: 0.85rem;
+      margin: 0 1px;
+    }
+    
+    .dashboardHeader {
+      padding: 0 5px;
+    }
+    
+    .headerLeft h1 {
+      font-size: 1rem;
+      max-width: 120px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+  
+  /* Mobile title style */
+  .mobileTitle {
+    padding-left: 40px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* Mobile notification styles */
+  .mobileNotifications {
+    position: fixed;
+    top: 70px;
+    right: 10px;
+    left: auto;
+    max-width: 90vw;
+    width: 300px;
   }

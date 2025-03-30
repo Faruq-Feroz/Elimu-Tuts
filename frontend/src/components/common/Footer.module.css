@@ -1,304 +1,716 @@
 .footer {
-    background-color: #1a237e;
-    color: #fff;
+  background: linear-gradient(135deg, #111827, #1e293b);
+  color: #fff;
+  padding: 5rem 0 2rem;
+  margin-top: auto;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Fixed Action Buttons - only mail and whatsapp */
+.fixedButtonsGroup {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 100;
+}
+
+.mailButton,
+.whatsappButton {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mailButton {
+  background: #2196F3;
+}
+
+.whatsappButton {
+  background: #25D366;
+  text-decoration: none;
+}
+
+.mailButton:hover,
+.whatsappButton:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+.mailButton:focus,
+.whatsappButton:focus {
+  outline: none;
+  color: white;
+}
+
+/* Scroll to top button - at the bottom of the footer but aligned right */
+.scrollTopContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+  padding-right: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.scrollTopButton {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: #FF5722;
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.scrollTopButton:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+.scrollTopButton:focus {
+  outline: none;
+}
+
+/* Contact Modal Styling */
+.contactModal :global(.modal-content) {
+  background: linear-gradient(135deg, #1e293b, #111827);
+  border: none;
+  border-radius: 20px;
+  color: white;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.contactModalHeader {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+}
+
+.contactModalHeader :global(.modal-title) {
+  font-weight: 700;
+  font-size: 1.5rem;
+  background: linear-gradient(90deg, #FF5722, #FF9800);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.contactModalHeader :global(.btn-close) {
+  color: white;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.contactModalHeader :global(.btn-close):hover {
+  opacity: 1;
+  transform: rotate(90deg);
+}
+
+.contactModalBody {
+  padding: 1.5rem;
+}
+
+.formIcon {
+  color: #FF5722;
+  margin-right: 8px;
+}
+
+.contactInput,
+.contactTextarea {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  border-radius: 12px;
+  padding: 12px 15px;
+  transition: all 0.3s ease;
+}
+
+.contactInput:focus,
+.contactTextarea:focus {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #FF5722;
+  box-shadow: 0 0 0 3px rgba(255, 87, 34, 0.2);
+  color: white;
+}
+
+.contactInput::placeholder,
+.contactTextarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.contactSubmitButton {
+  background: linear-gradient(135deg, #FF5722, #FF9800);
+  border: none;
+  border-radius: 50px;
+  padding: 12px 25px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(255, 87, 34, 0.3);
+}
+
+.contactSubmitButton:hover {
+  background: linear-gradient(135deg, #FF9800, #FF5722);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 87, 34, 0.4);
+}
+
+.footerPattern {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 250px;
+  background-image: radial-gradient(#FF5722 2px, transparent 2px);
+  background-size: 30px 30px;
+  opacity: 0.1;
+  z-index: 0;
+  pointer-events: none;
+  transform: rotate(45deg);
+}
+
+.logoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.logoWrapper {
+  display: inline-block;
+  padding: 0.5rem 0;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.logoWrapper::after {
+  content: '';
+  position: absolute;
+  width: 30%;
+  height: 3px;
+  background: linear-gradient(90deg, #FF5722, transparent);
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+.logoWrapper:hover::after {
+  width: 100%;
+}
+
+.submitSuccess {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 50px;
+  text-align: center;
+  font-weight: 500;
+  color: #2eca8b;
+  border: 1px solid rgba(46, 202, 139, 0.3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #FF5722, #2196F3, #9C27B0);
+}
+
+.footer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+  opacity: 0.6;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: #fff;
+  letter-spacing: 0.5px;
+  background: linear-gradient(90deg, #FF5722, #FF9800);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 2px 10px rgba(255, 87, 34, 0.3);
+}
+
+.motto {
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-left: 15px;
+  border-left: 3px solid #FF5722;
+  font-size: 1.1rem;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #FF9800;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.titleIcon {
+  margin-right: 10px;
+  font-size: 1.3rem;
+  color: #2196F3;
+}
+
+.social {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.socialLink {
+  color: #fff;
+  font-size: 1.4rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.socialLink::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #FF5722, #2196F3);
+  transition: transform 0.5s ease;
+  transform: translateY(100%);
+  z-index: -1;
+}
+
+.socialLink:hover {
+  color: #fff;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.socialLink:hover::before {
+  transform: translateY(0);
+}
+
+.linksList {
+  list-style: none;
+  font-size: 0.95rem;
+  padding: 0;
+  margin: 0;
+}
+
+.linksList li {
+  margin-bottom: 1rem;
+  position: relative;
+  padding-left: 18px;
+  transition: all 0.3s ease;
+}
+
+.linksList li::before {
+  content: '➤';
+  position: absolute;
+  left: 0;
+  color: #FF5722;
+  transition: transform 0.3s ease;
+  font-size: 0.8rem;
+}
+
+.linksList li:hover::before {
+  transform: translateX(3px);
+  color: #2196F3;
+}
+
+.linksList a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  position: relative;
+}
+
+.linksList a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: #2196F3;
+  transition: width 0.3s ease;
+}
+
+.linksList a:hover {
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.linksList a:hover::after {
+  width: 100%;
+}
+
+.newsletterText {
+  margin-bottom: 1.2rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.newsletterForm {
+  display: flex;
+  gap: 0;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.newsletterInput {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  padding: 0.8rem 1.2rem;
+  border-radius: 50px 0 0 50px;
+  width: 100%;
+  border-right: none;
+  font-size: 0.95rem;
+}
+
+.newsletterInput::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.newsletterInput:focus {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #FF5722;
+  box-shadow: none;
+  color: #fff;
+  outline: none;
+}
+
+.newsletterButton {
+  background: linear-gradient(135deg, #FF5722, #FF9800);
+  border: none;
+  padding: 0.8rem 1.2rem;
+  transition: all 0.3s ease;
+  border-radius: 0 50px 50px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.newsletterButton:hover {
+  background: linear-gradient(135deg, #FF9800, #FF5722);
+  box-shadow: 0 0 15px rgba(255, 87, 34, 0.5);
+  transform: translateX(3px);
+}
+
+.contactInfo {
+  margin-top: 2rem;
+}
+
+.contactInfo p {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  transition: transform 0.3s ease;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.contactInfo p:hover {
+  transform: translateX(5px);
+  color: #fff;
+}
+
+.icon {
+  color: #2196F3;
+  font-size: 1.2rem;
+}
+
+.emailLink {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.emailLink::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: #FF5722;
+  transition: width 0.3s ease;
+}
+
+.emailLink:hover {
+  color: #fff;
+}
+
+.emailLink:hover::after {
+  width: 100%;
+}
+
+.supportLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.supportLink {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.85);
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.supportLink::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #FF5722, #2196F3);
+  transition: transform 0.5s ease;
+  transform: translateY(100%);
+  z-index: -1;
+}
+
+.supportLink:hover {
+  color: #fff;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  border-color: transparent;
+}
+
+.supportLink:hover::before {
+  transform: translateY(0);
+}
+
+.bottom {
+  text-align: center;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  position: relative;
+  z-index: 1;
+}
+
+.legalLinks {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.5rem;
+}
+
+.legalLinks a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.legalLinks a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: #FF5722;
+  transition: width 0.3s ease;
+}
+
+.legalLinks a:hover {
+  color: #fff;
+}
+
+.legalLinks a:hover::after {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .footer {
     padding: 4rem 0 2rem;
-    margin-top: auto;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #4fc3f7, #1565c0, #ff8a65);
   }
   
   .title {
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: #fff;
-    letter-spacing: 0.5px;
-  }
-  
-  .motto {
-    font-style: italic;
-    color: #90caf9;
-    margin-bottom: 1.5rem;
-    position: relative;
-    padding-left: 15px;
-    border-left: 3px solid #4fc3f7;
+    font-size: 2rem;
   }
   
   .subtitle {
     font-size: 1.1rem;
-    color: #90caf9;
-    margin-bottom: 1.5rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-  }
-  
-  .titleIcon {
-    margin-right: 8px;
-    font-size: 1.2rem;
-  }
-  
-  .social {
-    display: flex;
-    gap: 1.2rem;
   }
   
   .socialLink {
-    color: #fff;
-    font-size: 1.5rem;
-    transition: transform 0.3s ease, color 0.3s ease;
     width: 40px;
     height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-  
-  .socialLink:hover {
-    color: #1a237e;
-    background-color: #90caf9;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  }
-  
-  .linksList {
-    list-style: none;
-    font-size: 0.86rem;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .linksList li {
-    margin-bottom: 0.8rem;
-    position: relative;
-    padding-left: 15px;
-  }
-  
-  .linksList li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: #90caf9;
-    transition: transform 0.3s ease;
-  }
-  
-  .linksList li:hover::before {
-    transform: translateX(3px);
-  }
-  
-  .linksList a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s ease, padding-left 0.3s ease;
-    display: inline-block;
-  }
-  
-  .linksList a:hover {
-    color: #90caf9;
-    padding-left: 5px;
-    text-shadow: 0 0 10px rgba(144, 202, 249, 0.3);
-  }
-  
-  .newsletterText {
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
+    border-radius: 10px;
   }
   
   .newsletterForm {
-    display: flex;
-    gap: 0;
-    margin-bottom: 1.5rem;
-    position: relative;
-    overflow: hidden;
-    border-radius: 4px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .newsletterInput {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: #fff;
-    padding: 0.6rem 1rem;
-    border-radius: 4px 0 0 4px;
-    width: 100%;
-    border-right: none;
-  }
-  
-  .newsletterInput::placeholder {
-    color: rgba(255, 255, 255, 0.6);
-  }
-  
-  .newsletterInput:focus {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: #90caf9;
-    box-shadow: none;
-    color: #fff;
-    outline: none;
+    margin-bottom: 1.2rem;
   }
   
   .newsletterButton {
-    background: #4fc3f7;
-    border: none;
-    padding: 0.5rem 1rem;
-    transition: all 0.3s ease;
-    border-radius: 0 4px 4px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .newsletterButton:hover {
-    background: #29b6f6;
-    transform: translateX(3px);
-  }
-  
-  .contactInfo {
-    margin-top: 1.5rem;
-  }
-  
-  .contactInfo p {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    margin-bottom: 0.8rem;
-    font-size: 0.9rem;
-    transition: transform 0.3s ease;
-  }
-  
-  .contactInfo p:hover {
-    transform: translateX(5px);
-  }
-  
-  .icon {
-    color: #90caf9;
-    font-size: 1.1rem;
-  }
-  
-  .emailLink {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  
-  .emailLink:hover {
-    color: #4fc3f7;
-    text-decoration: underline;
-  }
-  
-  .supportLinks {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  
-  .supportLink {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    display: inline-block;
-  }
-  
-  .supportLink:hover {
-    background-color: #4fc3f7;
-    color: #1a237e;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  }
-  
-  .bottom {
-    text-align: center;
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.7);
+    padding: 0.7rem 1rem;
   }
   
   .legalLinks {
-    display: flex;
-    justify-content: flex-end;
-    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
   }
   
-  .legalLinks a {
-    color: rgba(255, 255, 255, 0.7);
-    text-decoration: none;
-    font-size: 0.85rem;
-    transition: color 0.3s ease;
+  .contactInfo p {
+    font-size: 0.9rem;
   }
   
-  .legalLinks a:hover {
-    color: #90caf9;
+  .fixedButtonsGroup {
+    bottom: 20px;
+    right: 15px;
+    gap: 12px;
   }
   
-  @media (max-width: 768px) {
-    .footer {
-      padding: 3rem 0 1.5rem;
-    }
-    
-    .title {
-      font-size: 1.4rem;
-    }
-    
-    .subtitle {
-      font-size: 1rem;
-    }
-    
-    .socialLink {
-      font-size: 1.2rem;
-      width: 35px;
-      height: 35px;
-    }
-    
-    .newsletterForm {
-      flex-direction: row;
-    }
-    
-    .newsletterButton {
-      width: auto;
-    }
-    
-    .legalLinks {
-      justify-content: center;
-      margin-top: 1rem;
-    }
-    
-    .contactInfo p {
-      font-size: 0.85rem;
-    }
+  .mailButton,
+  .whatsappButton {
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
   }
   
-  @media (max-width: 576px) {
-    .socialLink {
-      width: 30px;
-      height: 30px;
-      font-size: 1rem;
-    }
-    
-    .supportLink {
-      font-size: 0.8rem;
-      padding: 5px 10px;
-    }
-    
-    .legalLinks {
-      flex-direction: column;
-      gap: 0.5rem;
-      align-items: center;
-    }
+  .scrollTopButton {
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
   }
+  
+  .scrollTopContainer {
+    padding-right: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .socialLink {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+  }
+  
+  .supportLink {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+  
+  .legalLinks {
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: center;
+  }
+  
+  .bottom {
+    margin-top: 3rem;
+  }
+  
+  .fixedButtonsGroup {
+    bottom: 15px;
+    right: 10px;
+    gap: 10px;
+  }
+  
+  .mailButton,
+  .whatsappButton {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+  }
+  
+  .scrollTopButton {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+  }
+  
+  /* Adjust contact modal for mobile */
+  .contactModalHeader {
+    padding: 1.25rem;
+  }
+  
+  .contactModalBody {
+    padding: 1.25rem;
+  }
+  
+  .contactInput,
+  .contactTextarea {
+    padding: 10px 12px;
+  }
+  
+  .scrollTopContainer {
+    padding-right: 10px;
+  }
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from './ElimuTutsBanner.module.css';
 
@@ -28,14 +28,13 @@ const ElimuTutsBanner = () => {
               the tools and support to help you teach what you love and make a positive 
               impact.
             </p>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Button className={styles.actionButton}>
-                Start Teaching Today
-              </Button>
-            </motion.div>
+            <div className={styles.buttonWrapper}>
+              <Link to="/register" className={styles.buttonLink}>
+                <Button className={styles.actionButton}>
+                  Start Teaching Today
+                </Button>
+              </Link>
+            </div>
           </Col>
         </Row>
       </Container>

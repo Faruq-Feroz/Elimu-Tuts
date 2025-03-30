@@ -1,0 +1,986 @@
+/* Child Progress Module CSS - Elimu-Tuts Theme */
+
+/* Container styles */
+.progressContainer {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Child selector styles */
+.childSelector {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 15px 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 25px;
+}
+
+.childSelector h3 {
+  margin: 0 0 15px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.childrenTabs {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.childrenTabs button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 15px;
+  background: none;
+  border: 1px solid #e0e0e0;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.childrenTabs button.activeChild {
+  background-color: #e8f5e9;
+  border-color: #43a047;
+  color: #43a047;
+}
+
+.childrenTabs button:hover:not(.activeChild) {
+  background-color: #f5f5f5;
+}
+
+.childAvatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Student card styles */
+.studentCard {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  gap: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+  align-items: center;
+}
+
+.studentAvatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.studentAvatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.studentInfo h2 {
+  margin: 0 0 5px 0;
+  font-size: 20px;
+  color: #333;
+}
+
+.studentMeta {
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+  color: #666;
+  margin-top: 5px;
+}
+
+.studentMeta span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Progress circle styles */
+.overallProgress {
+  text-align: center;
+}
+
+.progressCircle {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 5px;
+}
+
+.progressCircleSvg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.progressCircleBg {
+  fill: none;
+  stroke: #eee;
+  stroke-width: 2.8;
+}
+
+.progressCircleFill {
+  fill: none;
+  stroke: #43a047;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+}
+
+.progressCircleText {
+  fill: #333;
+  font-size: 10px;
+  text-anchor: middle;
+  font-weight: bold;
+}
+
+.overallProgress p {
+  margin: 5px 0 0;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Attendance bars styles */
+.attendanceStats {
+  width: 250px;
+}
+
+.attendanceStats h3 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.attendanceBars {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.attendanceBar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.attendanceLabel {
+  width: 75px;
+  font-size: 13px;
+  color: #666;
+}
+
+.attendanceBarContainer {
+  flex: 1;
+  height: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.attendanceBarFill {
+  height: 100%;
+  border-radius: 5px;
+}
+
+.presentBar {
+  background-color: #43a047;
+}
+
+.absentBar {
+  background-color: #e53935;
+}
+
+.lateBar {
+  background-color: #fb8c00;
+}
+
+.attendanceValue {
+  width: 40px;
+  font-size: 13px;
+  font-weight: bold;
+  text-align: right;
+  color: #333;
+}
+
+/* Timeframe selector styles */
+.timeframeSelector {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 15px 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+}
+
+.timeframeSelector h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+  margin-right: 20px;
+}
+
+.timeframeButtons {
+  display: flex;
+  gap: 10px;
+}
+
+.timeframeButtons button {
+  background: none;
+  border: 1px solid #e0e0e0;
+  padding: 8px 15px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.timeframeButtons button.activeTimeframe {
+  background-color: #43a047;
+  color: white;
+  border-color: #43a047;
+}
+
+.timeframeButtons button:hover:not(.activeTimeframe) {
+  background-color: #f5f5f5;
+}
+
+/* Subjects section styles */
+.subjectsSection {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+}
+
+.subjectsSection h2 {
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.subjectTabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+
+.subjectTabs button {
+  background: none;
+  border: 1px solid #e0e0e0;
+  padding: 8px 15px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #555;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.subjectTabs button.activeSubject {
+  background-color: #43a047;
+  color: white;
+  border-color: #43a047;
+}
+
+.subjectTabs button:hover:not(.activeSubject) {
+  background-color: #f5f5f5;
+}
+
+.trendUp {
+  color: #43a047;
+}
+
+.trendDown {
+  color: #e53935;
+}
+
+.trendSteady {
+  color: #fb8c00;
+}
+
+/* Subject detail styles */
+.subjectDetail {
+  padding: 15px 0;
+}
+
+.subjectHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.subjectHeader h3 {
+  margin: 0 0 5px 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.subjectHeader p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.subjectGrade {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.gradeLabel {
+  font-size: 14px;
+  color: #666;
+}
+
+.gradeValue {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  background-color: #e8f5e9;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.subjectProgress {
+  margin-bottom: 25px;
+}
+
+.subjectProgress h4 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.progressBar {
+  height: 12px;
+  background-color: #f0f0f0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background-color: #43a047;
+  border-radius: 6px;
+}
+
+.subjectStats {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.strengthsWeaknesses {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.strengths h4, .weaknesses h4 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 10px 0;
+  font-size: 15px;
+  color: #333;
+}
+
+.strengths h4 {
+  color: #4caf50;
+}
+
+.weaknesses h4 {
+  color: #ff9800;
+}
+
+.strengths ul, .weaknesses ul {
+  margin: 0;
+  padding-left: 25px;
+  font-size: 14px;
+  color: #666;
+}
+
+.strengths li, .weaknesses li {
+  margin-bottom: 5px;
+}
+
+.recentScores {
+  width: 200px;
+}
+
+.recentScores h4 {
+  margin: 0 0 15px 0;
+  font-size: 15px;
+  color: #333;
+  text-align: center;
+}
+
+.scoresList {
+  display: flex;
+  justify-content: space-between;
+  height: 120px;
+  align-items: flex-end;
+}
+
+.scoreItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30px;
+}
+
+.scoreBar {
+  width: 20px;
+  height: 100px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 5px;
+  position: relative;
+}
+
+.scoreBarFill {
+  width: 100%;
+  background-color: #43a047;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 0;
+}
+
+.scoreValue {
+  font-size: 12px;
+  color: #666;
+}
+
+/* Chart styles */
+.chartContainer {
+  margin-bottom: 10px;
+}
+
+.chartContainer h4 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 15px 0;
+  font-size: 15px;
+  color: #333;
+}
+
+.chart {
+  padding: 20px 20px 10px 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.chartBars {
+  display: flex;
+  justify-content: space-between;
+  height: 200px;
+  align-items: flex-end;
+}
+
+.chartBarContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chartBar {
+  width: 25px;
+  height: 180px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.chartBarFill {
+  width: 100%;
+  background-color: #43a047;
+  border-radius: 4px;
+  position: absolute;
+  bottom: 0;
+}
+
+.chartLabel {
+  font-size: 12px;
+  color: #666;
+}
+
+/* Evaluations section styles */
+.evaluationsSection {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+}
+
+.evaluationsSection h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.evaluationsList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.evaluationCard {
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding: 15px;
+}
+
+.evaluationHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.evaluationMeta h3 {
+  margin: 0 0 5px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.evaluationInfo {
+  display: flex;
+  gap: 15px;
+  font-size: 13px;
+  color: #666;
+}
+
+.evaluationInfo span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.ratingContainer {
+  text-align: right;
+}
+
+.starRating {
+  font-size: 18px;
+  margin-bottom: 3px;
+}
+
+.filledStar {
+  color: #ffc107;
+}
+
+.emptyStar {
+  color: #e0e0e0;
+}
+
+.ratingValue {
+  font-size: 13px;
+  color: #666;
+}
+
+.evaluationComments {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #666;
+}
+
+/* Assignments section styles */
+.assignmentsSection {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+}
+
+.assignmentsSection h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.assignmentsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 15px;
+}
+
+.assignmentCard {
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding: 15px;
+}
+
+.assignmentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.assignmentHeader h3 {
+  margin: 0;
+  font-size: 15px;
+  color: #333;
+  flex: 1;
+}
+
+.statusCompleted {
+  font-size: 12px;
+  padding: 3px 8px;
+  background-color: #e8f5e9;
+  color: #43a047;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.statusPending {
+  font-size: 12px;
+  padding: 3px 8px;
+  background-color: #fff8e1;
+  color: #ff9800;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.statusLate {
+  font-size: 12px;
+  padding: 3px 8px;
+  background-color: #ffebee;
+  color: #f44336;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.assignmentDetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.assignmentInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 13px;
+  color: #666;
+}
+
+.assignmentInfo span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.assignmentScore {
+  text-align: center;
+}
+
+.scoreLabel {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 3px;
+}
+
+.scoreValue {
+  font-size: 18px;
+  font-weight: bold;
+  color: #43a047;
+}
+
+.assignmentFeedback {
+  margin-top: 10px;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+}
+
+.assignmentFeedback h4 {
+  margin: 0 0 5px 0;
+  font-size: 13px;
+  color: #333;
+}
+
+.assignmentFeedback p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #666;
+}
+
+/* Term report section styles */
+.termReportSection {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+}
+
+.termReportSection h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.termReportCard {
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding: 15px;
+}
+
+.termReportHeader {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.termReportOverall {
+  display: flex;
+  gap: 25px;
+}
+
+.termReportGrade, 
+.termReportPosition, 
+.termReportAttendance {
+  text-align: center;
+}
+
+.termReportGrade h3, 
+.termReportPosition h3, 
+.termReportAttendance h3 {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.gradeCircle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #43a047;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 auto;
+}
+
+.termReportPosition p, 
+.termReportAttendance p {
+  margin: 10px 0 0 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.termReportComments h3 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.termReportComments p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #666;
+}
+
+.termReportSubjects {
+  margin-top: 20px;
+}
+
+.termReportSubjects h3 {
+  margin: 0 0 15px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.termReportSubjectsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.termReportSubjectItem {
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  padding: 12px;
+}
+
+.subjectName {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.subjectGrade {
+  font-size: 18px;
+  font-weight: bold;
+  color: #2196f3;
+  margin-bottom: 5px;
+}
+
+.subjectRemarks {
+  font-size: 13px;
+  color: #666;
+}
+
+/* Loading state styles */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  text-align: center;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-top-color: #2196f3;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Error state styles */
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  text-align: center;
+  color: #666;
+}
+
+.errorContainer h2 {
+  margin: 20px 0 10px;
+  color: #333;
+}
+
+.errorContainer p {
+  margin-bottom: 25px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .studentCard {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+  }
+  
+  .studentAvatar {
+    grid-row: 1 / span 1;
+    grid-column: 1 / span 1;
+  }
+  
+  .studentInfo {
+    grid-row: 1 / span 1;
+    grid-column: 2 / span 1;
+  }
+  
+  .overallProgress {
+    grid-row: 2 / span 1;
+    grid-column: 1 / span 1;
+    margin-top: 20px;
+  }
+  
+  .attendanceStats {
+    grid-row: 2 / span 1;
+    grid-column: 2 / span 1;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .subjectStats {
+    grid-template-columns: 1fr;
+  }
+  
+  .strengthsWeaknesses {
+    grid-template-columns: 1fr;
+  }
+  
+  .termReportHeader {
+    grid-template-columns: 1fr;
+  }
+  
+  .termReportOverall {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .assignmentsList {
+    grid-template-columns: 1fr;
+  }
+  
+  .termReportOverall {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+/* Elimu-Tuts specific colors for elements */
+.chartBarFill {
+  background-color: #43a047;
+}
+
+.termReportGrade .gradeCircle {
+  background-color: #43a047;
+}
+
+.assignmentHeader .statusCompleted {
+  background-color: #e8f5e9;
+  color: #43a047;
+}
+
+.assignmentScore .scoreValue {
+  color: #43a047;
+} 

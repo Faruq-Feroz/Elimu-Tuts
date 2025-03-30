@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import styles from './Sidebar.module.css';
+import { Link, useNavigate } from 'react-router-dom';
+import styles from '../Student/Sidebar.module.css';
 import logo from '../../../../assets/Logo.png';
+import { useAuth } from '../../../../context/AuthContext';
 
 // Import icons from a library like react-icons
 import { 
@@ -19,29 +20,52 @@ import {
   FiHelpCircle,
   FiFolder,
   FiPieChart,
+  FiDollarSign,
+  FiUsers,
+  FiTarget,
+  // Additional icons for student sidebar items
+  FiEdit,
   FiVideo,
   FiAward,
   FiCheckSquare,
-  FiEdit,
-  FiDatabase,
-  FiBookmark
+  FiClipboard,
+  FiBox,
+  FiBookOpen,
+  FiBarChart2,
+  FiLayers,
+  FiList
 } from 'react-icons/fi';
 
-const Sidebar = ({ menuItems, activeItem, onMenuItemClick }) => {
+const Sidebar = ({ menuItems, activeItem, onMenuItemClick, userRole = "Student" }) => {
+  const { currentUser, logout } = useAuth();
+  const navigate = useNavigate();
+  
+  // Get user's display name or use fallback
+  const getUserName = () => {
+    if (currentUser && currentUser.displayName) {
+      return currentUser.displayName;
+    }
+    return "User";
+  };
+  
+  // Get user's initials for avatar
+  const getUserInitials = () => {
+    if (currentUser && currentUser.displayName) {
+      return currentUser.displayName.split(' ').map(name => name[0]).join('');
+    }
+    return "U";
+  };
+
   // Use provided menuItems from props, or fall back to default if not provided
   const sidebarMenuItems = menuItems || [
     { id: 'dashboard', label: 'Dashboard', icon: 'home' },
-    { id: 'videos', label: 'Video Lessons', icon: 'video' },
-    { id: 'courses', label: 'My Courses', icon: 'courses' },
-    { id: 'quizzes', label: 'Quizzes', icon: 'quiz' },
-    { id: 'assignments', label: 'Assignments', icon: 'file' },
-    { id: 'practice', label: 'Practice Tests', icon: 'test' },
-    { id: 'progress', label: 'My Progress', icon: 'chart' },
-    { id: 'notes', label: 'My Notes', icon: 'bookmark' },
-    { id: 'resources', label: 'Resources', icon: 'folder' },
-    { id: 'cbc', label: 'CBC Resources', icon: 'curriculum' },
+    { id: 'children', label: 'My Children', icon: 'profile' },
+    { id: 'progress', label: 'Progress Reports', icon: 'chart' },
     { id: 'calendar', label: 'Calendar', icon: 'calendar' },
     { id: 'messages', label: 'Messages', icon: 'messages' },
+    { id: 'tutors', label: 'Tutors', icon: 'book' },
+    { id: 'payments', label: 'Payments', icon: 'file' },
+    { id: 'resources', label: 'Resources', icon: 'folder' },
     { id: 'help', label: 'Help & Support', icon: 'help' },
     { id: 'settings', label: 'Settings', icon: 'settings' }
   ];
@@ -73,6 +97,17 @@ const Sidebar = ({ menuItems, activeItem, onMenuItemClick }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Handle logout
+  const handleLogout = async () => {
+    try {
+      await logout();
+      navigate('/'); // Redirect to landing page after logout
+    } catch (error) {
+      console.error("Failed to logout", error);
+      alert("Failed to logout. Please try again.");
+    }
+  };
+
   // Toggle sidebar
   const toggleSidebar = () => {
     if (isMobile) {
@@ -93,21 +128,30 @@ const Sidebar = ({ menuItems, activeItem, onMenuItemClick }) => {
       case 'messages': return <FiMessageSquare />;
       case 'settings': return <FiSettings />;
       case 'profile': return <FiUser />;
-      case 'chart': return <FiPieChart />;
+      case 'chart': return <FiBarChart2 />;
+      case 'progress': return <FiTrendingUp />;
       case 'file':
-      case 'assignment': return <FiFileText />;
+      case 'payment': return <FiFileText />;
       case 'help': return <FiHelpCircle />;
-      case 'folder': return <FiFolder />;
-      case 'stats': return <FiTrendingUp />;
+      case 'folder':
+      case 'resources': return <FiFolder />;
+      case 'stats': return <FiPieChart />;
+      case 'dollar': return <FiDollarSign />;
+      case 'children': return <FiUsers />;
+      case 'targets': return <FiTarget />;
+      // Student-specific icon mappings
+      case 'notes': return <FiEdit />;
       case 'video': return <FiVideo />;
-      case 'quiz':
-      case 'quizzes': return <FiCheckSquare />;
-      case 'test': return <FiAward />;
-      case 'curriculum': return <FiEdit />;
-      case 'download': return <FiDatabase />;
-      case 'bookmark':
-      case 'notes': return <FiBookmark />;
-      default: return <FiHome />;
+      case 'quiz': 
+      case 'quizzes': return <FiAward />;
+      case 'assignment': return <FiClipboard />;
+      case 'test':
+      case 'practice': return <FiCheckSquare />;
+      case 'curriculum':
+      case 'cbc': return <FiBookOpen />;
+      case 'grades': return <FiList />;
+      // If no match, return a generic icon
+      default: return <FiBox />;
     }
   };
 
@@ -173,15 +217,15 @@ const Sidebar = ({ menuItems, activeItem, onMenuItemClick }) => {
         
         <div className={styles.sidebarFooter}>
           <div className={styles.userInfo}>
-            <div className={styles.avatar}>JD</div>
+            <div className={styles.avatar}>{getUserInitials()}</div>
             {(!isCollapsed || isMobile) && (
               <div className={styles.userDetails}>
-                <p className={styles.userName}>John Doe</p>
-                <p className={styles.userRole}>Student</p>
+                <p className={styles.userName}>{getUserName()}</p>
+                <p className={styles.userRole}>{userRole}</p>
               </div>
             )}
           </div>
-          <button className={styles.logoutBtn}>
+          <button className={styles.logoutBtn} onClick={handleLogout}>
             <FiLogOut className={styles.logoutIcon} />
             {(!isCollapsed || isMobile) && <span>Logout</span>}
           </button>

@@ -73,6 +73,10 @@
     border: none;
   }
   
+  .buttonLink {
+    text-decoration: none;
+  }
+  
   @media (max-width: 768px) {
     .contentCol {
       padding: 30px 20px;

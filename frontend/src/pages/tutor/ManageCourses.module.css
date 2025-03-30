@@ -1,0 +1,339 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+}
+
+.createButton {
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.createButton:hover:not(:disabled) {
+  background-color: #2563eb;
+}
+
+.createButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  gap: 1rem;
+}
+
+.spinner {
+  width: 3rem;
+  height: 3rem;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.errorContainer {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #fef2f2;
+  border-left: 4px solid #ef4444;
+  border-radius: 0.375rem;
+}
+
+.errorContainer h2 {
+  color: #b91c1c;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.errorContainer p {
+  color: #991b1b;
+  margin-bottom: 1rem;
+}
+
+.errorContainer button {
+  background-color: #dc2626;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.errorContainer button:hover {
+  background-color: #b91c1c;
+}
+
+.formOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  z-index: 50;
+}
+
+.form {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 42rem;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.form h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.formError {
+  background-color: #fef2f2;
+  border-left: 4px solid #ef4444;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.formError p {
+  color: #b91c1c;
+  margin-bottom: 0.5rem;
+}
+
+.errorList {
+  list-style-type: disc;
+  list-style-position: inside;
+  color: #dc2626;
+  font-size: 0.875rem;
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+
+.formGroup label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.formGroup input[type="text"],
+.formGroup input[type="number"],
+.formGroup input[type="url"],
+.formGroup select,
+.formGroup textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  background-color: white;
+  font-size: 1rem;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.checkboxLabel input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0.25rem;
+  border-color: #d1d5db;
+  color: #3b82f6;
+}
+
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.submitButton,
+.cancelButton {
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.submitButton {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.submitButton:hover:not(:disabled) {
+  background-color: #2563eb;
+}
+
+.submitButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.cancelButton {
+  border: 1px solid #d1d5db;
+  color: #4b5563;
+}
+
+.cancelButton:hover {
+  background-color: #f3f4f6;
+}
+
+.noCourses {
+  background-color: #f3f4f6;
+  border-left: 4px solid #6b7280;
+  padding: 1rem;
+  margin: 2rem 0;
+}
+
+.noCourses p {
+  color: #4b5563;
+}
+
+.coursesGrid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .coursesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .coursesGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.courseCard {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.courseImage {
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+}
+
+.courseContent {
+  padding: 1rem;
+}
+
+.courseContent h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.courseContent p {
+  color: #6b7280;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.courseStats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.price {
+  color: #3b82f6;
+  font-weight: 500;
+}
+
+.stats {
+  display: flex;
+  gap: 1rem;
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.courseActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.editButton,
+.deleteButton {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.editButton {
+  color: #3b82f6;
+}
+
+.editButton:hover:not(:disabled) {
+  color: #2563eb;
+}
+
+.deleteButton {
+  color: #ef4444;
+}
+
+.deleteButton:hover:not(:disabled) {
+  color: #dc2626;
+}
+
+.editButton:disabled,
+.deleteButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+} 

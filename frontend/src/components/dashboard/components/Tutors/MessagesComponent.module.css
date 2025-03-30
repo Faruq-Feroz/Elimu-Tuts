@@ -1,0 +1,752 @@
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.titleArea h1 {
+  font-size: 1.8rem;
+  color: #333;
+  margin: 0;
+}
+
+.subheader {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0.3rem 0 0 0;
+}
+
+.headerActions {
+  display: flex;
+  gap: 1rem;
+}
+
+.notificationBadge {
+  position: relative;
+  font-size: 1.2rem;
+  color: #555;
+  cursor: pointer;
+}
+
+.notificationBadge:hover {
+  color: #3498db;
+}
+
+.badgeCount {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #e74c3c;
+  color: white;
+  font-size: 0.7rem;
+  min-width: 15px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 2px;
+}
+
+.messagesSection {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 1rem;
+  height: calc(100vh - 150px);
+  min-height: 500px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.conversationsPanel {
+  background-color: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #e0e0e0;
+  overflow: hidden;
+}
+
+.conversationsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.conversationsHeader h2 {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #333;
+}
+
+.newChatButton {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.newChatButton:hover {
+  background-color: #2980b9;
+}
+
+.searchBar {
+  padding: 0.8rem;
+  position: relative;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 1.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #aaa;
+}
+
+.searchInput {
+  padding: 0.5rem 0.5rem 0.5rem 2rem;
+  width: 100%;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  font-size: 0.9rem;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.conversationsList {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.5rem 0;
+}
+
+.conversationItem {
+  display: flex;
+  padding: 0.8rem 1rem;
+  cursor: pointer;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.2s;
+}
+
+.conversationItem:hover {
+  background-color: #f0f0f0;
+}
+
+.activeConversation {
+  background-color: #e3f2fd;
+}
+
+.unreadConversation .studentName {
+  font-weight: 600;
+}
+
+.avatarContainer {
+  position: relative;
+  margin-right: 0.8rem;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.onlineIndicator {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  background-color: #2ecc71;
+  border-radius: 50%;
+  border: 2px solid #f8f9fa;
+}
+
+.conversationInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.conversationHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.2rem;
+}
+
+.studentName {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.conversationTime {
+  font-size: 0.75rem;
+  color: #888;
+  white-space: nowrap;
+}
+
+.conversationFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lastMessage {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 80%;
+}
+
+.unreadBadge {
+  background-color: #3498db;
+  color: white;
+  font-size: 0.7rem;
+  min-width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 2px;
+}
+
+.emptyState, .loadingState, .noConversationSelected {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+}
+
+.emptyStateIcon, .noConversationIcon {
+  font-size: 3rem;
+  color: #bbb;
+  margin-bottom: 1rem;
+}
+
+.loadingState .spinner {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 1rem;
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top-color: #3498db;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.newMessageButton {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.newMessageButton:hover {
+  background-color: #2980b9;
+}
+
+.messagesPanel {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background-color: white;
+  overflow: hidden;
+}
+
+.messageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: #f8f9fa;
+}
+
+.messageHeaderInfo {
+  display: flex;
+  align-items: center;
+}
+
+.headerStudentName {
+  font-size: 1rem;
+  margin: 0;
+  color: #333;
+}
+
+.headerStatus {
+  font-size: 0.8rem;
+  color: #888;
+  margin: 0.2rem 0 0 0;
+}
+
+.messageHeaderActions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.headerActionButton {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.3rem;
+  border-radius: 4px;
+}
+
+.headerActionButton:hover {
+  background-color: #e8e8e8;
+  color: #333;
+}
+
+.messagesContainer {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
+.messagesList {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.noMessagesState {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  text-align: center;
+}
+
+.dateSeparator {
+  text-align: center;
+  margin: 1rem 0;
+  position: relative;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.dateSeparator::before,
+.dateSeparator::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 100px;
+  height: 1px;
+  background-color: #e0e0e0;
+}
+
+.dateSeparator::before {
+  left: 0;
+}
+
+.dateSeparator::after {
+  right: 0;
+}
+
+.messageItem {
+  display: flex;
+  margin-bottom: 1rem;
+  max-width: 80%;
+}
+
+.incomingMessage {
+  align-self: flex-start;
+}
+
+.outgoingMessage {
+  align-self: flex-end;
+  justify-content: flex-end;
+}
+
+.messageAvatar {
+  margin-right: 0.5rem;
+  align-self: flex-end;
+}
+
+.messageAvatar img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+
+.messageBubble {
+  background-color: #f0f0f0;
+  border-radius: 1rem;
+  padding: 0.7rem 1rem;
+  border-bottom-left-radius: 0.2rem;
+  max-width: 100%;
+}
+
+.outgoingMessage .messageBubble {
+  background-color: #dcf8c6;
+  border-bottom-right-radius: 0.2rem;
+  border-bottom-left-radius: 1rem;
+}
+
+.messageContent {
+  font-size: 0.95rem;
+  color: #333;
+  word-break: break-word;
+}
+
+.messageFooter {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 0.3rem;
+  gap: 0.3rem;
+}
+
+.messageTime {
+  font-size: 0.7rem;
+  color: #888;
+}
+
+.messageStatus {
+  color: #888;
+  font-size: 0.7rem;
+}
+
+.messageInputContainer {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem;
+  border-top: 1px solid #e0e0e0;
+  background-color: #f8f9fa;
+}
+
+.messageInputAction {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.3rem;
+  margin-right: 0.5rem;
+}
+
+.messageInputAction:hover {
+  color: #3498db;
+}
+
+.messageInput {
+  flex: 1;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 0.6rem 1rem;
+  font-size: 0.95rem;
+  resize: none;
+  max-height: 100px;
+  min-height: 40px;
+}
+
+.messageInput:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.sendButton {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+}
+
+.sendButton:hover {
+  background-color: #2980b9;
+}
+
+.sendButton:disabled {
+  background-color: #bbb;
+  cursor: not-allowed;
+}
+
+/* Modal styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: white;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.modalHeader h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #888;
+}
+
+.modalBody {
+  padding: 1rem;
+  overflow-y: auto;
+  max-height: 60vh;
+}
+
+.recipientField {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.recipientField label {
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+
+.recipientSearch {
+  flex: 1;
+}
+
+.recipientSearch input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  font-size: 0.9rem;
+}
+
+.recipientSearch input:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.studentsList {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.studentItem {
+  display: flex;
+  padding: 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.studentItem:hover {
+  background-color: #f0f0f0;
+}
+
+.selectedStudent {
+  background-color: #e3f2fd;
+}
+
+.studentAvatar {
+  position: relative;
+  margin-right: 0.8rem;
+}
+
+.studentAvatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.studentInfo {
+  flex: 1;
+}
+
+.studentInfo h4 {
+  margin: 0 0 0.2rem 0;
+  font-size: 0.95rem;
+}
+
+.studentInfo p {
+  margin: 0 0 0.2rem 0;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.courseLabel {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  background-color: #e8f4fd;
+  color: #3498db;
+  border-radius: 10px;
+}
+
+.noStudentsFound {
+  text-align: center;
+  padding: 2rem;
+  color: #888;
+}
+
+.modalFooter {
+  padding: 1rem;
+  border-top: 1px solid #e0e0e0;
+  text-align: right;
+}
+
+.startChatButton {
+  padding: 0.6rem 1.2rem;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.startChatButton:hover {
+  background-color: #2980b9;
+}
+
+.disabledButton {
+  background-color: #bbb;
+  cursor: not-allowed;
+}
+
+.disabledButton:hover {
+  background-color: #bbb;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .messagesSection {
+    grid-template-columns: 1fr;
+    height: calc(100vh - 100px);
+  }
+  
+  .conversationsPanel {
+    display: none;
+  }
+  
+  .conversationsPanel.active {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+  }
+  
+  .messageHeader {
+    padding: 0.6rem;
+  }
+  
+  .messageItem {
+    max-width: 90%;
+  }
+  
+  .headerActions {
+    gap: 0.5rem;
+  }
+  
+  .container {
+    padding: 0.5rem;
+  }
+  
+  .titleArea h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .messagesSection {
+    grid-template-columns: 250px 1fr;
+  }
+  
+  .messageItem {
+    max-width: 85%;
+  }
+} 

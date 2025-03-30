@@ -1,0 +1,1053 @@
+/* Container for the entire students page */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Header Styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.titleArea {
+  flex: 1;
+  min-width: 250px;
+}
+
+.titleArea h1 {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  color: #333;
+  margin: 0;
+  margin-bottom: 0.5rem;
+}
+
+.headerIcon {
+  margin-right: 0.75rem;
+  color: #4a6cf7;
+}
+
+.subheader {
+  color: #666;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.searchFilter {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.searchBar {
+  position: relative;
+  width: 300px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+}
+
+.searchBar input {
+  width: 100%;
+  padding: 0.75rem;
+  padding-left: 2.5rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.searchBar input:focus {
+  outline: none;
+  border-color: #4a6cf7;
+  box-shadow: 0 0 0 2px rgba(74, 108, 247, 0.2);
+}
+
+.filterButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #f5f5f5;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #555;
+  transition: all 0.2s ease;
+}
+
+.filterButton:hover {
+  background-color: #e9e9e9;
+}
+
+/* Filters Container */
+.filtersContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 200px;
+}
+
+.filterGroup label {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.filterGroup select {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #333;
+  background-color: white;
+}
+
+.filterGroup select:focus {
+  outline: none;
+  border-color: #4a6cf7;
+  box-shadow: 0 0 0 2px rgba(74, 108, 247, 0.2);
+}
+
+.resetFiltersButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  background-color: transparent;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #666;
+  transition: all 0.2s ease;
+  align-self: flex-end;
+  margin-top: auto;
+}
+
+.resetFiltersButton:hover {
+  background-color: #f2f2f2;
+  border-color: #999;
+}
+
+/* Students Count */
+.studentsCount {
+  margin-bottom: 1rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Table Styles */
+.tableContainer {
+  overflow-x: auto;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.5rem;
+  width: 100%;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+}
+
+.tableContainer::-webkit-scrollbar {
+  height: 6px;
+}
+
+.tableContainer::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tableContainer::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 6px;
+}
+
+.studentsTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  min-width: 800px; /* Ensures the table doesn't shrink too much */
+}
+
+.studentsTable th,
+.studentsTable td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+/* Make date columns have appropriate width */
+.studentsTable th:nth-child(4),
+.studentsTable td:nth-child(4),
+.studentsTable th:nth-child(6),
+.studentsTable td:nth-child(6) {
+  white-space: nowrap;
+  width: 110px; /* Fixed width for date columns */
+}
+
+/* Performance column */
+.studentsTable th:nth-child(3),
+.studentsTable td:nth-child(3) {
+  width: 100px;
+}
+
+/* Grade column */
+.studentsTable th:nth-child(2),
+.studentsTable td:nth-child(2) {
+  width: 80px;
+}
+
+/* Actions column */
+.studentsTable th:nth-child(7),
+.studentsTable td:nth-child(7) {
+  width: 100px;
+}
+
+.studentsTable th {
+  background-color: #f9f9f9;
+  font-weight: 600;
+  color: #444;
+}
+
+.studentsTable tr:last-child td {
+  border-bottom: none;
+}
+
+.studentsTable tr:hover {
+  background-color: #f9f9f9;
+}
+
+.sortableHeader {
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sortableHeader:hover {
+  color: #4a6cf7;
+}
+
+/* Student Name Cell */
+.studentName {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.nameEmail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.email {
+  color: #888;
+  font-size: 0.85rem;
+}
+
+.crownIcon {
+  color: #ffc107;
+  font-size: 0.85rem;
+  margin-left: 0.35rem;
+}
+
+/* Performance Badge */
+.performanceBadge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.excellent {
+  background-color: rgba(40, 167, 69, 0.1);
+  color: #28a745;
+}
+
+.good {
+  background-color: rgba(0, 123, 255, 0.1);
+  color: #007bff;
+}
+
+.average {
+  background-color: rgba(255, 193, 7, 0.1);
+  color: #ffc107;
+}
+
+.needsImprovement {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: #dc3545;
+}
+
+/* Course Chips */
+.courseChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.courseChip {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  background-color: #f0f3f9;
+  color: #4a6cf7;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.moreCourses {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  background-color: #e9ecef;
+  color: #6c757d;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.noCourseChip {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  background-color: #f8f9fa;
+  color: #6c757d;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+/* Action Buttons */
+.actionButtons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.viewButton,
+.messageButton,
+.progressButton {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.viewButton:hover {
+  background-color: rgba(74, 108, 247, 0.1);
+  color: #4a6cf7;
+}
+
+.messageButton:hover {
+  background-color: rgba(40, 167, 69, 0.1);
+  color: #28a745;
+}
+
+.progressButton:hover {
+  background-color: rgba(255, 193, 7, 0.1);
+  color: #ffc107;
+}
+
+/* No Results */
+.noResults {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.paginationButton {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.paginationButton:not(:disabled):hover {
+  background-color: #f9f9f9;
+  border-color: #999;
+}
+
+.paginationButton:disabled {
+  color: #999;
+  cursor: not-allowed;
+}
+
+.pageInfo {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Loading Container */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(74, 108, 247, 0.2);
+  border-top: 4px solid #4a6cf7;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error Container */
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.errorContainer h2 {
+  color: #dc3545;
+  margin-bottom: 1rem;
+}
+
+.retryButton {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #4a6cf7;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.retryButton:hover {
+  background-color: #3a5be0;
+}
+
+/* Student Details View */
+.studentDetailsContainer {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.detailsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.detailsHeader h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #f5f5f5;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #555;
+  transition: all 0.2s ease;
+}
+
+.backButton:hover {
+  background-color: #e9e9e9;
+}
+
+.studentProfile {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.profileHeader {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.profileAvatar {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  flex-shrink: 0;
+}
+
+.profileAvatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #f0f3f9;
+}
+
+.premiumBadge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #ffc107;
+  color: #333;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 600;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.profileInfo {
+  flex: 1;
+}
+
+.profileInfo h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.75rem;
+  color: #333;
+}
+
+.profileMeta {
+  display: flex;
+  gap: 0.75rem;
+  color: #666;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.contactInfo p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #555;
+}
+
+.profileActions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.actionButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #f5f5f5;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #555;
+  transition: all 0.2s ease;
+}
+
+.actionButton:hover {
+  background-color: #e9e9e9;
+}
+
+/* Performance Metrics */
+.performanceMetrics {
+  margin-top: 2rem;
+}
+
+.metricsHeader h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+  color: #333;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #f2f2f2;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.metricCard {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.metricCard h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.metricValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+}
+
+/* Enrolled Courses */
+.enrolledCourses {
+  margin-top: 2rem;
+}
+
+.coursesHeader h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+  color: #333;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #f2f2f2;
+}
+
+.coursesList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.courseCard {
+  display: flex;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.courseImage {
+  width: 120px;
+  height: 80px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.courseImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.courseInfo {
+  flex: 1;
+  padding: 1rem;
+}
+
+.courseInfo h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.courseProgress {
+  margin-bottom: 0.75rem;
+}
+
+.progressLabel {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 0.25rem;
+}
+
+.progressBar {
+  height: 6px;
+  background-color: #e9ecef;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background-color: #4a6cf7;
+  border-radius: 3px;
+}
+
+.courseStats {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.noCourses {
+  padding: 2rem;
+  text-align: center;
+  color: #666;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+/* Notes Section */
+.notesSection {
+  margin-top: 2rem;
+}
+
+.notesHeader h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+  color: #333;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #f2f2f2;
+}
+
+.notesTextarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #333;
+  resize: vertical;
+  margin-bottom: 1rem;
+}
+
+.notesTextarea:focus {
+  outline: none;
+  border-color: #4a6cf7;
+  box-shadow: 0 0 0 2px rgba(74, 108, 247, 0.2);
+}
+
+.saveNotesButton {
+  padding: 0.75rem 1.5rem;
+  background-color: #4a6cf7;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.saveNotesButton:hover {
+  background-color: #3a5be0;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .metricsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .container {
+    padding: 1.5rem;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .searchFilter {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .searchBar {
+    width: 100%;
+  }
+  
+  .filterButton {
+    justify-content: center;
+  }
+  
+  /* Adjust table padding for smaller screens */
+  .studentsTable th,
+  .studentsTable td {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.85rem;
+  }
+  
+  /* Make date columns even more compact on mobile */
+  .studentsTable th:nth-child(4),
+  .studentsTable td:nth-child(4),
+  .studentsTable th:nth-child(6),
+  .studentsTable td:nth-child(6) {
+    width: 80px;
+  }
+  
+  /* Make sure all cells maintain their width constraints */
+  .studentsTable td {
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* Adjust email text size */
+  .email {
+    font-size: 0.75rem;
+  }
+  
+  .profileHeader {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .profileInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .profileMeta {
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .profileMeta span:nth-child(even) {
+    display: none; /* Hide the bullet separators on mobile */
+  }
+  
+  .profileActions {
+    width: 100%;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  
+  .actionButton {
+    flex: 1;
+    justify-content: center;
+  }
+  
+  /* Fix table container for mobile */
+  .tableContainer {
+    overflow-x: auto;
+    margin: 0 -1rem; /* Negative margin to break out of padding constraints */
+    width: calc(100% + 2rem);
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding: 0.75rem;
+  }
+  
+  .titleArea h1 {
+    font-size: 1.5rem;
+  }
+  
+  .metricsGrid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .courseCard {
+    flex-direction: column;
+  }
+  
+  .courseImage {
+    width: 100%;
+    height: 120px;
+  }
+  
+  .filtersContainer {
+    padding: 1rem;
+    gap: 0.75rem;
+  }
+  
+  .filterGroup {
+    min-width: 100%;
+  }
+  
+  /* Make all student profile content stack vertically */
+  .studentProfile {
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+  
+  .detailsHeader {
+    padding: 1rem;
+  }
+  
+  .notesTextarea {
+    min-height: 100px;
+  }
+  
+  /* Ensure the buttons in the student table are accessible */
+  .actionButtons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .actionButtons button {
+    padding: 8px;
+  }
+}
+
+/* Mobile Card Layout */
+.studentCards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.studentCard {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardHeader {
+  padding: 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  background-color: #f9f9f9;
+}
+
+.cardBody {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.cardRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardLabel {
+  font-weight: 600;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.cardValue {
+  color: #333;
+  font-size: 0.9rem;
+  text-align: right;
+}
+
+.studentNameText {
+  font-weight: 600;
+  color: #333;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.cardFooter {
+  padding: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  border-top: 1px solid #f0f0f0;
+}
+
+.cardFooter button {
+  flex: 1;
+  padding: 0.5rem;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  background-color: #f5f5f5;
+  color: #555;
+  transition: all 0.2s ease;
+}
+
+.cardFooter .viewButton:hover {
+  background-color: rgba(74, 108, 247, 0.1);
+  color: #4a6cf7;
+}
+
+.cardFooter .messageButton:hover {
+  background-color: rgba(40, 167, 69, 0.1);
+  color: #28a745;
+}
+
+.cardFooter .progressButton:hover {
+  background-color: rgba(255, 193, 7, 0.1);
+  color: #ffc107;
+} 

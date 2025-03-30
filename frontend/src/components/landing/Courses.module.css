@@ -2,11 +2,28 @@
     padding: 5rem 1rem;
     background-color: #f9f9f9;
     position: relative;
+    overflow: hidden;
+  }
+  
+  .coursesSection::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+      rgba(255, 87, 34, 0.03) 0%, 
+      rgba(33, 150, 243, 0.03) 50%, 
+      rgba(156, 39, 176, 0.03) 100%);
+    z-index: 0;
   }
   
   .sectionHeader {
     text-align: center;
     margin-bottom: 3rem;
+    position: relative;
+    z-index: 1;
   }
   
   .titleWrapper {
@@ -46,73 +63,119 @@
     font-size: 2.5rem;
     font-weight: 700;
     color: #ff5722;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .filterContainer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .filterPill {
+    background-color: white;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    font-weight: 500;
+    color: #333;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid #eee;
+  }
+  
+  .filterPill:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background-color: #ff5722;
+    color: white;
+    border-color: #ff5722;
+  }
+  
+  .filterIcon {
+    font-size: 0.9rem;
+    opacity: 0.8;
   }
   
   .coursesContainer {
     margin-top: 2rem;
+    position: relative;
+    z-index: 1;
   }
   
   .coursesRow {
-    margin: 0 -12px;
+    margin: 0 -15px;
   }
   
   .courseColumn {
-    padding: 0 12px;
-    margin-bottom: 24px;
+    padding: 0 15px;
+    margin-bottom: 30px;
   }
   
   .courseCard {
     border: none;
-    border-radius: 8px;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     height: 100%;
-  }
-  
-  .courseCard:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    background-color: white;
   }
   
   .imageContainer {
     position: relative;
     overflow: hidden;
+    height: 200px;
+  }
+  
+  .imageOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.5) 100%);
+    z-index: 1;
   }
   
   .courseImage {
     width: 100%;
-    height: 180px;
+    height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    transition: transform 0.6s ease;
   }
   
   .courseCard:hover .courseImage {
-    transform: scale(1.05);
+    transform: scale(1.1);
   }
   
   .freeTag {
     position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: #ff5722;
+    top: 12px;
+    left: 12px;
     color: white;
-    padding: 4px 8px;
+    padding: 4px 12px;
     font-weight: 600;
     font-size: 0.8rem;
-    border-radius: 4px;
-    z-index: 1;
+    border-radius: 50px;
+    z-index: 2;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
   
   .cardBody {
-    padding: 1.25rem;
+    padding: 1.5rem;
   }
   
   .courseTitle {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 0.75rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
     color: #333;
     min-height: 2.5rem;
     display: -webkit-box;
@@ -125,7 +188,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
   }
   
   .ratingContainer, .learnersContainer {
@@ -135,7 +198,7 @@
   
   .starIcon {
     color: #ffc107;
-    margin-right: 0.25rem;
+    margin-right: 0.5rem;
   }
   
   .rating {
@@ -145,7 +208,7 @@
   
   .usersIcon {
     color: #6c757d;
-    margin-right: 0.25rem;
+    margin-right: 0.5rem;
   }
   
   .learners {
@@ -157,7 +220,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 0.75rem;
+    padding-top: 1rem;
     border-top: 1px solid #eee;
   }
   
@@ -168,7 +231,7 @@
   
   .clockIcon {
     color: #6c757d;
-    margin-right: 0.25rem;
+    margin-right: 0.4rem;
     font-size: 0.9rem;
   }
   
@@ -190,40 +253,61 @@
   .enrollButton {
     background-color: transparent !important;
     border: none !important;
-    color: #0066cc !important;
     font-weight: 600 !important;
     padding: 0 !important;
     font-size: 0.9rem !important;
-    transition: color 0.2s ease !important;
-  }
-  
-  .enrollButton:hover {
-    color: #004499 !important;
-    text-decoration: underline !important;
+    transition: all 0.3s ease !important;
   }
   
   .arrowIcon {
-    margin-left: 0.25rem;
+    margin-left: 0.4rem;
     font-size: 0.8rem;
+    transition: transform 0.3s ease;
   }
   
-  .scrollButtonContainer {
-    position: fixed;
-    bottom: 2rem;
-    left: 2rem;
-    z-index: 1000;
+  .enrollButton:hover .arrowIcon {
+    transform: translateX(5px);
   }
   
-  .scrollButton {
+  .viewMoreContainer {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .viewMoreLink {
+    text-decoration: none;
+  }
+  
+  .viewMoreButton {
     background-color: #ff5722 !important;
     border: none !important;
-    border-radius: 0 !important;
-    padding: 1rem !important;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 50px !important;
+    padding: 0.75rem 2rem !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+    box-shadow: 0 5px 15px rgba(255, 87, 34, 0.2) !important;
+    transition: all 0.3s ease !important;
   }
   
-  .scrollButton:hover {
+  .viewMoreButton:hover {
     background-color: #e64a19 !important;
+    transform: translateY(-2px);
+  }
+  
+  .viewMoreArrow {
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .viewMoreButton:hover .viewMoreArrow {
+    transform: translateX(5px);
+  }
+  
+  .buttonLink {
+    text-decoration: none;
   }
   
   /* Responsive adjustments */
@@ -238,7 +322,7 @@
     }
     
     .durationContainer, .priceContainer {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.7rem;
     }
   }
   
@@ -248,10 +332,27 @@
     }
     
     .coursesRow {
-      margin: 0 -8px;
+      justify-content: center;
     }
     
     .courseColumn {
-      padding: 0 8px;
+      max-width: 350px;
+    }
+    
+    .filterContainer {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .coursesSection {
+      padding: 3rem 1rem;
+    }
+    
+    .filterPill {
+      font-size: 0.9rem;
+      padding: 0.4rem 1rem;
     }
   }

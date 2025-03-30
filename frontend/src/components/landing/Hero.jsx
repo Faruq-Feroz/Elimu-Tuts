@@ -5,7 +5,6 @@ import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
 import styles from './Hero.module.css';
 import Hero1 from '../../assets/Hero/Hero1.jpg';
 
-
 const HeroSection = () => {
   const carouselItems = [
     {
@@ -33,14 +32,36 @@ const HeroSection = () => {
     animate: { opacity: 1, y: 0 }
   };
 
+  // Custom navigation button components
+  const CustomPrevButton = ({ onClick }) => (
+    <button 
+      onClick={onClick} 
+      className={styles.carouselControlBtn}
+      aria-label="Previous slide"
+    >
+      <BsArrowLeft />
+    </button>
+  );
+
+  const CustomNextButton = ({ onClick }) => (
+    <button 
+      onClick={onClick} 
+      className={styles.carouselControlBtn}
+      aria-label="Next slide"
+    >
+      <BsArrowRight />
+    </button>
+  );
+
   return (
     <section className={styles.heroSection}>
       <Carousel 
         fade 
         interval={5000} 
         className={styles.carousel}
-        prevIcon={<BsArrowLeft className={`${styles.carouselControl} ${styles.carouselControlPrev}`} />}
-        nextIcon={<BsArrowRight className={`${styles.carouselControl} ${styles.carouselControlNext}`} />}
+        prevIcon={null}
+        nextIcon={null}
+        indicators={true}
       >
         {carouselItems.map((item, index) => (
           <Carousel.Item key={index} className={styles.carouselItem}>
@@ -91,6 +112,16 @@ const HeroSection = () => {
                       Explore Our Courses
                     </motion.button>
                   </Link>
+                </motion.div>
+
+                {/* Carousel controls positioned below the button */}
+                <motion.div 
+                  className={styles.carouselControls}
+                  variants={fadeInUpVariants}
+                  transition={{ duration: 0.6, delay: 0.6 }}
+                >
+                  <CustomPrevButton onClick={() => document.querySelector('.carousel-control-prev').click()} />
+                  <CustomNextButton onClick={() => document.querySelector('.carousel-control-next').click()} />
                 </motion.div>
               </motion.div>
             </div>

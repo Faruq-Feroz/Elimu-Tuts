@@ -2,8 +2,7 @@ const mongoose = require('mongoose');
 
 const orderSchema = new mongoose.Schema({
   user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
+    type: String,  // Changed from ObjectId to String for Firebase UID
     required: true
   },
   course: {
@@ -30,11 +29,11 @@ const orderSchema = new mongoose.Schema({
   },
   checkoutRequestId: { 
     type: String, 
-    required: true 
+    required: false  // Make optional
   },
   merchantRequestId: { 
     type: String, 
-    required: true 
+    required: false  // Make optional
   },
   createdAt: { 
     type: Date, 
@@ -52,7 +51,7 @@ const orderSchema = new mongoose.Schema({
   metadata: {
     type: Map,
     of: String,
-    default: {}
+    default: () => new Map()
   }
 });
 

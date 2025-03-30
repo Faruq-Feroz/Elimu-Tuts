@@ -1,0 +1,559 @@
+/* Calendar Module CSS - Elimu-Tuts Theme */
+
+/* Container styles */
+.calendarContainer {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Child selector styles - consistent with other parent dashboard components */
+.childSelector {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 15px 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 25px;
+}
+
+.childSelector h3 {
+  margin: 0 0 15px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.childrenTabs {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.childrenTabs button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 15px;
+  background: none;
+  border: 1px solid #e0e0e0;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.childrenTabs button.activeChild {
+  background-color: #e8f5e9;
+  border-color: #43a047;
+  color: #43a047;
+}
+
+.childrenTabs button:hover:not(.activeChild) {
+  background-color: #f5f5f5;
+}
+
+.childAvatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Calendar controls */
+.calendarControls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 15px 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 25px;
+}
+
+.monthNavigation {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.monthNavigation h2 {
+  margin: 0;
+  font-size: 20px;
+  color: #333;
+}
+
+.navButton {
+  background: none;
+  border: 1px solid #e0e0e0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #555;
+  transition: all 0.2s;
+}
+
+.navButton:hover {
+  background-color: #f5f5f5;
+}
+
+.controlActions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.todayButton {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.todayButton:hover {
+  background-color: #f5f5f5;
+}
+
+/* Filter dropdown */
+.filterDropdown {
+  position: relative;
+}
+
+.filterButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.filterButton:hover {
+  background-color: #f5f5f5;
+}
+
+.filterCount {
+  display: inline-block;
+  background-color: #43a047;
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 24px;
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+.filterMenu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 5px;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  z-index: 10;
+  overflow: hidden;
+  display: none;
+}
+
+.filterDropdown:hover .filterMenu {
+  display: block;
+}
+
+.filterMenu button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  text-align: left;
+  padding: 10px 15px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.filterMenu button:hover {
+  background-color: #f5f5f5;
+}
+
+.filterMenu button.activeFilter {
+  background-color: #e8f5e9;
+  color: #43a047;
+}
+
+/* Calendar grid styles */
+.calendar {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+}
+
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.weekday {
+  text-align: center;
+  padding: 12px;
+  font-weight: bold;
+  color: #555;
+  font-size: 14px;
+}
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.day {
+  border-right: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 8px;
+  position: relative;
+}
+
+.day:nth-child(7n) {
+  border-right: none;
+}
+
+.emptyDay {
+  background-color: #f9f9f9;
+}
+
+.today {
+  background-color: #e8f5e9;
+}
+
+.dayNumber {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.today .dayNumber {
+  color: #43a047;
+}
+
+.dayEvents {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.eventDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 5px;
+  display: inline-block;
+}
+
+.upcoming {
+  background-color: #43a047;
+}
+
+.completed {
+  background-color: #9e9e9e;
+}
+
+.overdue {
+  background-color: #f44336;
+}
+
+.moreEvents {
+  font-size: 11px;
+  color: #757575;
+  margin-top: 4px;
+}
+
+/* Upcoming events styles */
+.upcomingEvents, .completedEvents {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+}
+
+.upcomingEvents h3, .completedEvents h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.upcomingCount, .completedCount {
+  display: inline-block;
+  background-color: #43a047;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+.eventsList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.eventCard {
+  display: flex;
+  gap: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 15px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  background-color: #fff;
+}
+
+.eventCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.completedCard {
+  opacity: 0.8;
+}
+
+.eventDate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  text-align: center;
+}
+
+.eventDate .month {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #757575;
+  margin-bottom: 5px;
+}
+
+.eventDate .day {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.eventContent {
+  flex: 1;
+}
+
+.eventHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.eventHeader h4 {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.eventType {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  text-transform: capitalize;
+}
+
+.test {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.assignment {
+  background-color: #e8f5e9;
+  color: #43a047;
+}
+
+.live {
+  background-color: #fff8e1;
+  color: #ff9800;
+}
+
+.meeting {
+  background-color: #f3e5f5;
+  color: #9c27b0;
+}
+
+.eventDetails {
+  color: #666;
+}
+
+.eventTime {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.eventDescription {
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.eventSubject {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.eventScore {
+  background-color: #e8f5e9;
+  color: #43a047;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.eventFeedback {
+  font-size: 14px;
+  margin: 8px 0 0 0;
+  padding-top: 8px;
+  border-top: 1px dashed #e0e0e0;
+  line-height: 1.4;
+}
+
+.noEvents {
+  text-align: center;
+  padding: 20px;
+  color: #757575;
+  font-size: 14px;
+}
+
+/* Loading and error states */
+.loadingContainer, .errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  text-align: center;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-top-color: #43a047;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.errorContainer {
+  color: #666;
+}
+
+.errorContainer h2 {
+  margin: 20px 0 10px;
+  color: #333;
+}
+
+.errorContainer p {
+  margin-bottom: 25px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .calendarControls {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+  
+  .monthNavigation {
+    justify-content: space-between;
+  }
+  
+  .controlActions {
+    justify-content: space-between;
+  }
+  
+  .days {
+    grid-auto-rows: minmax(80px, auto);
+  }
+  
+  .eventCard {
+    flex-direction: column;
+  }
+  
+  .eventDate {
+    flex-direction: row;
+    width: auto;
+    gap: 8px;
+  }
+  
+  .eventDate .month {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .weekday {
+    padding: 8px 4px;
+    font-size: 12px;
+  }
+  
+  .dayNumber {
+    font-size: 12px;
+  }
+  
+  .days {
+    grid-auto-rows: minmax(60px, auto);
+  }
+  
+  .eventHeader {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .eventType {
+    align-self: flex-start;
+  }
+} 

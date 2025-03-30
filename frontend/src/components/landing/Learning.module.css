@@ -15,8 +15,24 @@
     justify-content: center;
   }
   
+  .textContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+  }
+  
   .imageColumn {
     padding: 0;
+  }
+  
+  .imageWrapper {
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   }
   
   .heading {
@@ -32,17 +48,36 @@
     line-height: 1.6;
   }
   
+  .buttonLink {
+    text-decoration: none;
+    display: inline-block;
+  }
+  
   .actionButton {
     background-color: #ff5722 !important;
     border: none !important;
-    border-radius: 0 !important;
+    border-radius: 50px !important;
     padding: 1rem 2rem !important;
     font-weight: 600;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
   }
   
   .actionButton:hover {
     background-color: #e64a19 !important;
+  }
+  
+  .arrowIcon {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+  }
+  
+  .buttonLink:hover .arrowIcon {
+    transform: translateX(5px);
   }
   
   .heroImage {
