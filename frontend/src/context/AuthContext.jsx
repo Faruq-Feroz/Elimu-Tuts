@@ -9,8 +9,8 @@ import {
 } from 'firebase/auth';
 import { auth } from '../firebase/config';
 import axios from 'axios';
-// API URL from environment variables - Using Vite's approach
-const API_URL = import.meta.env.VITE_API_URL || 'https://elimu-tuts.onrender.com';
+// API URL pointing to Render
+const API_URL = 'https://elimu-tuts.onrender.com';
 const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);
 export const AuthProvider = ({ children }) => {
@@ -123,23 +123,28 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       setCurrentUser(user);
-     
+      
+      // Don't fetch user role on initial page load, set loading to false immediately
       if (user) {
-        try {
-          await fetchUserRole(user);
-        } catch (error) {
-          console.error('Could not fetch user role:', error);
-          // Default to a basic role if fetching fails
-          setUserRole('user');
-        }
+        // Just check if we have the user, but don't fetch role immediately
+        // This allows the app to render faster
+        setUserRole('user'); // Set a default role
+        
+        // Fetch the role in the background after the app has rendered
+        setTimeout(() => {
+          fetchUserRole(user).catch(err => {
+            console.error('Background role fetch failed:', err);
+          });
+        }, 3000);
       } else {
         setUserRole(null);
       }
-     
+      
       setLoading(false);
     });
     return unsubscribe;
   }, []);
+  
   const value = {
     currentUser,
     userRole,
@@ -149,8 +154,10 @@ export const AuthProvider = ({ children }) => {
     login,
     logout,
     resetPassword,
-    clearError
+    clearError,
+    fetchUserRole // Export so it can be called when needed
   };
+  
   return (
     <AuthContext.Provider value={value}>
       {!loading && children}
