@@ -267,7 +267,7 @@
 @media (max-width: 480px) {
   /* Shorter hero height for mobile */
   .heroSection {
-    height: 63vh;
+    height: 73vh;
   }
   
   .carouselItem {
