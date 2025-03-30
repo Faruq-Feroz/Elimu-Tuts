@@ -39,13 +39,20 @@ const GlobalLoader = () => (
     backgroundColor: '#f5f5f5',
     zIndex: 9999
   }}>
-    <h2 style={{ marginBottom: '1rem' }}>Elimu Tuts</h2>
-    <p style={{ marginBottom: '2rem', textAlign: 'center', maxWidth: '90%', color: '#666' }}>
-      First load might take up to a minute while our server wakes up.
-    </p>
-    
-    {/* Pencil Loader */}
-    <span className="loader"></span>
+    <div style={{ 
+      display: 'flex', 
+      flexDirection: 'column', 
+      alignItems: 'center',
+      transform: 'translateY(-50px)' // Move the entire content up by 50px
+    }}>
+      <h2 style={{ marginBottom: '1rem' }}>Elimu Tuts</h2>
+      <p style={{ marginBottom: '2rem', textAlign: 'center', maxWidth: '90%', color: '#666' }}>
+        First load might take up to a minute while our server wakes up.
+      </p>
+      
+      {/* Pencil Loader */}
+      <span className="loader"></span>
+    </div>
     
     <style>
       {`
