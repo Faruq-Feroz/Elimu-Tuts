@@ -209,6 +209,15 @@
 }
 
 @media (max-width: 768px) {
+  /* Adjust hero height for tablets */
+  .heroSection {
+    height: 80vh;
+  }
+  
+  .carouselItem {
+    height: 80vh;
+  }
+  
   .carouselContent {
     padding: 0 40px;
     width: 100%;
@@ -256,6 +265,15 @@
 }
 
 @media (max-width: 480px) {
+  /* Shorter hero height for mobile */
+  .heroSection {
+    height: 63vh;
+  }
+  
+  .carouselItem {
+    height: 70vh;
+  }
+  
   .carouselContent {
     padding: 0 20px;
     top: 45%;
