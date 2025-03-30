@@ -9,7 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./Navbar.module.css";
-import Logo from "../../assets/Logo.png";
+import Logo from "../../assets/ElimuTutsLogo.png";
 
 const Navbar = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
