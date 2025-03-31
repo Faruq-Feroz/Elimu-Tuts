@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../../components/common/Navbar';
 import Footer from '../../components/common/Footer';
+
+// Import placeholders individually
 import Hero from '../../components/landing/Hero';
 import AboutUs from '../../components/landing/AboutUs';
 import Learning from '../../components/landing/Features';
@@ -10,37 +12,25 @@ import PopularSubjects from '../../components/landing/Subjects';
 import PopularCourses from '../../components/landing/Courses';
 import ElimuTutsBanner from '../../components/landing/ElimuTutsBanner';
 import FAQ from '../../components/landing/FAQ';
-import styles from './Home.module.css';
+
 
 const Home = () => {
   return (
-    <div className={styles['home-page']}>
+    <div className="home-page">
       <Navbar />
       
       <main>
-        <section id="hero">
-          <Hero />
-        </section>
-        <section id="about">
-          <AboutUs />
-        </section>
-        <section id="features">
-          <Learning />
-          <FeatureCards />
-        </section>
-        <section id="courses">
-          <PopularSubjects />
-          <PopularCourses />
-        </section>
+        <Hero />
+        <AboutUs />
+        <Learning />
+        <FeatureCards />
+        <PopularSubjects/>
+        <PopularCourses />
         <ElimuTutsBanner />
-        <section id="faq">
-          <FAQ />
-        </section>
+        <FAQ />
       </main>
       
-      <section id="footer">
-        <Footer />
-      </section>
+      <Footer />
     </div>
   );
 };
