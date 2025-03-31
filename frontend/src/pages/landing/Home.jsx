@@ -13,7 +13,6 @@ import PopularCourses from '../../components/landing/Courses';
 import ElimuTutsBanner from '../../components/landing/ElimuTutsBanner';
 import FAQ from '../../components/landing/FAQ';
 
-
 const Home = () => {
   return (
     <div className="home-page">
@@ -21,16 +20,26 @@ const Home = () => {
       
       <main>
         <Hero />
-        <AboutUs />
-        <Learning />
-        <FeatureCards />
-        <PopularSubjects/>
-        <PopularCourses />
+        <section id="about">
+          <AboutUs />
+        </section>
+        <section id="features">
+          <Learning />
+          <FeatureCards />
+        </section>
+        <section id="courses">
+          <PopularSubjects/>
+          <PopularCourses />
+        </section>
         <ElimuTutsBanner />
-        <FAQ />
+        <section id="faq">
+          <FAQ />
+        </section>
       </main>
       
-      <Footer />
+      <section id="footer">
+        <Footer />
+      </section>
     </div>
   );
 };
