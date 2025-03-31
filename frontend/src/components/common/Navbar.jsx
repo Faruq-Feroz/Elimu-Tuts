@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Navbar as BootstrapNavbar, Nav, Container } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { 
@@ -21,7 +21,6 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [expanded, setExpanded] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
   const isHomePage = location.pathname === "/";
 
   // Handle scroll event to change navbar appearance
@@ -44,59 +43,62 @@ const Navbar = () => {
   const scrollToSection = (sectionId, e) => {
     e.preventDefault();
     
+    // Only apply scroll behavior on home page
     if (!isHomePage) {
-      navigate(`/#${sectionId}`);
+      window.location.href = `/#${sectionId}`;
       return;
     }
     
     const section = document.getElementById(sectionId);
     if (section) {
-      const yOffset = -80;
-      const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({
-        top: y,
-        behavior: 'smooth'
-      });
+      section.scrollIntoView({ behavior: "smooth" });
     }
     
+    // Close mobile menu
     setExpanded(false);
   };
 
   // Mobile menu items with icons for better UX
   const mobileMenuItems = [
     { icon: faHome, label: "Home", link: "/", action: () => setExpanded(false) },
-    { icon: faInfoCircle, label: "About", link: "/about", action: () => setExpanded(false) },
+    { icon: faInfoCircle, label: "About", link: "#about", action: (e) => scrollToSection("about", e) },
     { icon: faLightbulb, label: "Features", link: "#features", action: (e) => scrollToSection("features", e) },
-    { icon: faGraduationCap, label: "Courses", link: "/dashboard/courses", action: () => setExpanded(false) },
+    { icon: faGraduationCap, label: "Courses", link: "#courses", action: (e) => scrollToSection("courses", e) },
     { icon: faChalkboardTeacher, label: "Tutors", link: "/register", action: () => setExpanded(false) },
-    { icon: faDollarSign, label: "Pricing", link: "/pricing", action: () => setExpanded(false) },
+    { icon: faDollarSign, label: "Pricing", link: "/register", action: () => setExpanded(false) },
     { icon: faQuestionCircle, label: "FAQ", link: "#faq", action: (e) => scrollToSection("faq", e) },
-    { icon: faEnvelope, label: "Contact", link: "/contact", action: () => setExpanded(false) },
+    { icon: faEnvelope, label: "Contact", link: "#footer", action: (e) => scrollToSection("footer", e) },
   ];
 
   return (
     <div className={styles.navWrapper}>
+      {/* Main Navigation */}
       <BootstrapNavbar 
         expand="lg" 
         className={`${styles.mainNav} ${isScrolled ? styles.scrolled : ""}`}
         expanded={expanded}
         onToggle={(expanded) => setExpanded(expanded)}
-        fixed="top"
+        fluid
       >
         <Container fluid className={styles.fullWidthContainer}>
+          {/* Logo */}
           <BootstrapNavbar.Brand as={Link} to="/" className={styles.brand}>
             <img src={Logo} alt="Elimu Tuts Logo" className={styles.logo} />
           </BootstrapNavbar.Brand>
 
+          {/* Login Button for Mobile - Outside Collapse */}
           <div className={styles.mobileTopLogin}>
             <Link to="/login" className={styles.loginButtonSmall} onClick={() => setExpanded(false)}>
               Login <FontAwesomeIcon icon={faArrowRight} />
             </Link>
           </div>
 
+          {/* Navigation Toggle Button */}
           <BootstrapNavbar.Toggle aria-controls="basic-navbar-nav" className={styles.navbarToggler} />
 
+          {/* Navigation Menu */}
           <BootstrapNavbar.Collapse id="basic-navbar-nav" className={styles.navbarCollapse}>
+            {/* For mobile devices */}
             <div className={styles.mobileOnlyMenu}>
               {mobileMenuItems.map((item, index) => (
                 <Link 
@@ -113,15 +115,22 @@ const Navbar = () => {
               ))}
             </div>
 
+            {/* Desktop menu */}
             <Nav className={`ms-auto ${styles.navMenu}`}>
               <Nav.Link as={Link} to="/" className={styles.navLink} onClick={() => setExpanded(false)}>
                 Home
               </Nav.Link>
 
-              <Nav.Link as={Link} to="/about" className={styles.navLink} onClick={() => setExpanded(false)}>
+              {/* About Us - Scrolls to about section */}
+              <Nav.Link 
+                href="#about" 
+                className={styles.navLink}
+                onClick={(e) => scrollToSection("about", e)}
+              >
                 About Us
               </Nav.Link>
 
+              {/* Features */}
               <Nav.Link 
                 href="#features" 
                 className={styles.navLink}
@@ -130,18 +139,26 @@ const Navbar = () => {
                 Features
               </Nav.Link>
 
-              <Nav.Link as={Link} to="/dashboard/courses" className={styles.navLink} onClick={() => setExpanded(false)}>
+              {/* Courses - Scrolls to courses section */}
+              <Nav.Link 
+                href="#courses" 
+                className={styles.navLink}
+                onClick={(e) => scrollToSection("courses", e)}
+              >
                 Courses
               </Nav.Link>
 
+              {/* Tutors - Links to register page */}
               <Nav.Link as={Link} to="/register" className={styles.navLink} onClick={() => setExpanded(false)}>
                 Tutors
               </Nav.Link>
 
-              <Nav.Link as={Link} to="/pricing" className={styles.navLink} onClick={() => setExpanded(false)}>
+              {/* Pricing - Links to register page */}
+              <Nav.Link as={Link} to="/register" className={styles.navLink} onClick={() => setExpanded(false)}>
                 Pricing
               </Nav.Link>
 
+              {/* FAQ */}
               <Nav.Link 
                 href="#faq" 
                 className={styles.navLink}
@@ -150,10 +167,16 @@ const Navbar = () => {
                 FAQ
               </Nav.Link>
 
-              <Nav.Link as={Link} to="/contact" className={styles.navLink} onClick={() => setExpanded(false)}>
+              {/* Contact - Scrolls to footer */}
+              <Nav.Link 
+                href="#footer" 
+                className={styles.navLink}
+                onClick={(e) => scrollToSection("footer", e)}
+              >
                 Contact
               </Nav.Link>
 
+              {/* Login button */}
               <Link to="/login" className={styles.loginButton} onClick={() => setExpanded(false)}>
                 Login <FontAwesomeIcon icon={faArrowRight} />
               </Link>
