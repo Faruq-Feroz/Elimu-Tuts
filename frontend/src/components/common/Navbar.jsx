@@ -4,8 +4,6 @@ import { Navbar as BootstrapNavbar, Nav, Container } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { 
   faArrowRight, 
-  faPlus, 
-  faMinus,
   faHome,
   faInfoCircle,
   faLightbulb,
@@ -20,7 +18,6 @@ import styles from "./Navbar.module.css";
 import Logo from "../../assets/ElimuTutsLogo.png";
 
 const Navbar = () => {
-  const [activeDropdown, setActiveDropdown] = useState(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [expanded, setExpanded] = useState(false);
   const location = useLocation();
@@ -41,10 +38,6 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-  const handleDropdownToggle = (dropdownId) => {
-    setActiveDropdown((prev) => (prev === dropdownId ? null : dropdownId));
-  };
 
   // Handle smooth scrolling to sections
   const scrollToSection = (sectionId, e) => {
@@ -68,13 +61,13 @@ const Navbar = () => {
   // Mobile menu items with icons for better UX
   const mobileMenuItems = [
     { icon: faHome, label: "Home", link: "/", action: () => setExpanded(false) },
-    { icon: faInfoCircle, label: "About", dropdown: "about" },
+    { icon: faInfoCircle, label: "About", link: "#about", action: (e) => scrollToSection("about", e) },
     { icon: faLightbulb, label: "Features", link: "#features", action: (e) => scrollToSection("features", e) },
-    { icon: faGraduationCap, label: "Courses", dropdown: "courses" },
-    { icon: faChalkboardTeacher, label: "Tutors", link: "/tutors", action: () => setExpanded(false) },
-    { icon: faDollarSign, label: "Pricing", link: "#pricing", action: (e) => scrollToSection("pricing", e) },
+    { icon: faGraduationCap, label: "Courses", link: "#courses", action: (e) => scrollToSection("courses", e) },
+    { icon: faChalkboardTeacher, label: "Tutors", link: "/register", action: () => setExpanded(false) },
+    { icon: faDollarSign, label: "Pricing", link: "/register", action: () => setExpanded(false) },
     { icon: faQuestionCircle, label: "FAQ", link: "#faq", action: (e) => scrollToSection("faq", e) },
-    { icon: faEnvelope, label: "Contact", link: "#contact", action: (e) => scrollToSection("contact", e) },
+    { icon: faEnvelope, label: "Contact", link: "#footer", action: (e) => scrollToSection("footer", e) },
   ];
 
   return (
@@ -108,106 +101,34 @@ const Navbar = () => {
             {/* For mobile devices */}
             <div className={styles.mobileOnlyMenu}>
               {mobileMenuItems.map((item, index) => (
-                item.dropdown ? (
-                  <div 
-                    key={index} 
-                    className={`${styles.mobileNavItem} ${activeDropdown === item.dropdown ? styles.active : ""}`}
-                  >
-                    <div 
-                      className={styles.mobileNavLink}
-                      onClick={() => handleDropdownToggle(item.dropdown)}
-                    >
-                      <span className={styles.mobileNavIcon}>
-                        <FontAwesomeIcon icon={item.icon} />
-                      </span>
-                      {item.label}
-                      <span className={styles.mobileDropdownIcon}>
-                        {activeDropdown === item.dropdown ? (
-                          <FontAwesomeIcon icon={faMinus} />
-                        ) : (
-                          <FontAwesomeIcon icon={faPlus} />
-                        )}
-                      </span>
-                    </div>
-                    {item.dropdown === "about" && (
-                      <div className={styles.mobileSubmenu}>
-                        <Link to="/about/mission" className={styles.mobileSubmenuItem} onClick={() => setExpanded(false)}>
-                          Our Mission
-                        </Link>
-                        <Link to="/about/team" className={styles.mobileSubmenuItem} onClick={() => setExpanded(false)}>
-                          Our Team
-                        </Link>
-                        <Link to="/about/contact" className={styles.mobileSubmenuItem} onClick={() => setExpanded(false)}>
-                          Contact Us
-                        </Link>
-                      </div>
-                    )}
-                    {item.dropdown === "courses" && (
-                      <div className={styles.mobileSubmenu}>
-                        <Link to="/courses/mathematics" className={styles.mobileSubmenuItem} onClick={() => setExpanded(false)}>
-                          Mathematics
-                        </Link>
-                        <Link to="/courses/science" className={styles.mobileSubmenuItem} onClick={() => setExpanded(false)}>
-                          Science
-                        </Link>
-                        <Link to="/courses/english" className={styles.mobileSubmenuItem} onClick={() => setExpanded(false)}>
-                          English
-                        </Link>
-                        <Link to="/courses/computer-science" className={styles.mobileSubmenuItem} onClick={() => setExpanded(false)}>
-                          Computer Science
-                        </Link>
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <Link 
-                    key={index}
-                    to={item.link} 
-                    className={styles.mobileNavLink}
-                    onClick={item.action}
-                  >
-                    <span className={styles.mobileNavIcon}>
-                      <FontAwesomeIcon icon={item.icon} />
-                    </span>
-                    {item.label}
-                  </Link>
-                )
+                <Link 
+                  key={index}
+                  to={item.link} 
+                  className={styles.mobileNavLink}
+                  onClick={item.action}
+                >
+                  <span className={styles.mobileNavIcon}>
+                    <FontAwesomeIcon icon={item.icon} />
+                  </span>
+                  {item.label}
+                </Link>
               ))}
             </div>
 
-            {/* Desktop menu - unchanged */}
+            {/* Desktop menu */}
             <Nav className={`ms-auto ${styles.navMenu}`}>
               <Nav.Link as={Link} to="/" className={styles.navLink} onClick={() => setExpanded(false)}>
                 Home
               </Nav.Link>
 
-              {/* About Us */}
-              <div className={`${styles.navItem} ${activeDropdown === "about" ? styles.active : ""}`}>
-                <div 
-                  className={`${styles.navLink} ${styles.hasDropdown}`} 
-                  onClick={() => handleDropdownToggle("about")}
-                >
-                  About Us
-                  <span className={styles.mobileDropdownIcon}>
-                    {activeDropdown === "about" ? (
-                      <FontAwesomeIcon icon={faMinus} />
-                    ) : (
-                      <FontAwesomeIcon icon={faPlus} />
-                    )}
-                  </span>
-                </div>
-                <div className={styles.dropdownContent}>
-                  <Link to="/about/mission" className={styles.dropdownItem} onClick={() => setExpanded(false)}>
-                    Our Mission
-                  </Link>
-                  <Link to="/about/team" className={styles.dropdownItem} onClick={() => setExpanded(false)}>
-                    Our Team
-                  </Link>
-                  <Link to="/about/contact" className={styles.dropdownItem} onClick={() => setExpanded(false)}>
-                    Contact Us
-                  </Link>
-                </div>
-              </div>
+              {/* About Us - Scrolls to about section */}
+              <Nav.Link 
+                href="#about" 
+                className={styles.navLink}
+                onClick={(e) => scrollToSection("about", e)}
+              >
+                About Us
+              </Nav.Link>
 
               {/* Features */}
               <Nav.Link 
@@ -218,54 +139,44 @@ const Navbar = () => {
                 Features
               </Nav.Link>
 
-              {/* Courses Dropdown */}
-              <div className={`${styles.navItem} ${activeDropdown === "courses" ? styles.active : ""}`}>
-                <div 
-                  className={`${styles.navLink} ${styles.hasDropdown}`} 
-                  onClick={() => handleDropdownToggle("courses")}
-                >
-                  Courses
-                  <span className={styles.mobileDropdownIcon}>
-                    {activeDropdown === "courses" ? (
-                      <FontAwesomeIcon icon={faMinus} />
-                    ) : (
-                      <FontAwesomeIcon icon={faPlus} />
-                    )}
-                  </span>
-                </div>
-                <div className={styles.dropdownContent}>
-                  <Link to="/courses/mathematics" className={styles.dropdownItem} onClick={() => setExpanded(false)}>
-                    Mathematics
-                  </Link>
-                  <Link to="/courses/science" className={styles.dropdownItem} onClick={() => setExpanded(false)}>
-                    Science
-                  </Link>
-                  <Link to="/courses/english" className={styles.dropdownItem} onClick={() => setExpanded(false)}>
-                    English
-                  </Link>
-                  <Link to="/courses/computer-science" className={styles.dropdownItem} onClick={() => setExpanded(false)}>
-                    Computer Science
-                  </Link>
-                </div>
-              </div>
+              {/* Courses - Scrolls to courses section */}
+              <Nav.Link 
+                href="#courses" 
+                className={styles.navLink}
+                onClick={(e) => scrollToSection("courses", e)}
+              >
+                Courses
+              </Nav.Link>
 
-              {/* Remaining desktop menu items */}
-              <Nav.Link as={Link} to="/tutors" className={styles.navLink} onClick={() => setExpanded(false)}>
+              {/* Tutors - Links to register page */}
+              <Nav.Link as={Link} to="/register" className={styles.navLink} onClick={() => setExpanded(false)}>
                 Tutors
               </Nav.Link>
 
-              <Nav.Link href="#pricing" className={styles.navLink} onClick={(e) => scrollToSection("pricing", e)}>
+              {/* Pricing - Links to register page */}
+              <Nav.Link as={Link} to="/register" className={styles.navLink} onClick={() => setExpanded(false)}>
                 Pricing
               </Nav.Link>
 
-              <Nav.Link href="#faq" className={styles.navLink} onClick={(e) => scrollToSection("faq", e)}>
+              {/* FAQ */}
+              <Nav.Link 
+                href="#faq" 
+                className={styles.navLink}
+                onClick={(e) => scrollToSection("faq", e)}
+              >
                 FAQ
               </Nav.Link>
 
-              <Nav.Link href="#contact" className={styles.navLink} onClick={(e) => scrollToSection("contact", e)}>
+              {/* Contact - Scrolls to footer */}
+              <Nav.Link 
+                href="#footer" 
+                className={styles.navLink}
+                onClick={(e) => scrollToSection("footer", e)}
+              >
                 Contact
               </Nav.Link>
 
+              {/* Login button */}
               <Link to="/login" className={styles.loginButton} onClick={() => setExpanded(false)}>
                 Login <FontAwesomeIcon icon={faArrowRight} />
               </Link>
