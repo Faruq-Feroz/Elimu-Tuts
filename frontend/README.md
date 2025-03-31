@@ -53,10 +53,10 @@ We believe in the power of technology to transform education. Elimu Tuts isn't j
 - Mentored us throughout the journey
 - Connected us with industry experts
 
-### Safaricom
-- Technical support and resources
-- Industry insights and guidance
-- Network infrastructure support
+### Safaricom hook
+- For support and resources
+- Industry mentorship, insights and guidance
+
 
 ## 💪 Challenges We Faced
 
