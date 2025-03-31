@@ -24,7 +24,7 @@ import SampleQuiz from './pages/SampleQuiz';
 import ScrollToTop from './components/utils/ScrollToTop';
 import { useAuth } from './context/AuthContext';
 
-// Loading component
+// Loading component with pencil animation
 const GlobalLoader = () => (
   <div style={{
     position: 'fixed',
@@ -39,22 +39,75 @@ const GlobalLoader = () => (
     backgroundColor: '#f5f5f5',
     zIndex: 9999
   }}>
-    <h2 style={{ marginBottom: '1rem' }}>Elimu Tuts</h2>
-    <p style={{ marginBottom: '2rem', textAlign: 'center', maxWidth: '90%', color: '#666' }}>
-      First load might take up to a minute while our server wakes up.
-    </p>
-    <div style={{
-      width: '50px',
-      height: '50px',
-      border: '5px solid rgba(0,0,0,0.1)',
-      borderRadius: '50%',
-      borderTopColor: '#ff5722',
-      animation: 'spin 1s ease-in-out infinite'
-    }}></div>
+    <div style={{ 
+      display: 'flex', 
+      flexDirection: 'column', 
+      alignItems: 'center',
+      transform: 'translateY(-50px)' // Move the entire content up by 50px
+    }}>
+      <h2 style={{ marginBottom: '1rem' }}>Elimu Tuts</h2>
+      <p style={{ marginBottom: '2rem', textAlign: 'center', maxWidth: '90%', color: '#666' }}>
+        First load might take up to a minute while our server wakes up.
+      </p>
+      
+      {/* Pencil Loader */}
+      <span className="loader"></span>
+    </div>
+    
     <style>
       {`
-        @keyframes spin {
-          to { transform: rotate(360deg); }
+        .loader {
+          position: relative;
+          height: 200px;
+          width: 200px;
+          border-bottom: 3px solid #ff3d00;
+          box-sizing: border-box;
+          animation: drawLine 4s linear infinite;
+        }
+        .loader:before {
+          content: "";
+          position: absolute;
+          left: calc(100% + 14px);
+          bottom: -6px;
+          width: 16px;
+          height: 100px;
+          border-radius: 20px 20px 50px 50px;
+          background-repeat: no-repeat;
+          background-image: linear-gradient(#ff3d00 6px, transparent 0),
+            linear-gradient(45deg, rgba(0, 0, 0, 0.02) 49%, white 51%),
+            linear-gradient(315deg, rgba(0, 0, 0, 0.02) 49%, white 51%),
+            linear-gradient( to bottom, #ffffff 10%, #ff3d00 10%, #ff3d00 90%, #ffffff 90% );
+          background-size: 3px 3px, 8px 8px, 8px 8px, 16px 88px;
+          background-position: center bottom, left 88px, right 88px, left top;
+          transform: rotate(25deg);
+          animation: pencilRot 4s linear infinite;
+        }
+
+        @keyframes drawLine {
+          0%, 100% { width: 0px }
+          45%, 55% { width: 200px }
+        }
+
+        @keyframes pencilRot {
+          0%, 45% {
+            bottom: -6px;
+            left: calc(100% + 14px);
+            transform: rotate(25deg);
+          }
+          55%,
+          100% {
+            bottom: -12px;
+            left: calc(100% + 16px);
+            transform: rotate(220deg);
+          }
+        }
+        
+        /* Make the loader responsive */
+        @media (max-width: 480px) {
+          .loader {
+            height: 150px;
+            width: 150px;
+          }
         }
       `}
     </style>
