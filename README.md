@@ -8,7 +8,7 @@
 
 ## <a href="https://elimututs.com"><img src="https://img.shields.io/badge/🚀 LIVE-DEMO-00FF7F?style=for-the-badge&labelColor=blue" alt="Live Demo" /></a>
 
-<a href="https://elimututs.com">
+<a href="https://elimu-tuts.vercel.app">
   <img src="./Screenshots/Home.png" alt="Elimu Tuts Live Demo" width="100%" />
   <p align="center"><em>Experience Elimu Tuts in action - Click to visit!</em></p>
 </a>
