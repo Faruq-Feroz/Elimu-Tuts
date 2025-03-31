@@ -1,6 +1,6 @@
 # 🎓 Democratizing Education Across Kenya
 
-<div align="center">
+<div align="start">
 
 <a href="./frontend/README.md">
   <img src="https://img.shields.io/badge/📖 Our_Story-Group_21_Journey-FF69B4?style=for-the-badge&labelColor=black" alt="Our Story" />
