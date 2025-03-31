@@ -875,3 +875,80 @@
     gap: 10px;
   }
 }
+/* Add these media queries at the end of your Home.module.css file */
+
+@media (max-width: 768px) {
+  .welcomeModalContent {
+    padding: 20px;
+    width: 95%;
+    margin: 10px;
+  }
+
+  .welcomeModalContent h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .welcomeModalContent p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+
+  .welcomeStats {
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px 0;
+  }
+
+  .welcomeStat {
+    flex: 1 1 calc(50% - 15px);
+    min-width: 120px;
+  }
+
+  .welcomeStatNumber {
+    font-size: 1.8rem;
+  }
+
+  .welcomeButton {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcomeModalContent {
+    padding: 15px;
+    margin: 5px;
+  }
+
+  .welcomeModalContent h2 {
+    font-size: 1.3rem;
+  }
+
+  .welcomeModalContent p {
+    font-size: 0.9rem;
+  }
+
+  .welcomeStats {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .welcomeStat {
+    flex: 1 1 100%;
+  }
+
+  .welcomeStatNumber {
+    font-size: 1.6rem;
+  }
+
+  .welcomeStatLabel {
+    font-size: 0.8rem;
+  }
+
+  .welcomeButton {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}
