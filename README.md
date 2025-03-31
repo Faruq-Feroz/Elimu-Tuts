@@ -1,6 +1,9 @@
 # Elimu-Tuts Online Learning Platform
 
-Elimu-Tuts is a comprehensive online learning platform tailored for the Kenyan education system, specifically supporting the Competency-Based Curriculum (CBC). It provides an interactive space where students, tutors, and parents can connect and engage in a dynamic learning experience.
+[Our Story](./frontend/README.md) | [Live Demo](https://elimu-tuts.vercel.app)
+
+![Elimu Tuts Live Demo](./Screenshots/Home.png)
+*Democratizing Education Across Kenya"*
 
 ## 📋 Table of Contents
 
@@ -501,18 +504,13 @@ The platform primarily supports English and Kiswahili, with plans to add more la
 - **Integration with school systems**: Direct connection with institutional LMS
 
 ## 👥 Contributors
-- [Your Name] - Lead Developer
-- [Contributor 1] - Frontend Developer
-- [Contributor 2] - Backend Developer
-- [Contributor 3] - UI/UX Designer
+- Hassan Faruq - FullStack Developer
+- Elizabeth Julius - Backend Developer
+- Ronney Oduor - Frontend Developer
+- Jasmine Hano - Frontend Developer, UI/UX Designer
 
 ## 📝 License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## 📞 Contact
-For support or inquiries, please contact:
-- **Email**: [your-email@example.com]
-- **Website**: [www.elimu-tuts.com]
-- **GitHub Issues**: For bug reports and feature requests
-
-
+For any questions or support, please reach out via our communication channels or contact us directly
