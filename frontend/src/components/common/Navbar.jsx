@@ -51,7 +51,7 @@ const Navbar = () => {
     
     const section = document.getElementById(sectionId);
     if (section) {
-      const yOffset = -80; // Adjust this value based on your navbar height
+      const yOffset = -80;
       const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({
         top: y,
@@ -65,13 +65,13 @@ const Navbar = () => {
   // Mobile menu items with icons for better UX
   const mobileMenuItems = [
     { icon: faHome, label: "Home", link: "/", action: () => setExpanded(false) },
-    { icon: faInfoCircle, label: "About", link: "#about", action: (e) => scrollToSection("about", e) },
+    { icon: faInfoCircle, label: "About", link: "/about", action: () => setExpanded(false) },
     { icon: faLightbulb, label: "Features", link: "#features", action: (e) => scrollToSection("features", e) },
-    { icon: faGraduationCap, label: "Courses", link: "#courses", action: (e) => scrollToSection("courses", e) },
+    { icon: faGraduationCap, label: "Courses", link: "/dashboard/courses", action: () => setExpanded(false) },
     { icon: faChalkboardTeacher, label: "Tutors", link: "/register", action: () => setExpanded(false) },
-    { icon: faDollarSign, label: "Pricing", link: "/register", action: () => setExpanded(false) },
+    { icon: faDollarSign, label: "Pricing", link: "/pricing", action: () => setExpanded(false) },
     { icon: faQuestionCircle, label: "FAQ", link: "#faq", action: (e) => scrollToSection("faq", e) },
-    { icon: faEnvelope, label: "Contact", link: "#footer", action: (e) => scrollToSection("footer", e) },
+    { icon: faEnvelope, label: "Contact", link: "/contact", action: () => setExpanded(false) },
   ];
 
   return (
@@ -81,7 +81,7 @@ const Navbar = () => {
         className={`${styles.mainNav} ${isScrolled ? styles.scrolled : ""}`}
         expanded={expanded}
         onToggle={(expanded) => setExpanded(expanded)}
-        fluid
+        fixed="top"
       >
         <Container fluid className={styles.fullWidthContainer}>
           <BootstrapNavbar.Brand as={Link} to="/" className={styles.brand}>
@@ -118,11 +118,7 @@ const Navbar = () => {
                 Home
               </Nav.Link>
 
-              <Nav.Link 
-                href="#about" 
-                className={styles.navLink}
-                onClick={(e) => scrollToSection("about", e)}
-              >
+              <Nav.Link as={Link} to="/about" className={styles.navLink} onClick={() => setExpanded(false)}>
                 About Us
               </Nav.Link>
 
@@ -134,11 +130,7 @@ const Navbar = () => {
                 Features
               </Nav.Link>
 
-              <Nav.Link 
-                href="#courses" 
-                className={styles.navLink}
-                onClick={(e) => scrollToSection("courses", e)}
-              >
+              <Nav.Link as={Link} to="/dashboard/courses" className={styles.navLink} onClick={() => setExpanded(false)}>
                 Courses
               </Nav.Link>
 
@@ -146,7 +138,7 @@ const Navbar = () => {
                 Tutors
               </Nav.Link>
 
-              <Nav.Link as={Link} to="/register" className={styles.navLink} onClick={() => setExpanded(false)}>
+              <Nav.Link as={Link} to="/pricing" className={styles.navLink} onClick={() => setExpanded(false)}>
                 Pricing
               </Nav.Link>
 
@@ -158,11 +150,7 @@ const Navbar = () => {
                 FAQ
               </Nav.Link>
 
-              <Nav.Link 
-                href="#footer" 
-                className={styles.navLink}
-                onClick={(e) => scrollToSection("footer", e)}
-              >
+              <Nav.Link as={Link} to="/contact" className={styles.navLink} onClick={() => setExpanded(false)}>
                 Contact
               </Nav.Link>
 
