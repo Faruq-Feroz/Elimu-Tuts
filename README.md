@@ -6,7 +6,7 @@
   <img src="https://img.shields.io/badge/📖 Our_Story-Group_21_Journey-32CD32?style=for-the-badge&labelColor=blue" alt="Our Story" />
 </a>
 
-## <a href="https://elimututs.com"><img src="https://img.shields.io/badge/🚀 LIVE-DEMO-2ea44f?style=for-the-badge&labelColor=black" alt="Live Demo" /></a>
+## <a href="https://elimututs.com"><img src="https://img.shields.io/badge/🚀 LIVE-DEMO-00FF7F?style=for-the-badge&labelColor=blue" alt="Live Demo" /></a>
 
 <a href="https://elimututs.com">
   <img src="./Screenshots/Home.png" alt="Elimu Tuts Live Demo" width="100%" />
