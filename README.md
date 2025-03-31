@@ -1,9 +1,19 @@
-# Elimu-Tuts Online Learning Platform
+# 🎓 Democratizing Education Across Kenya
 
-[Our Story](./frontend/README.md) | [Live Demo](https://elimu-tuts.vercel.app)
+<div align="center">
 
-![Elimu Tuts Live Demo](./Screenshots/Home.png)
-*Democratizing Education Across Kenya"*
+<a href="./frontend/README.md">
+  <img src="https://img.shields.io/badge/📖 Our_Story-Group_21_Journey-FF69B4?style=for-the-badge&labelColor=black" alt="Our Story" />
+</a>
+
+## <a href="https://elimututs.com"><img src="https://img.shields.io/badge/🚀 LIVE-DEMO-2ea44f?style=for-the-badge&labelColor=black" alt="Live Demo" /></a>
+
+<a href="https://elimututs.com">
+  <img src="./Screenshots/Home.png" alt="Elimu Tuts Live Demo" width="100%" />
+  <p align="center"><em>Experience Elimu Tuts in action - Click to visit!</em></p>
+</a>
+
+</div>
 
 ## 📋 Table of Contents
 
@@ -30,6 +40,29 @@
 - [Contributors](#-contributors)
 - [License](#-license)
 - [Contact](#-contact)
+
+## 📖 Overview
+
+Elimu-Tuts is a comprehensive online learning platform tailored for the Kenyan education system, specifically supporting the Competency-Based Curriculum (CBC). It provides an interactive space where students, tutors, and parents can connect and engage in a dynamic learning experience.
+
+### 🎯 Key Objectives
+- Bridge the educational gap across Kenya through technology
+- Provide quality, accessible education aligned with CBC
+- Create opportunities for both learners and educators
+- Foster a collaborative learning community
+
+### 💫 What Sets Us Apart
+- **CBC Alignment**: Curriculum perfectly tailored to Kenya's education system
+- **Interactive Learning**: Engaging multimedia content and real-time collaboration
+- **Local Payment Integration**: Seamless M-Pesa integration for easy transactions
+- **Community Focus**: Built by Kenyans, for Kenyans
+- **Accessibility**: Works across various devices and internet conditions
+
+### 🌟 Impact
+- Making quality education accessible to all Kenyan students
+- Supporting teachers in content delivery and student engagement
+- Enabling parents to actively participate in their children's education
+- Building a sustainable educational ecosystem
 
 ## 🚀 Features
 
