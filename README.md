@@ -41,6 +41,11 @@
 - [License](#-license)
 - [Contact](#-contact)
 
+**⚠️ IMPORTANT:** 
+- When creating accounts on the platform, please ensure you use different email addresses for student, tutor, and parent accounts to avoid Firebase authentication issues. Each user role requires a unique email address.
+- New users should always use the "Create Account" option instead of trying to log in with their email. Login is only for returning users who have already created an account.
+
+
 ## 📖 Overview
 
 Elimu-Tuts is a comprehensive online learning platform tailored for the Kenyan education system, specifically supporting the Competency-Based Curriculum (CBC). It provides an interactive space where students, tutors, and parents can connect and engage in a dynamic learning experience.
