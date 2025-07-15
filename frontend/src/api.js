@@ -2,6 +2,9 @@ import axios from 'axios';
 
 const API_URL = 'https://elimu-tuts.onrender.com/api';
 
+// Uncomment the line below for local development
+// const API_URL = 'http://localhost:3000/api';
+
 // Create axios instance with default config
 const api = axios.create({
   baseURL: API_URL,
