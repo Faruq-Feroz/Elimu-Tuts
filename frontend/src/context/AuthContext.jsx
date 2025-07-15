@@ -11,6 +11,7 @@ import { auth } from '../firebase/config';
 import axios from 'axios';
 // API URL pointing to Render
 const API_URL = 'https://elimu-tuts.onrender.com';
+// const API_URL = 'https://localhost:5000'; // Uncomment for local development
 const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);
 export const AuthProvider = ({ children }) => {

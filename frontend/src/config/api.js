@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const api = axios.create({
   baseURL: 'https://elimu-tuts.onrender.com/api',
+  // baseURL: 'https://localhost:5000/api', // Uncomment for local development
   withCredentials: true,
   headers: {
     'Content-Type': 'application/json'

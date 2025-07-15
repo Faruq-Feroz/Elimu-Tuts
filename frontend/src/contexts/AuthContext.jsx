@@ -11,6 +11,8 @@ import { auth } from '../firebase/config';
 import axios from 'axios';
 // API URL from environment variables - Using Vite's approach
 const API_URL = import.meta.env.VITE_API_URL || 'https://elimu-tuts.onrender.com';
+// const API_URL = import.meta.env.VITE_API_URL || 'https:localhost:5000';
+
 const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);
 export const AuthProvider = ({ children }) => {

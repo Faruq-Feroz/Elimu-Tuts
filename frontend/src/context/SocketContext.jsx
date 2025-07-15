@@ -14,9 +14,9 @@ export function SocketProvider({ children }) {
   const [roomUsers, setRoomUsers] = useState([]);
   
   useEffect(() => {
-    // Create socket connection - always use localhost:5000 in development
     const SOCKET_URL = 'https://elimu-tuts.onrender.com';
-    
+    // Create socket connection - always use localhost:5000 in development
+    // const SOCKET_URL = 'http://localhost:5000'; // Uncomment for local development
     const newSocket = io(SOCKET_URL, {
       transports: ['websocket', 'polling'],
       reconnectionAttempts: 5,
